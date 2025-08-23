@@ -1,0 +1,1577 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>chloe's page</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Silkscreen:wght@400;700&family=Balsamiq+Sans:wght@400;700&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --cream: #FFF4EF;
+            --soft-peach: #F6DEC8;
+            --coral: #E1766C;
+            --warm-yellow: #F9C87D;
+            --teal: #76B4B9;
+            --dark-brown: #5B4A3B;
+            --text-dark: #5B4A3B;
+            --text-light: #8B7564;
+            --white: #FFFFFF;
+            --dusty-blue: #A3B4C7;
+            
+        }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            overflow-x: hidden;
+            background: var(--cream);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Whimsical decorative elements */
+        .floating-element {
+            position: absolute;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .sun-doodle {
+            width: 60px;
+            height: 60px;
+            background: var(--soft-peach);
+            border-radius: 50%;
+            position: relative;
+        }
+
+        .sun-doodle::before {
+            content: '☀️';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 2rem;
+        }
+
+        .flower-doodle {
+            font-size: 2rem;
+            color: var(--dusty-blue);
+        }
+
+        /* Header */
+        header {
+            background: var(--cream);
+            padding: 2rem 0 4rem 0;
+            position: relative;
+            overflow: hidden;
+            min-height: 90vh;
+        }
+
+        /* Top Navigation Bar */
+        .top-nav {
+            background: transparent;
+            padding: 1rem 0;
+            position: relative;
+            z-index: 1000;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .logo {
+            font-family: 'Silkscreen', monospace;
+            font-size: 1.2rem;
+            color: var(--dark-brown);
+            font-weight: 700;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 500;
+            transition: color 0.3s ease;
+            font-size: 0.95rem;
+        }
+
+        .nav-links a:hover {
+            color: var(--coral);
+        }
+
+        .contact-btn {
+            background: var(--teal);
+            color: white;
+            padding: 0.7rem 1.5rem;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+        }
+
+        .contact-btn:hover {
+            background: #6BA4A9;
+            transform: translateY(-2px);
+        }
+
+        /* Hero Section */
+        .hero-section {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            min-height: 70vh;
+        }
+
+        .hero-content {
+            text-align: left;
+        }
+
+        .greeting-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: var(--soft-peach);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            color: var(--dark-brown);
+            margin-bottom: 1.5rem;
+            border: 2px solid var(--warm-yellow);
+            font-weight: 300;
+        }
+
+        .hero-content h1 {
+            font-family: 'Silkscreen', monospace;
+            font-size: 3.5rem;
+            font-weight:500;
+            margin-bottom: 1rem;
+            color: var(--text-dark);
+            line-height: 1.1;
+        }
+
+        .hero-content h1 .highlight {
+            color: var(--coral);
+        }
+
+        .hero-subtitle {
+            font-size: 1.3rem;
+            margin-bottom: 1.5rem;
+            color: var(--text-light);
+            font-weight: 500;
+            line-height: 1.4;
+        }
+
+        .hero-description {
+            font-size: 1rem;
+            color: var(--text-light);
+            line-height: 1.6;
+            margin-bottom: 2rem;
+        }
+
+        .hero-content h1 .highlight {
+            color: var(--coral);
+        }
+
+        .hero-content h1 .subtitle-text {
+            font-size: 1.8rem;
+            font-weight: 400;
+            color: var(--text-light);
+        }
+
+        /* Hero Image Section */
+        .hero-image-section {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .hero-image-container {
+            position: relative;
+            width: 400px;
+            height: 500px;
+        }
+
+        .background-circle {
+            position: absolute;
+            width: 380px;
+            height: 380px;
+            background: linear-gradient(135deg, var(--warm-yellow) 0%, var(--coral) 100%);
+            border-radius: 50%;
+            top: 60px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 1;
+        }
+
+        .profile-photo {
+            position: absolute;
+            width: 320px;
+            height: 400px;
+            background: transparent; /* Change from var(--soft-peach) to transparent */
+            border-radius: 20px;
+            top: 80px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 2;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: var(--dark-brown);
+            border: none; /* Remove the white border */
+            box-shadow: 0 20px 40px rgba(91, 74, 59, 0.1);
+            overflow: hidden;
+        }
+
+        .profile-photo img {
+            width: auto;
+            height: auto;
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain; /* Change from 'cover' to 'contain' */
+            border-radius: 0; /* Remove border radius to keep original shape */
+        }
+
+        .floating-badge {
+            position: absolute;
+            background: var(--white);
+            padding: 0.6rem 1.2rem;
+            border-radius: 25px;
+            font-weight: 600;
+            font-size: 0.85rem;
+            box-shadow: 0 10px 30px rgba(91, 74, 59, 0.15);
+            z-index: 3;
+        }
+
+        .badge-1 {
+            top: 40px;
+            right: 20px;
+            background: var(--teal);
+            color: white;
+        }
+
+        .badge-2 {
+            bottom: 120px;
+            left: -20px;
+            background: var(--dark-brown);
+            color: white;
+        }
+
+        .badge-3 {
+            top: 200px;
+            right: -30px;
+            background: var(--warm-yellow);
+            color: var(--dark-brown);
+        }
+
+        .btn {
+            padding: 14px 28px;
+            border: none;
+            border-radius: 50px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            display: inline-block;
+            font-family: 'DM Sans', sans-serif;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-primary {
+            background: var(--teal);
+            color: var(--white);
+            box-shadow: 0 6px 20px rgba(118, 180, 185, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(118, 180, 185, 0.4);
+            background: #6BA4A9;
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--text-dark);
+            border: 2px solid var(--coral);
+        }
+
+        .btn-outline:hover {
+            background: var(--coral);
+            color: var(--white);
+            transform: translateY(-3px);
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Navigation */
+        nav {
+            background: rgba(255,255,255,0.95);
+            backdrop-filter: blur(10px);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid var(--soft-peach);
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 500;
+            transition: color 0.3s ease;
+            position: relative;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+        }
+
+        nav a:hover {
+            color: var(--coral);
+            background: var(--soft-peach);
+        }
+
+        /* Sections */
+        section {
+            padding: 6rem 0;
+            position: relative;
+        }
+
+        section:nth-child(even) {
+            background: var(--white);
+        }
+
+        h2 {
+            font-family: 'Silkscreen', monospace;
+            font-size: 2.8rem;
+            text-align: center;
+            font-weight: 400;
+            margin-bottom: 3rem;
+            color: var(--text-dark);
+            position: relative;
+        }
+
+        h2::after {
+            content: '';
+            width: 80px;
+            height: 6px;
+            background: var(--coral);
+            display: block;
+            margin: 1rem auto;
+            border-radius: 3px;
+            position: relative;
+        }
+
+        /* About Section */
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .profile-image {
+            width: 500px;  /* Keep this the same, or change to match skill card width */
+            height: 400px; 
+            border-radius: 25px;
+            background: var(--soft-peach);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            margin: 0 auto;
+            position: relative;
+            border: 8px solid var(--white);
+            box-shadow: 0 10px 30px rgba(90, 74, 58, 0.1);
+            overflow: hidden;
+        }
+        
+        /* Enhanced Slideshow Styles */
+        .slideshow-container {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            border-radius: 25px;
+            overflow: hidden;
+        }
+
+        .slideshow-image {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 0.5s ease-in-out;
+            border-radius: 25px;
+        }
+
+        .slideshow-image.active {
+            opacity: 1;
+        }
+
+        .slideshow-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 25px;
+        }
+
+        /* Image Caption Styles */
+        .image-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(0, 0, 0, 0.7));
+            color: white;
+            padding: 2rem 1.5rem 1rem 1.5rem;
+            z-index: 2;
+            border-radius: 0 0 25px 25px;
+        }
+
+        .image-caption p {
+            margin: 0;
+            font-size: 0.9rem;
+            line-height: 1.4;
+            text-align: center;
+            font-weight: 500;
+            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+        }
+
+        .image-caption strong {
+            color: var(--warm-yellow);
+        }
+
+        /* Navigation Buttons - Adjusted positioning to avoid caption overlap */
+        .slideshow-btn {
+            position: absolute;
+            top: 40%;
+            transform: translateY(-50%);
+            background: rgba(255, 255, 255, 0.9);
+            border: none;
+            padding: 12px 16px;
+            font-size: 1.2rem;
+            cursor: pointer;
+            border-radius: 50%;
+            z-index: 4;
+            transition: all 0.3s ease;
+            color: var(--text-dark);
+            font-weight: bold;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .slideshow-btn:hover {
+            background: rgba(255, 255, 255, 1);
+            transform: translateY(-50%) scale(1.1);
+        }
+
+        .slideshow-btn.prev {
+            left: 15px;
+        }
+
+        .slideshow-btn.next {
+            right: 15px;
+        }
+
+        /* Dot Indicators - Adjusted positioning */
+        .slideshow-dots {
+            position: absolute;
+            bottom: -45px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 8px;
+            z-index: 4;
+            background: rgba(91, 74, 59, 0.2);
+            padding: 8px 12px;
+            border-radius: 20px;
+            backdrop-filter: blur(5px);
+        }
+
+        .dot {
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        background: rgba(91, 74, 59, 0.4);
+        cursor: pointer;
+        transition: all 0.3s ease;
+        }
+
+        .dot.active,
+        .dot:hover {
+            background: var(--coral);
+            transform: scale(1.3);
+        }
+
+        /* Responsive adjustments for captions */
+        @media (max-width: 768px) {
+            .image-caption {
+                padding: 1.5rem 1rem 0.75rem 1rem;
+            }
+            
+            .image-caption p {
+                font-size: 0.8rem;
+            }
+            
+            .slideshow-btn {
+                padding: 8px 12px;
+                font-size: 1rem;
+            }
+            
+            .slideshow-dots {
+                bottom: -35px;
+                padding: 6px 10px;
+            }
+            
+            .dot {
+                width: 8px;
+                height: 8px;
+            }
+        }
+
+        /* Hover effect to show/hide captions */
+        .slideshow-container:hover .image-caption {
+            opacity: 1;
+        }
+
+        /* Auto-play pause on hover */
+        .slideshow-container:hover .slideshow-image {
+            animation-play-state: paused;
+        }
+
+
+
+        .about-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: var(--text-light);
+        }
+
+        .about-text p {
+            margin-bottom: 1.5rem;
+        }
+
+        /* Skills Section */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr); /* Changed to exactly 4 equal columns */
+            gap: 1.5rem; /* Reduced gap to fit better */
+            margin-top: 2rem;
+        }
+
+        @media (max-width: 1200px) and (min-width: 769px) {
+        .skills-grid {
+            grid-template-columns: repeat(2, 1fr); /* 2 columns on tablets */
+            gap: 2rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .skills-grid {
+                grid-template-columns: 1fr; /* 1 column on mobile */
+                gap: 2rem;
+            }
+        }
+
+        .skill-card {
+            background: var(--white);
+            padding: 2.5rem;
+            border-radius: 25px;
+            text-align: center;
+            position: relative;
+            border: 3px solid var(--soft-peach);
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            height: 500px; /* Fixed height */
+            width: 100%;
+            justify-content: flex-start; /* Align to top */
+        }
+
+        .skill-card .skill-icon {
+            flex-shrink: 0; /* Prevent icon from shrinking */
+        }
+
+        .skill-card h3 {
+            flex-shrink: 0; /* Prevent title from shrinking */
+            font-family: 'Silkscreen', monospace;
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+            font-weight: 400;
+            color: var(--text-dark);
+        }
+
+        .skill-card p {
+            flex-grow: 1; /* Let text take remaining space */
+            display: flex;
+            align-items: flex-start; /* Align text to top of its container */
+            margin: 0; /* Remove default margins */
+            line-height: 1.6;
+            overflow: hidden; /* Prevent text overflow */
+        }
+
+
+        .skill-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(91, 74, 59, 0.1);
+            border-color: var(--teal);
+        }
+
+        .skill-icon {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            display: block;
+        }
+
+        .skill-card h3 {
+            font-family: 'Silkscreen', monospace;
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+            font-weight: 400;
+            color: var(--text-dark);
+        }
+
+        /* Projects Section */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+            gap: 3rem;
+        }
+
+        .project-card {
+            background: var(--white);
+            border-radius: 25px;
+            overflow: hidden;
+            border: 3px solid var(--warm-beige);
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .project-card:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 20px 40px rgba(90, 74, 58, 0.15);
+            border-color: var(--sage-green);
+        }
+
+        .project-image {
+            height: 350px;
+            background: linear-gradient(135deg, var(--dusty-blue), var(--sage-green));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-size: 1.3rem;
+            font-weight: 600;
+            position: relative;
+        }
+
+        .project-content {
+            padding: 2rem;
+        }
+
+        .project-content h3 {
+            font-family: 'Silkscreen', monospace;
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+            color: var(--text-dark);
+            font-weight: 400;
+        }
+
+        .project-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .tag {
+            background: var(--soft-peach);
+            color: var(--text-dark);
+            padding: 0.4rem 1rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+
+        .project-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .project-links a {
+            padding: 0.6rem 1.2rem;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+        }
+
+        .link-primary {
+            background: var(--dusty-blue);
+            color: var(--white);
+        }
+
+        .link-secondary {
+            border: 2px solid var(--sage-green);
+            color: var(--sage-green);
+        }
+
+        .project-links a:hover {
+            transform: translateY(-2px);
+        }
+
+        .link-primary:hover {
+            background: #98A8C1;
+        }
+
+        .link-secondary:hover {
+            background: var(--sage-green);
+            color: var(--white);
+        }
+
+        #convopal-card {
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        #convopal-card:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 25px 50px rgba(90, 74, 58, 0.2);
+        }
+
+        #convopal-card::after {
+            position: absolute;
+            bottom: 15px;
+            right: 20px;
+            font-size: 0.8rem;
+            color: var(--teal);
+            font-weight: 600;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        #convopal-card:hover::after {
+            opacity: 1;
+        }
+
+        /* Experience Timeline */
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 4px;
+            background: var(--dusty-blue);
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -2px;
+            border-radius: 2px;
+        }
+
+        .timeline-item {
+            padding: 1rem 2rem;
+            position: relative;
+            background: inherit;
+            width: 50%;
+        }
+
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            right: -25px;
+            background: var(--white);
+            border: 3px solid var(--dusty-blue);
+            top: 20px;
+            border-radius: 50%;
+            z-index: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-size: cover; /* Changed from 60% to cover */
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+
+    /* Individual timeline item icons */
+.timeline-item:nth-child(1)::after {
+    background-image: url('./images/journey/orbital.png');
+}
+
+.timeline-item:nth-child(2)::after {
+    background-image: url('./images/journey/nuspickleballlogo.png');
+    left: -25px;
+}
+
+.timeline-item:nth-child(3)::after {
+    background-image: url('./images/journey/witlogo.jpeg');
+}
+
+.timeline-item:nth-child(4)::after {
+    background-image: url('./images/journey/helixhouse.png');
+    left: -25px;
+}
+
+        .timeline-item:nth-child(even) {
+            left: 50%;
+        }
+
+        .timeline-item:nth-child(even)::after {
+            left: -15px;
+        }
+
+        .timeline-content {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 20px;
+            border: 2px solid var(--warm-beige);
+            position: relative;
+        }
+
+        .timeline-content h3 {
+            font-family: 'Silkscreen', monospace;
+            color: var(--text-dark);
+            margin-bottom: 0.5rem;
+            font-size: 1.2rem;
+            font-weight: 400;
+        }
+
+        /* Contact Section */
+        .contact-section {
+            background: linear-gradient(135deg, var(--dusty-blue) 0%, var(--sage-green) 100%);
+            color: var(--text-dark);
+            text-align: center;
+            position: relative;
+        }
+
+        .contact-section h2 {
+            color: var(--text-dark);
+        }
+
+        .contact-section h2::after {
+            background: var(--text-dark);
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            background: var(--white);
+            padding: 1rem 1.5rem;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            border: 2px solid var(--text-light);
+            box-shadow: 0 4px 15px rgba(91, 74, 59, 0.1);
+        }
+
+        .contact-item:hover {
+            background: rgba(255,255,255,0.25);
+            transform: translateY(-3px);
+        }
+
+        /* Decorative elements */
+        .section-decoration {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 2rem;
+            opacity: 0.6;
+            animation: float 4s ease-in-out infinite;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero-section {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+                text-align: center;
+            }
+
+            .hero-content {
+                order: 2;
+            }
+
+            .hero-image-section {
+                order: 1;
+            }
+
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-image-container {
+                width: 300px;
+                height: 400px;
+            }
+
+            .background-circle {
+                width: 280px;
+                height: 280px;
+            }
+
+            .profile-photo {
+                width: 240px;
+                height: 320px;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+                gap: 2rem;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .timeline::after {
+                left: 31px;
+            }
+
+            .timeline-item {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 25px;
+            }
+
+            .timeline-item::after {
+                left: 0px;
+                width: 40px;
+                height: 40px;
+                background-size: 50%;
+            }
+
+            /* Individual timeline item icons */
+            .timeline-item:nth-child(1)::after {
+                background-image: url('./images/journey/orbital.png');
+            }
+
+            .timeline-item:nth-child(2)::after {
+                background-image: url('./images/journey/nuspickleballlogo.png');
+                left: -25px;
+            }
+
+            .timeline-item:nth-child(3)::after {
+                background-image: url('./images/journey/witlogo.png');
+            }
+
+            .timeline-item:nth-child(4)::after {
+                background-image: url('./images/journey/helixhouse.png');
+                left: -25px;
+            }
+
+            .timeline-item:nth-child(even) {
+                left: 0%;
+            }
+
+            .contact-info {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+
+        /* Smooth scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Animation for elements coming into view */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Cute doodle borders */
+        .doodle-border {
+            border: 3px dashed var(--warm-beige);
+            border-radius: 15px;
+            position: relative;
+        }
+
+        .doodle-border::before {
+            content: '✨';
+            position: absolute;
+            top: -10px;
+            right: -10px;
+            background: var(--soft-peach);
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <!-- Top Navigation -->
+        <div class="top-nav">
+            <div class="nav-container">
+                <div class="logo">Chloe.</div>
+                <ul class="nav-links">
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#skills">Skills</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#experience">Experience</a></li>
+                </ul>
+                <a href="#contact" class="contact-btn">Contact Me</a>
+            </div>
+        </div>
+
+        <!-- Hero Section -->
+        <div class="hero-section">
+            <div class="hero-content">
+
+                <h1> Hi, <span class="highlight"> <br> I'm Chloe </span><br>
+                <span class="subtitle-text"> Year 2 Business Artificial Intelligence Systems </span> <br>
+                </h1>
+                <p class="hero-description">
+                Currently on my journey developing <strong>
+                design
+                </strong> skills whilst doing the things I love! <br>
+                I’m also a proud <strong> #pickleballaddict  </strong>and love building the NUS pickleball community!</p>
+
+                <div class="cta-buttons">
+                    <a href="#projects" class="btn btn-primary">View My Work</a>
+                    <a href="#contact" class="btn btn-outline">Connect with me!</a>
+                </div>
+            </div>
+            
+            <div class="hero-image-section">
+                <div class="hero-image-container">
+                    <div class="background-circle"></div>
+                    <div class="profile-photo">
+                        <img src="./images/me2.PNG" alt="Chloe Wang">
+                    </div>
+                    <div class="floating-badge badge-1">💗 Design</div>
+                    <div class="floating-badge badge-2">📱 Product Management</div>
+                    <div class="floating-badge badge-3">🥒 Pickleball</div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="container">
+            <ul>
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- About Section with Slideshow -->
+<section id="about">
+    <div class="section-decoration"></div>
+    <div class="container">
+        <h2>About Me</h2>
+        <div class="about-content fade-in">
+            <div class="profile-image">
+                <div class="slideshow-container">
+                    <!-- Slideshow Images -->
+                    <div class="slideshow-image active">
+                        <img src="./images/about-slideshow/photomyself.jpg" alt="Chloe - Photo 1">
+                        <div class="image-caption">
+                            <p><strong>Hello! Chloe here. 😊</strong></p>
+                        </div>
+                    </div>
+                    <div class="slideshow-image">
+                        <img src="./images/about-slideshow/girlscourse.jpg" alt="Chloe - Photo 2">
+                        <div class="image-caption">
+                            <p>Me and the other girls from <strong>NUS's "Intro to Computer Science for A-Level Graduating Girls"</strong></p>
+                        </div>
+                    </div>
+                    <div class="slideshow-image">
+                        <img src="./images/about-slideshow/womenintechlunch.jpg" alt="Chloe - Photo 3">
+                        <div class="image-caption">
+                            <p>Dinner with fellow <strong> WiT publicity associates</strong> !</p>
+                        </div>
+                    </div>
+                    <div class="slideshow-image">
+                        <img src="./images/about-slideshow/womenintechbonding.jpg" alt="Chloe - Photo 4">
+                        <div class="image-caption">
+                            <p> <strong> Art jamming with WiT PAs 💜 </strong></p>
+                        </div>
+                    </div>
+                    <div class="slideshow-image">
+                        <img src="./images/about-slideshow/nuspickleball.jpg" alt="Chloe - Photo 5">
+                        <div class="image-caption">
+                            <p><strong>NUS Pickleball</strong> Rackethlon! 🥒</p>
+                        </div>
+                    </div>
+                    <div class="slideshow-image">
+                        <img src="./images/about-slideshow/helixpickleball.jpg" alt="Chloe - Photo 5">
+                        <div class="image-caption">
+                            <p>Me with the other <strong>Helix Pickleball IG Heads</strong></p>
+                        </div>
+                    </div>
+                    
+                    <!-- Navigation arrows -->
+                    <button class="slideshow-btn prev" onclick="changeSlide(-1)">❮</button>
+                    <button class="slideshow-btn next" onclick="changeSlide(1)">❯</button>
+                    
+                    <!-- Dot indicators -->
+                    <div class="slideshow-dots">
+                        <span class="dot active" onclick="currentSlide(1)"></span>
+                        <span class="dot" onclick="currentSlide(2)"></span>
+                        <span class="dot" onclick="currentSlide(3)"></span>
+                        <span class="dot" onclick="currentSlide(4)"></span>
+                        <span class="dot" onclick="currentSlide(5)"></span>
+                        <span class="dot" onclick="currentSlide(6)"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="about-text">
+                <p>Hi, I'm Chloe – a Year 2 Business AI Systems student at NUS who's passionate about <strong>design, community, and women in tech</strong>!
+                <br> <br>
+
+                My journey began with NUS's "Intro to Computer Science for A-Level Graduating Girls," where I discovered the magic of tech in an inclusive, supportive space. Since then, I’ve aimed to empower other women in computing through my role as Publicity Associate at Women in Tech @ NUS Computing.
+
+    
+                <br> <br>
+                Outside tech, I LOVE pickleball. Combining this with my passion for design, I help with publicity for NUS Pickleball, honing my skills and sharing the sport within our community. 💗
+
+                <br> <br>
+
+                From organizing beginner-friendly pickleball sessions to designing for WiT to designing user-centered solutions in the NUS Orbital Programme, I thrive at the intersection of <strong>creativity, technology, and impact.</strong>
+                
+                <br> <br>
+                My interests lie in <strong> UI/UX design, content strategy, product development, and community building </strong>. 
+                <br> <br>
+                With these, I seek to <strong>do even MORE</strong> and find ways to use technology and design to impact the greater community.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+    <!-- Skills Section -->
+    <section id="skills">
+        <div class="section-decoration">🎨</div>
+        <div class="container">
+            <h2>Skills & Interests</h2>
+            <div class="skills-grid fade-in">
+                <div class="skill-card">
+                    <span class="skill-icon">🎨</span>
+                    <h3>UI/UX Design</h3>
+                    <p>Creating intuitive and aesthetically-pleasing user interfaces with focus on user experience. Experienced in design systems, wireframing, and prototyping.</p>
+                </div>
+                <div class="skill-card">
+                    <span class="skill-icon">📊</span>
+                    <h3>Product Management</h3>
+                    <p>Developing comprehensive product strategies, requirement documentation, and stakeholder communication for meaningful impact.</p>
+                </div>
+                <div class="skill-card">
+                    <span class="skill-icon">🤝</span>
+                    <h3>Communication</h3>
+                    <p>Working effectively with tech, design, and business teams to deliver user-centered solutions and drive projects forward.</p>
+                </div>
+                <div class="skill-card">
+                    <span class="skill-icon">💜</span>
+                    <h3>Content Strategy</h3>
+                    <p>Passionate about creating designs that are intuitive, impactful and truly useful.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects">
+        <div class="section-decoration">⭐</div>
+        <div class="container">
+            <h2>Past Projects</h2>
+            <div class="projects-grid fade-in">
+
+                <!--ConvoPal-->
+                <div class="project-card" id="convopal-card" onclick="navigateToConvoPal()">
+                <div class="project-image">
+                    <img src="./images/project-cover/ConvoPal.png" alt="ConvoPal AI Chat Platform" style="width: 100%; height: 100%; object-fit: cover; border-radius: 0;">
+                    
+                </div>
+                <div class="project-content">
+                    <h3>ConvoPal - AI Chat Platform</h3>
+                    <p>Designed and developed the complete UI/UX for an AI-powered conversation platform as part of NUS Orbital program. Created user flows and wireframes focusing on intuitive conversation management.</p>
+                    <div class="project-tags">
+                        <span class="tag">GitHub</span>
+                        <span class="tag">Figma</span>
+                        <span class="tag">MERN Project</span>
+                        <span class="tag">React.js</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="#" class="link-primary" onclick="event.stopPropagation(); navigateToConvoPal()">View Case Study</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Women in Tech @ NUS Computing Card -->
+            <div class="project-card" id="wit-card" onclick="navigateToWomenInTech()">
+                <div class="project-image">
+                    <img src="./images/project-cover/wit.png" alt="Women in Tech @ NUS Computing" style="width: 100%; height: 100%; object-fit: cover; border-radius: 0;">
+                </div>
+                <div class="project-content">
+                    <h3>Women in Tech @ NUS Computing</h3>
+                    <p>Joined as Publicity Associate to make a similar impact on other females in computing, the same way I had experienced support. Creating empowering content for women at the School of Computing to build an inclusive tech community.</p>
+                    <div class="project-tags">
+                        <span class="tag">Community Impact</span>
+                        <span class="tag">Content Creation</span>
+                        <span class="tag">Creative Design</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="#" class="link-primary" onclick="event.stopPropagation(); navigateToWomenInTech()">View Content</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- NUS Pickleball Card -->
+            <div class="project-card" id="nuspickleball-card" onclick="navigateToNUSPickleball()">
+                <div class="project-image">
+                    <img src="./images/project-cover/nuspickleball3.png" alt="NUS Pickleball Club" style="width: 100%; height: 100%; object-fit: cover; border-radius: 0;">
+                </div>
+                <div class="project-content">
+                    <h3>NUS Pickleball Publicity</h3>
+                    <p>Combined my love for design and pickleball by becoming Publicity Associate for NUS Pickleball. Created engaging visual content and campaigns to spread the love for pickleball across NUS while continuing to hone my design skills.</p>
+                    <div class="project-tags">
+                        <span class="tag">Visual Design</span>
+                        <span class="tag">Social Media</span>
+                        <span class="tag">Brand Identity</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="#" class="link-primary" onclick="event.stopPropagation(); navigateToNUSPickleball()">View Content</a>
+                    </div>
+                </div>
+            </div>
+
+                <!--Migrant Workers Awareness Campaign-->
+                <div class="project-card" id="migrant-card" onclick="navigateToMigrantWorkers()">
+                    <div class="project-image">
+                        <img src="./images/project-cover/migrant.png" alt="ConvoPal AI Chat Platform" style="width: 100%; height: 100%; object-fit: cover; border-radius: 0;">
+                    </div>
+                    <div class="project-content">
+                        <h3>Migrant Workers Awareness Campaign</h3>
+                        <p>Led the infographics team to create various posts raising awareness on working conditions of migrant workers. Standardized theme, fonts, and font sizes to ensure consistency across all materials.</p>
+                        <div class="project-tags">
+                            <span class="tag">Social Impact</span>
+                            <span class="tag">Infographics</span>
+                            <span class="tag">Visual Design</span>
+                            <span class="tag">Team Leadership</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="link-primary" onclick="event.stopPropagation(); navigateToMigrantWorkers()">View Content</a>
+                        </div>
+                    </div>
+                </div>
+                <!--Club Rainbow-->
+                <div class="project-card" id="clubrainbow-card" onclick="navigateToClubRainbow()">
+                    <div class="project-image">
+                        <img src="./images/project-cover/clubrainbow.png" alt="Club Rainbow" style="width: 100%; height: 100%; object-fit: cover; border-radius: 0;">
+                    </div>
+                    <div class="project-content">
+                        <h3>Club Rainbow Educational Slideshow</h3>
+                        <p>Led a service learning project organizing a program for children with chronic illnesses to learn about local culture. Directed creation of promotional infographics and interactive slideshow design.</p>
+                        <div class="project-tags">
+                            <span class="tag">Service Learning</span>
+                            <span class="tag">Educational Design</span>
+                            <span class="tag">Community Impact</span>
+                        </div>
+                        <div class="project-links">
+                          <a href="#" class="link-primary" onclick="event.stopPropagation(); navigateToClubRainbow()">View Content</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Timeline -->
+    <section id="experience">
+        <div class="section-decoration"></div>
+        <div class="container">
+            <h2>Experience & Journey</h2>
+            <div class="timeline fade-in">
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3>Project Developer - NUS Orbital Programme</h3>
+                        <p><strong>May 2025 - Aug 2025</strong></p>
+                        <p>Developed ConvoPal, an AI-powered conversation platform. Led complete UI/UX design process from concept to prototype, conducting user research and creating design systems.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3>Publicity Associate - NUS Pickleball</h3>
+                        <p><strong>Jan 2025 - Present</strong></p>
+                        <p>Designed visual identity and marketing materials for the club. Created social media campaigns that increased membership and engagement within the NUS community.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3>Publicity Associate - Women in Tech @ NUS Computing</h3>
+                        <p><strong>Jul 2024 - Present</strong></p>
+                        <p>Contributed to design initiatives focused on creating inclusive tech spaces. Created empowering content for women at the School of Computing to build an inclusive tech community.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3>Founder - Helix Pickleball</h3>
+                        <p><strong>Oct 2024 - Present</strong></p>
+                        <p>Founded and established pickleball community at Helix House. Organized beginner-friendly sessions and built a thriving pickleball community from the ground up.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section">
+        <div class="container">
+            <h2>Let's Connect!</h2>
+            <p style="font-size: 1.2rem; margin-bottom: 3rem; opacity: 0.9;">The Developer Group @ NUS Computing’s motto, #tech4good, truly resonates with me. I'm excited to keep learning about design, product development and to contribute to future projects—all for the love of #tech4good 💜</p>
+            
+            <div class="contact-info fade-in">
+                <div class="contact-item">
+                    <span>📧</span>
+                    <span>chloewang78@u.nus.edu</span>
+                </div>
+                <div class="contact-item">
+                    <span>💼</span>
+                    <a href="https://www.linkedin.com/in/chloe-wang-86339a25b" target="_blank" style="color: inherit; text-decoration: none;">My LinkedIn Profile</a>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Fade-in animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Add smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add floating decorative elements
+        function createFloatingElements() {
+            const decorativeElements = ['🌸', '🌼', '✨', '🍃'];
+            
+            for (let i = 0; i < 8; i++) {
+                const element = document.createElement('div');
+                element.textContent = decorativeElements[Math.floor(Math.random() * decorativeElements.length)];
+                element.style.position = 'fixed';
+                element.style.fontSize = '1.5rem';
+                element.style.opacity = '0.1';
+                element.style.pointerEvents = 'none';
+                element.style.zIndex = '0';
+                element.style.left = Math.random() * 100 + '%';
+                element.style.top = Math.random() * 100 + '%';
+                element.style.animation = `float ${Math.random() * 10 + 15}s ease-in-out infinite`;
+                element.style.animationDelay = Math.random() * 5 + 's';
+                document.body.appendChild(element);
+            }
+        }
+
+        createFloatingElements();
+
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const parallax = document.querySelectorAll('.section-decoration');
+            
+            parallax.forEach(element => {
+                const speed = 0.5;
+                element.style.transform = `translateY(${scrolled * speed}px)`;
+            });
+        });
+
+        function navigateToConvoPal() {
+            window.open('./convopal_case_study.html', '_blank');
+        }
+
+        function navigateToWomenInTech() {
+            window.open('./women_in_tech.html', '_blank');
+        }
+
+        function navigateToNUSPickleball() {
+            window.open('./nus_pickleball.html', '_blank');
+        }
+
+        function navigateToMigrantWorkers() {
+            window.open('./migrant_workers.html', '_blank');
+        }
+
+        function navigateToClubRainbow() {
+            window.open('./club_rainbow.html', '_blank');
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const convoPalCard = document.getElementById('convopal-card');
+            if (convoPalCard) {
+                console.log('ConvoPal card found and click handler attached');
+                convoPalCard.addEventListener('click', navigateToConvoPal);
+            } else {
+                console.error('ConvoPal card not found!');
+            }
+        });
+
+        let slideIndex = 1;
+        let slideInterval;
+
+        // Initialize slideshow
+        function initSlideshow() {
+            showSlide(slideIndex);
+            startAutoSlide();
+        }
+
+        // Show specific slide
+        function showSlide(n) {
+            const slides = document.querySelectorAll('.slideshow-image');
+            const dots = document.querySelectorAll('.dot');
+            
+            if (n > slides.length) slideIndex = 1;
+            if (n < 1) slideIndex = slides.length;
+            
+            // Hide all slides
+            slides.forEach(slide => slide.classList.remove('active'));
+            dots.forEach(dot => dot.classList.remove('active'));
+            
+            // Show current slide
+            if (slides[slideIndex - 1]) {
+                slides[slideIndex - 1].classList.add('active');
+            }
+            if (dots[slideIndex - 1]) {
+                dots[slideIndex - 1].classList.add('active');
+            }
+        }
+
+        // Change slide (prev/next buttons)
+        function changeSlide(n) {
+            stopAutoSlide();
+            slideIndex += n;
+            showSlide(slideIndex);
+            startAutoSlide();
+        }
+
+        // Go to specific slide (dot click)
+        function currentSlide(n) {
+            stopAutoSlide();
+            slideIndex = n;
+            showSlide(slideIndex);
+            startAutoSlide();
+        }
+
+        // Auto-slide functionality
+        function startAutoSlide() {
+            slideInterval = setInterval(() => {
+                slideIndex++;
+                showSlide(slideIndex);
+            }, 6000); 
+        }
+
+        function stopAutoSlide() {
+            clearInterval(slideInterval);
+        }
+
+        // Initialize when page loads
+        document.addEventListener('DOMContentLoaded', initSlideshow);
+
+        // Pause auto-slide on hover, resume on mouse leave
+        document.querySelector('.slideshow-container')?.addEventListener('mouseenter', stopAutoSlide);
+        document.querySelector('.slideshow-container')?.addEventListener('mouseleave', startAutoSlide);
+    </script>

@@ -1,0 +1,799 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ConvoPal - Case Study | Chloe Wang</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Silkscreen:wght@400;700&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --cream: #FFF4EF;
+            --soft-peach: #F6DEC8;
+            --coral: #E1766C;
+            --warm-yellow: #F9C87D;
+            --teal: #76B4B9;
+            --dark-brown: #5B4A3B;
+            --text-dark: #5B4A3B;
+            --text-light: #8B7564;
+            --white: #FFFFFF;
+            --dusty-blue: #A3B4C7;
+            --sage-green: #9CAF88;
+        }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background: var(--cream);
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Clean Header with Just Image */
+        .header {
+            background: var(--white);
+            padding: 2rem 0;
+            position: relative;
+            min-height: 60vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .back-button {
+            position: absolute;
+            z-index: 10;
+            top: 2rem;
+            left: 2rem;
+            background: rgba(91, 74, 59, 0.1);
+            color: var(--text-dark);
+            border: 2px solid rgba(91, 74, 59, 0.2);
+            padding: 0.7rem 1.5rem;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .back-button:hover {
+            background: rgba(91, 74, 59, 0.2);
+            transform: translateY(-2px);
+        }
+
+        .hero-image {
+            max-width: 100%;
+            height: auto;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(91, 74, 59, 0.15);
+        }
+
+        /* Problem Statement Section */
+        .problem-statement {
+            background: var(--white);
+            padding: 4rem 0;
+            text-align: center;
+        }
+
+        .section-header {
+            font-family: 'Silkscreen', monospace;
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            color: var(--text-dark);
+            position: relative;
+            font-weight: 500;
+        }
+
+        .section-header.problem {
+            color: var(--dark-brown);
+        }
+
+        .section-header.solution {
+            color: var(--dark-brown);
+        }
+
+        .section-header::after {
+            content: '';
+            width: 80px;
+            height: 6px;
+            background: currentColor;
+            display: block;
+            margin: 1rem auto;
+            border-radius: 3px;
+        }
+
+        .problem-content, .solution-content {
+            max-width: 800px;
+            margin: 0 auto;
+            font-size: 1.2rem;
+            line-height: 1.8;
+            color: var(--text-light);
+        }
+
+        /* Solution Section */
+        .solution {
+            background: var(--cream);
+            padding: 4rem 0;
+            text-align: center;
+        }
+
+        /* Decorative Elements */
+        .decorative-shapes {
+            position: absolute;
+            z-index: 1;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            overflow: hidden;
+        }
+
+        .shape {
+            position: absolute;
+            border-radius: 50%;
+            opacity: 0.1;
+        }
+
+        .shape-1 {
+            width: 200px;
+            height: 200px;
+            background: var(--teal);
+            top: 10%;
+            right: 10%;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .shape-2 {
+            width: 150px;
+            height: 150px;
+            background: var(--coral);
+            bottom: 20%;
+            left: 15%;
+            animation: float 4s ease-in-out infinite reverse;
+        }
+
+        .shape-3 {
+            width: 100px;
+            height: 100px;
+            background: var(--warm-yellow);
+            top: 50%;
+            left: 5%;
+            animation: float 5s ease-in-out infinite;
+        }
+
+        /* Quick Links Section */
+        .quick-links {
+            background: var(--white);
+            padding: 4rem 0;
+        }
+
+        .section-title {
+            font-family: 'Silkscreen', monospace;
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 3rem;
+            color: var(--text-dark);
+            position: relative;
+            font-weight: 500;
+        }
+
+        .section-title::after {
+            content: '';
+            width: 80px;
+            height: 6px;
+            background: var(--dark-brown);
+            display: block;
+            margin: 1rem auto;
+            border-radius: 3px;
+        }
+
+        .links-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr); 
+            gap: 1.5rem; 
+            margin-top: 2rem;
+        }
+
+        .link-card {
+            background: var(--soft-peach);
+            padding: 2rem;
+            border-radius: 20px;
+            text-align: center;
+            transition: all 0.3s ease;
+            border: 3px solid transparent;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .link-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--teal);
+            box-shadow: 0 15px 35px rgba(118, 180, 185, 0.2);
+        }
+
+        .link-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .link-card:hover::before {
+            left: 100%;
+        }
+
+        .link-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            display: block;
+            
+        }
+
+        .link-card h3 {
+            font-family: 'Silkscreen', monospace;
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: var(--text-dark);
+            font-weight: 500;
+        }
+
+        .link-button {
+            background: var(--teal);
+            color: white;
+            padding: 0.8rem 2rem;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            display: inline-block;
+            margin-top: 1rem;
+        }
+
+        .link-button:hover {
+            background: #6BA4A9;
+            transform: translateY(-2px);
+        }
+
+        /* UI Showcase Section */
+        .ui-showcase {
+            background: var(--cream);
+            padding: 4rem 0;
+        }
+
+        .ui-slideshow-container {
+            max-width: 900px;
+            margin: 0 auto;
+            position: relative;
+            background: var(--white);
+            border-radius: 25px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(91, 74, 59, 0.1);
+        }
+
+        .ui-slide {
+            display: none;
+            width: 100%;
+            height: 600px;
+            position: relative;
+        }
+
+        .ui-slide.active {
+            display: block;
+        }
+
+        .ui-slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            background: var(--white);
+        }
+
+        .ui-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+            color: white;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .ui-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255, 255, 255, 0.9);
+            border: none;
+            padding: 15px 20px;
+            font-size: 1.5rem;
+            cursor: pointer;
+            border-radius: 50%;
+            transition: all 0.3s ease;
+            z-index: 10;
+        }
+
+        .ui-nav:hover {
+            background: rgba(255, 255, 255, 1);
+            transform: translateY(-50%) scale(1.1);
+        }
+
+        .ui-nav.prev {
+            left: 20px;
+        }
+
+        .ui-nav.next {
+            right: 20px;
+        }
+
+        .ui-dots {
+            text-align: center;
+            padding: 20px;
+            background: var(--white);
+        }
+
+        .ui-dot {
+            height: 12px;
+            width: 12px;
+            margin: 0 5px;
+            background-color: rgba(91, 74, 59, 0.3);
+            border-radius: 50%;
+            display: inline-block;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .ui-dot.active,
+        .ui-dot:hover {
+            background-color: var(--teal);
+            transform: scale(1.3);
+        }
+
+        /* Design Process Section */
+        .design-process {
+            background: var(--white);
+            padding: 4rem 0;
+        }
+
+        .process-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+
+        .process-card {
+            background: var(--cream);
+            padding: 2.5rem;
+            border-radius: 20px;
+            border: 3px solid var(--soft-peach);
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .process-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--coral);
+            box-shadow: 0 15px 35px rgba(225, 118, 108, 0.2);
+        }
+
+        .process-number {
+            position: absolute;
+            top: -15px;
+            left: 30px;
+            background: var(--coral);
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        .process-card h3 {
+            font-family: 'Silkscreen', monospace;
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+            color: var(--text-dark);
+            margin-top: 1rem;
+            font-weight: 500;
+        }
+
+        .inspiration-images {
+            display: flex;
+            gap: 1rem;
+            margin: 1rem 0;
+            flex-wrap: wrap;
+        }
+
+        .inspiration-logo {
+            width: 60px;
+            height: 60px;
+            border-radius: 10px;
+            object-fit: contain;
+            background: var(--white);
+            padding: 8px;
+            box-shadow: 0 4px 12px rgba(91, 74, 59, 0.1);
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0px);
+            }
+            50% {
+                transform: translateY(-20px);
+            }
+        }
+
+        .fade-in {
+            animation: fadeInUp 0.6s ease;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .section-header {
+                font-size: 2rem;
+            }
+
+            .back-button {
+                position: relative;
+                z-index: 10;
+                top: 0;
+                left: 0;
+                margin-bottom: 2rem;
+                display: inline-block;
+            }
+
+            .header {
+                min-height: 40vh;
+                padding: 1rem 0;
+            }
+
+            .problem-statement,
+            .solution,
+            .quick-links,
+            .ui-showcase,
+            .design-process {
+                padding: 3rem 0;
+            }
+
+            .problem-content,
+            .solution-content {
+                font-size: 1.1rem;
+            }
+
+            .links-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .process-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .ui-slideshow-container {
+                margin: 0 1rem;
+            }
+
+            .ui-slide {
+                height: 400px;
+            }
+
+            .ui-nav {
+                padding: 10px 15px;
+                font-size: 1.2rem;
+            }
+
+            .inspiration-images {
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Section - Clean with just image -->
+    <div class="header">
+        <a href="./portfolio.html" class="back-button">← Back to Portfolio</a>
+        <div class="container">
+            <img src="./images/project-cover/ConvoPal.png" alt="ConvoPal - AI-Powered Conversation Platform" class="hero-image fade-in">
+        </div>
+        <div class="decorative-shapes">
+            <div class="shape shape-1"></div>
+            <div class="shape shape-2"></div>
+            <div class="shape shape-3"></div>
+        </div>
+    </div>
+
+    <!-- Problem Statement Section -->
+    <section class="problem-statement">
+        <div class="container">
+            <h2 class="section-header problem fade-in">Problem Statement</h2>
+            <div class="problem-content fade-in">
+                <p>Language learning can be <strong>intimidating and isolating</strong>, especially for beginners who lack confidence to practice speaking with others. 
+                <br>
+                    Many learners struggle with pronunciation, grammar feedback, and <strong>finding conversation partners</strong> who match their skill level and learning pace.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Solution Section -->
+    <section class="solution">
+        <div class="container">
+            <h2 class="section-header solution fade-in">Our Solution</h2>
+            <div class="solution-content fade-in">
+                <p>ConvoPal provides an AI-powered conversation platform designed for <strong>beginner language learners</strong>. With real-time <strong>grammar feedback & guidance</strong>, ConvoPal connects users with AI conversation partners and fellow learners.
+                    <br> 
+                    ConvoPal makes language learning <strong>engaging, accessible, and less intimidating </strong>for beginners taking their first steps into a new language.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quick Links Section -->
+    <section class="quick-links">
+        <div class="container">
+
+
+            <h2 class="section-title">Project Resources</h2>
+            <div class="links-grid fade-in">
+                <div class="link-card">
+                    <span class="link-icon">📚</span>
+                    <h3>README Documentation</h3>
+                    <p>Comprehensive project documentation including technical specifications, features, and setup instructions.</p>
+                    <a href="https://drive.google.com/file/d/1ogmFwOul4mt-Ds4OoYWXZ2c-SXDt5qtn/view?usp=drivesdk" target="_blank" class="link-button">View Documentation</a>
+                </div>
+                
+                <div class="link-card">
+                    <span class="link-icon">🎥</span>
+                    <h3>Video Demo</h3>
+                    <p>Here you can take a look at a complete walkthrough of Convopal's features and user interactions.</p>
+                    <a href="https://drive.google.com/file/d/1tUReSy6SXRxLLSFS_WrLexDX_Pp5cYU-/view?usp=drivesdk" target="_blank" class="link-button">Watch Demo</a>
+                </div>
+                
+                <div class="link-card">
+                    <span class="link-icon">🎨</span>
+                    <h3>Project Poster</h3>
+                    <p>View our project poster showcasing ConvoPal's features and development process.</p>
+                    <a href="https://drive.google.com/file/d/1uGk-nQJvz6oQ6aGhh4WZXaWUm-GHO_M6/view?usp=drivesdk" target="_blank" class="link-button">View Poster</a>
+                </div>
+                
+                <div class="link-card">
+                    <span class="link-icon">💻</span>
+                    <h3>Source Code</h3>
+                    <p>Want to try out our project? Access the complete source code and project files for ConvoPal here!</p>
+                    <a href="https://drive.google.com/file/d/1rtPTfrWLauBBmZPkhbHpZ5UvR-Ensjvp/view?usp=drivesdk" target="_blank" class="link-button">View Code</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- UI Showcase Section -->
+    <section class="ui-showcase">
+        <div class="container">
+            <h2 class="section-title">User Interface Showcase</h2>
+            <div class="ui-slideshow-container fade-in">
+                <!-- Slide 1: Login/Welcome Screen -->
+                <div class="ui-slide active">
+                    <img src="./images/convopal-ui/login.png" alt="ConvoPal Login Screen">
+                    <div class="ui-caption">
+                        <p><strong>Welcome Screen:</strong> Clean and inviting entry point with modern gradient design</p>
+                    </div>
+                </div>
+
+                <!-- Slide : Home -->
+                <div class="ui-slide">
+                    <img src="./images/convopal-ui/home.png" alt="ConvoPal Chat Interface">
+                    <div class="ui-caption">
+                        <p><strong> Navigation Page:</strong> Options for Navigation Point for users to choose from</p>
+                    </div>
+                </div>
+
+                <!-- Slide 2: Chat Interface -->
+                <div class="ui-slide">
+                    <img src="./images/convopal-ui/chat-interface.png" alt="ConvoPal Chat Interface">
+                    <div class="ui-caption">
+                        <p><strong>Main Chat Interface:</strong> Telegram-inspired layout with custom color scheme and bubble design</p>
+                    </div>
+                </div>
+
+                <!-- Slide 3: Friends -->
+                <div class="ui-slide">
+                    <img src="./images/convopal-ui/friends'profile.png" alt="ConvoPal Navigation">
+                    <div class="ui-caption">
+                        <p><strong>Friends' Profile:</strong> Key user details with consistent iconography and color coding</p>
+                    </div>
+                </div>
+
+                <!-- Slide 4: Settings & Customization -->
+                <div class="ui-slide">
+                    <img src="./images/convopal-ui/theme.png" alt="ConvoPal Settings">
+                    <div class="ui-caption">
+                        <p><strong>Settings Panel:</strong> Comprehensive customization options with intuitive controls and visual feedback</p>
+                    </div>
+                </div>
+
+                <!-- Requests -->
+                <div class="ui-slide">
+                    <img src="./images/convopal-ui/requests.png" alt="ConvoPal Profile">
+                    <div class="ui-caption">
+                        <p><strong>Friend Requests:</strong> Personalized user experience with customizable settings and preferences</p>
+                    </div>
+                </div>
+
+                <!-- Profile Page -->
+                <div class="ui-slide">
+                    <img src="./images/convopal-ui/profile.png" alt="ConvoPal Profile">
+                    <div class="ui-caption">
+                        <p><strong>User Profile:</strong> Personalized user experience with customizable settings and preferences</p>
+                    </div>
+                </div>
+
+                <!-- Navigation buttons -->
+                <button class="ui-nav prev" onclick="changeUISlide(-1)">❮</button>
+                <button class="ui-nav next" onclick="changeUISlide(1)">❯</button>
+            </div>
+            
+            <!-- Dots indicator -->
+            <div class="ui-dots">
+                <span class="ui-dot active" onclick="currentUISlide(1)"></span>
+                <span class="ui-dot" onclick="currentUISlide(2)"></span>
+                <span class="ui-dot" onclick="currentUISlide(3)"></span>
+                <span class="ui-dot" onclick="currentUISlide(4)"></span>
+                <span class="ui-dot" onclick="currentUISlide(5)"></span>
+                <span class="ui-dot" onclick="currentUISlide(6)"></span>
+                <span class="ui-dot" onclick="currentUISlide(7)"></span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Design Process Section -->
+    <section class="design-process">
+        <div class="container">
+            <h2 class="section-title">Design Process & Inspiration</h2>
+            <div class="process-grid fade-in">
+                <div class="process-card">
+                    <div class="process-number">1</div>
+                    <h3>Research & Inspiration</h3>
+                    <p>I drew inspiration from popular messaging platforms that users already love and understand. This approach ensures familiarity while allowing for innovation.</p>
+                    <div class="inspiration-images">
+                        <img src="./images/icons/telegram.webp" alt="Telegram" class="inspiration-logo">
+                        <img src="./images/icons/roblox2.webp" alt="Roblox" class="inspiration-logo">
+                        <img src="./images/icons/discord.png" alt="Discord" class="inspiration-logo">
+                        <img src="./images/icons/duolingo.png" alt="Duolingo" class="inspiration-logo">
+                    </div>
+                    <p><strong>Key Inspirations:</strong></p>
+                    <ul style="margin-top: 1rem; color: var(--text-light);">
+                        <li><strong>Telegram:</strong> Clean chat bubbles and intuitive navigation</li>
+                        <li><strong>Roblox:</strong> Set up of social features, approachable playful dynamic </li>
+                        <li><strong>Discord:</strong> Sidebar navigation and organized information architecture</li>
+                        <li><strong>Duolingo:</strong> Detailed learning statistics, gamified dashboard </li>
+                    </ul>
+                </div>
+
+                <div class="process-card">
+    <div class="process-number">2</div>
+            <h3>Color System Development</h3>
+            <p>I developed a cohesive color palette that balances professionalism with approachability, ensuring accessibility and visual hierarchy.</p>
+            <div style="display: flex; gap: 0.5rem; margin: 1rem 0; flex-wrap: wrap;">
+                
+                <div style="background: #2E3BC7; width: 40px; height: 40px; border-radius: 8px;"></div>
+                <div style="background: #F7F7FD; width: 40px; height: 40px; border-radius: 8px; border: 2px solid #ddd;"></div>
+                <div style="background: #0E8345; width: 40px; height: 40px; border-radius: 8px;"></div>
+                <div style="background: #FCA129; width: 40px; height: 40px; border-radius: 8px;"></div>
+                <div style="background: #FFFFFF; width: 40px; height: 40px; border-radius: 8px; border: 2px solid #ddd;"></div>
+                <div style="background: #000000; width: 40px; height: 40px; border-radius: 8px;"></div>
+            </div>
+            <p><strong>Color Strategy:</strong></p>
+            <ul style="margin-top: 1rem; color: var(--text-light);">
+                
+                <li><strong>Blue (#2E3BC7):</strong> Primary accent color for trust and reliability</li>
+                <li><strong>Off-White (#F7F7FD):</strong> Clean background with subtle warmth</li>
+                <li><strong>Green (#0E8345):</strong> Success states and positive feedback</li>
+                <li><strong>Orange (#FCA129):</strong> Error states and indication for improvement</li>
+                <li><strong>Pure Colors:</strong> White and black for maximum contrast and clarity</li>
+            </ul>
+        </div>
+
+                <div class="process-card">
+                <div class="process-number">3</div>
+                <h3>Typography & Consistency</h3>
+                <p>Establishing a clear typographic hierarchy ensures readability and creates a cohesive user experience across all interfaces.</p>
+                <div style="margin: 1rem 0;">
+                    <p style="font-family: 'Courier New', monospace; font-weight: bold; font-size: 1.2rem; margin-bottom: 0.5rem;">Mineshaft - Sidebar, Messages, Buttons</p>
+                    <p style="font-family: 'Inter', sans-serif; font-size: 1rem; margin-bottom: 0.5rem;">Inter - Utility Settings</p>
+                </div>
+                <p><strong>Typography Strategy:</strong></p>
+                <ul style="margin-top: 1rem; color: var(--text-light);">
+                    <li><strong>Mineshaft:</strong> Used for sidebar navigation, chat messages, and back buttons for consistent user interaction elements</li>
+                    <li><strong>Inter:</strong> Clean, modern font for utility settings ensuring excellent readability in functional areas</li>
+                    <li><strong>Consistent Sizing:</strong> Modular scale for visual harmony across all interface elements</li>
+                </ul>
+            </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        let slideIndex = 1;
+
+        function changeUISlide(n) {
+            showUISlide(slideIndex += n);
+        }
+
+        function currentUISlide(n) {
+            showUISlide(slideIndex = n);
+        }
+
+        function showUISlide(n) {
+            let slides = document.getElementsByClassName("ui-slide");
+            let dots = document.getElementsByClassName("ui-dot");
+            if (n > slides.length) {slideIndex = 1}
+            if (n < 1) {slideIndex = slides.length}
+            for (let i = 0; i < slides.length; i++) {
+                slides[i].classList.remove("active");
+            }
+            for (let i = 0; i < dots.length; i++) {
+                dots[i].classList.remove("active");
+            }
+            slides[slideIndex-1].classList.add("active");
+            dots[slideIndex-1].classList.add("active");
+        }
+
+        // Intersection Observer for fade-in animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe all fade-in elements
+        document.addEventListener('DOMContentLoaded', () => {
+            const fadeElements = document.querySelectorAll('.fade-in');
+            fadeElements.forEach(el => {
+                el.style.opacity = '0';
+                el.style.transform = 'translateY(30px)';
+                el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+                observer.observe(el);
+            });
+        });
+    </script>
+</body>
+</html>

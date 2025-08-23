@@ -1,0 +1,737 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Club Rainbow - Case Study | Chloe Wang</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Silkscreen:wght@400;700&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --cream: #FFF4EF;
+            --soft-peach: #F6DEC8;
+            --coral: #E1766C;
+            --warm-yellow: #F9C87D;
+            --teal: #76B4B9;
+            --dark-brown: #5B4A3B;
+            --text-dark: #5B4A3B;
+            --text-light: #8B7564;
+            --white: #FFFFFF;
+            --dusty-blue: #A3B4C7;
+            --sage-green: #9CAF88;
+        }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background: var(--cream);
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Clean Header with Just Image */
+        .header {
+            background: var(--white);
+            padding: 2rem 0;
+            position: relative;
+            min-height: 60vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .back-button {
+            position: absolute;
+            z-index: 10;
+            top: 2rem;
+            left: 2rem;
+            background: rgba(91, 74, 59, 0.1);
+            color: var(--text-dark);
+            border: 2px solid rgba(91, 74, 59, 0.2);
+            padding: 0.7rem 1.5rem;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .back-button:hover {
+            background: rgba(91, 74, 59, 0.2);
+            transform: translateY(-2px);
+        }
+
+        .hero-image {
+            max-width: 100%;
+            height: auto;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(91, 74, 59, 0.15);
+        }
+
+        /* Problem Statement Section */
+        .problem-statement {
+            background: var(--white);
+            padding: 4rem 0;
+            text-align: center;
+        }
+
+        .section-header {
+            font-family: 'Silkscreen', monospace;
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            color: var(--text-dark);
+            position: relative;
+            font-weight: 500;
+        }
+
+        .section-header.problem {
+            color: var(--dark-brown);
+        }
+
+        .section-header::after {
+            content: '';
+            width: 80px;
+            height: 6px;
+            background: currentColor;
+            display: block;
+            margin: 1rem auto;
+            border-radius: 3px;
+        }
+
+        .problem-content {
+            max-width: 800px;
+            margin: 0 auto;
+            font-size: 1.2rem;
+            line-height: 1.8;
+            color: var(--text-light);
+        }
+
+        /* Decorative Elements */
+        .decorative-shapes {
+            position: absolute;
+            z-index: 1;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            overflow: hidden;
+        }
+
+        .shape {
+            position: absolute;
+            border-radius: 50%;
+            opacity: 0.1;
+        }
+
+        .shape-1 {
+            width: 200px;
+            height: 200px;
+            background: var(--teal);
+            top: 10%;
+            right: 10%;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .shape-2 {
+            width: 150px;
+            height: 150px;
+            background: var(--coral);
+            bottom: 20%;
+            left: 15%;
+            animation: float 4s ease-in-out infinite reverse;
+        }
+
+        .shape-3 {
+            width: 100px;
+            height: 100px;
+            background: var(--warm-yellow);
+            top: 50%;
+            left: 5%;
+            animation: float 5s ease-in-out infinite;
+        }
+
+        /* Quick Links Section */
+        .quick-links {
+            background: var(--white);
+            padding: 4rem 0;
+        }
+
+        .section-title {
+            font-family: 'Silkscreen', monospace;
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 3rem;
+            color: var(--text-dark);
+            position: relative;
+            font-weight: 500;
+        }
+
+        .section-title::after {
+            content: '';
+            width: 80px;
+            height: 6px;
+            background: var(--dark-brown);
+            display: block;
+            margin: 1rem auto;
+            border-radius: 3px;
+        }
+
+        .links-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr); 
+            gap: 1.5rem; 
+            margin-top: 2rem;
+        }
+
+        .link-card {
+            background: var(--soft-peach);
+            padding: 2rem;
+            border-radius: 20px;
+            text-align: center;
+            transition: all 0.3s ease;
+            border: 3px solid transparent;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .link-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--teal);
+            box-shadow: 0 15px 35px rgba(118, 180, 185, 0.2);
+        }
+
+        .link-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .link-card:hover::before {
+            left: 100%;
+        }
+
+        .link-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            display: block;
+            
+        }
+
+        .link-card h3 {
+            font-family: 'Silkscreen', monospace;
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: var(--text-dark);
+            font-weight: 500;
+        }
+
+        .link-button {
+            background: var(--teal);
+            color: white;
+            padding: 0.8rem 2rem;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            display: inline-block;
+            margin-top: 1rem;
+        }
+
+        .link-button:hover {
+            background: #6BA4A9;
+            transform: translateY(-2px);
+        }
+
+        /* UI Showcase Section */
+        .ui-showcase {
+            background: var(--cream);
+            padding: 4rem 0;
+        }
+
+        .ui-slideshow-container {
+            max-width: 900px;
+            margin: 0 auto;
+            position: relative;
+            background: var(--white);
+            border-radius: 25px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(91, 74, 59, 0.1);
+        }
+
+        .ui-slide {
+            display: none;
+            width: 100%;
+            height: 600px;
+            position: relative;
+        }
+
+        .ui-slide.active {
+            display: block;
+        }
+
+        .ui-slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            background: var(--white);
+        }
+
+        .ui-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+            color: white;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .ui-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255, 255, 255, 0.9);
+            border: none;
+            padding: 15px 20px;
+            font-size: 1.5rem;
+            cursor: pointer;
+            border-radius: 50%;
+            transition: all 0.3s ease;
+            z-index: 10;
+        }
+
+        .ui-nav:hover {
+            background: rgba(255, 255, 255, 1);
+            transform: translateY(-50%) scale(1.1);
+        }
+
+        .ui-nav.prev {
+            left: 20px;
+        }
+
+        .ui-nav.next {
+            right: 20px;
+        }
+
+        .ui-dots {
+            text-align: center;
+            padding: 20px;
+            background: var(--white);
+        }
+
+        .ui-dot {
+            height: 12px;
+            width: 12px;
+            margin: 0 5px;
+            background-color: rgba(91, 74, 59, 0.3);
+            border-radius: 50%;
+            display: inline-block;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .ui-dot.active,
+        .ui-dot:hover {
+            background-color: var(--teal);
+            transform: scale(1.3);
+        }
+
+        /* Design Process Section */
+        .design-process {
+            background: var(--white);
+            padding: 4rem 0;
+        }
+
+        .process-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+
+        .process-card {
+            background: var(--cream);
+            padding: 2.5rem;
+            border-radius: 20px;
+            border: 3px solid var(--soft-peach);
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .process-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--coral);
+            box-shadow: 0 15px 35px rgba(225, 118, 108, 0.2);
+        }
+
+        .process-number {
+            position: absolute;
+            top: -15px;
+            left: 30px;
+            background: var(--coral);
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        .process-card h3 {
+            font-family: 'Silkscreen', monospace;
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+            color: var(--text-dark);
+            margin-top: 1rem;
+            font-weight: 500;
+        }
+
+        .inspiration-images {
+            display: flex;
+            gap: 1rem;
+            margin: 1rem 0;
+            flex-wrap: wrap;
+        }
+
+        .inspiration-logo {
+            width: 60px;
+            height: 60px;
+            border-radius: 10px;
+            object-fit: contain;
+            background: var(--white);
+            padding: 8px;
+            box-shadow: 0 4px 12px rgba(91, 74, 59, 0.1);
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0px);
+            }
+            50% {
+                transform: translateY(-20px);
+            }
+        }
+
+        .fade-in {
+            animation: fadeInUp 0.6s ease;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .section-header {
+                font-size: 2rem;
+            }
+
+            .back-button {
+                position: relative;
+                z-index: 10;
+                top: 0;
+                left: 0;
+                margin-bottom: 2rem;
+                display: inline-block;
+            }
+
+            .header {
+                min-height: 40vh;
+                padding: 1rem 0;
+            }
+
+            .problem-statement,
+            .quick-links,
+            .ui-showcase,
+            .design-process {
+                padding: 3rem 0;
+            }
+
+            .problem-content {
+                font-size: 1.1rem;
+            }
+
+            .links-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .process-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .ui-slideshow-container {
+                margin: 0 1rem;
+            }
+
+            .ui-slide {
+                height: 400px;
+            }
+
+            .ui-nav {
+                padding: 10px 15px;
+                font-size: 1.2rem;
+            }
+
+            .inspiration-images {
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Section - Clean with just image -->
+    <div class="header">
+        <a href="./portfolio.html" class="back-button">← Back to Portfolio</a>
+        <div class="container">
+            <img src="./images/project-cover/clubrainbow.png" alt="Club Rainbow" class="hero-image fade-in">
+        </div>
+        <div class="decorative-shapes">
+            <div class="shape shape-1"></div>
+            <div class="shape shape-2"></div>
+            <div class="shape shape-3"></div>
+        </div>
+    </div>
+
+    <!-- Problem Statement Section -->
+    <section class="problem-statement">
+        <div class="container">
+            <h2 class="section-header problem fade-in">About</h2>
+            <div class="problem-content fade-in">
+                <p>In Junior College, I was the Service Learning Advocate and led my class in a project with <strong>Club Rainbow</strong> to organise a programme aimed at educating children with chronic illnesses more about local culture. I had directed the creation of infographics to promote the event, as well as the theme of the interactive slideshow.
+</p>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Slideshow Showcase Section -->
+    <section class="ui-showcase">
+        <div class="container">
+            <h2 class="section-title">Past works</h2>
+            <div class="ui-slideshow-container fade-in">
+                <!-- Club Rainbow Main Slide -->
+                <div class="ui-slide active">
+                    <img src="./images/clubrainbow/cover.png" alt="Club Rainbow Slide">
+                    <div class="ui-caption">
+                        <p><strong> Instagram Page Highlights:</strong> Clean and uniform colour palette with similar pixel/ tech theme</p>
+                    </div>
+                </div>
+
+                <!-- Club Rainbow Slide -->
+                <div class="ui-slide">
+                    <img src="./images/clubrainbow/littleindia.png" alt="Club Rainbow Slide">
+                    <div class="ui-caption">
+                        <p><strong>Introduction to WiT Series:</strong> Introduces Women in Tech (WiT) through on-brand tech theme and matching color scheme. </p>
+                    </div>
+                </div>
+
+                <!-- Club Rainbow Slide -->
+                <div class="ui-slide">
+                    <img src="./images/clubrainbow/charades.png" alt="Club Rainbow Slide">
+                    <div class="ui-caption">
+                        <p><strong> Content Page:</strong> Content page presenting WiT’s three foundational pillars—Advocacy, Career, and Community—enabling our target audience easily understand our core pillars.</p>
+                    </div>
+                </div>
+
+                <!-- Club Rainbow Slide -->
+                <div class="ui-slide">
+                    <img src="./images/clubrainbow/map.png" alt="Club Rainbow Slide">
+                    <div class="ui-caption">
+                        <p><strong>Career Pillar Slide:</strong> Aligned with WiT's color palette and images to illustrate message</p>
+                    </div>
+                </div>
+
+        
+                <!--Club Rainbow Slide -->
+                <div class="ui-slide">
+                    <img src="./images/clubrainbow/perfume.png" alt="Club Rainbow Slide">
+                    <div class="ui-caption">
+                        <p><strong>Advocacy Pillar Slide:</strong> Use of icons and image filters to tone down harsh images & soften look.</p>
+                    </div>
+                </div>
+
+                <!-- Club Rainbow Slide -->
+                <div class="ui-slide">
+                    <img src="./images/clubrainbow/picnic.png" alt="Club Rainbow Slide">
+                    <div class="ui-caption">
+                        <p><strong>Community Slide:</strong> Aligned with WiT's color palette and images to allow audience to better understand context</p>
+                    </div>
+                </div>
+
+                <!-- Club Rainbow Slide -->
+                <div class="ui-slide">
+                    <img src="./images/clubrainbow/rules.png" alt="Club Rainbow Slide">
+                    <div class="ui-caption">
+                        <p><strong>Pottery Workshop Poster:</strong> thematic illustrations and color accents to clearly communicate the message and activity.</p>
+                    </div>
+                </div>
+
+                <!-- Navigation buttons -->
+                <button class="ui-nav prev" onclick="changeUISlide(-1)">❮</button>
+                <button class="ui-nav next" onclick="changeUISlide(1)">❯</button>
+            </div>
+            
+            <!-- Dots indicator -->
+            <div class="ui-dots">
+                <span class="ui-dot active" onclick="currentUISlide(1)"></span>
+                <span class="ui-dot" onclick="currentUISlide(2)"></span>
+                <span class="ui-dot" onclick="currentUISlide(3)"></span>
+                <span class="ui-dot" onclick="currentUISlide(4)"></span>
+                <span class="ui-dot" onclick="currentUISlide(5)"></span>
+                <span class="ui-dot" onclick="currentUISlide(6)"></span>
+                <span class="ui-dot" onclick="currentUISlide(7)"></span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Design Process Section -->
+    <section class="design-process">
+    <div class="container">
+        <h2 class="section-title">Design Process & Inspiration</h2>
+        <div class="process-grid fade-in">
+            <div class="process-card">
+                <div class="process-number">1</div>
+                <h3>Research & Inspiration</h3>
+                <p>My design process for this project was rooted in creating a friendly and engaging visual storytelling experience, combining playful illustrations with local cultural references to make learning about Singapore accessible for children with chronic illnesses.</p>
+                <br>
+                <p><strong>Key Inspirations:</strong></p>
+                <ul style="margin-top: 1rem; color: var(--text-light);">
+                    <li><strong>Character-Driven Illustration:</strong> Inspired by approachable and playful cartoon styles to create warmth and accessibility</li>
+                    <li><strong>Singaporean Cultural Elements:</strong> Local icons and landmarks that ground the experience in familiar Singaporean context</li>
+                    <li><strong>Narrative Flow Design:</strong> Comic-inspired slide layouts to keep engagement through visual storytelling</li>
+                </ul>
+            </div>
+
+            <div class="process-card">
+                <div class="process-number">2</div>
+                <h3>Color System Development</h3>
+                <p>I developed a vibrant and diverse color palette reflecting the dynamic and multicultural spirit of Singapore, balancing accessibility and emotional connection across all materials.</p>
+                <div style="display: flex; gap: 0.5rem; margin: 1rem 0; flex-wrap: wrap;">
+                    <div style="background: #71C7F5; width: 40px; height: 40px; border-radius: 8px;"></div>
+                    <div style="background: #FFE03D; width: 40px; height: 40px; border-radius: 8px;"></div>
+                    <div style="background: #7E55C7; width: 40px; height: 40px; border-radius: 8px;"></div>
+                    <div style="background: #F55072; width: 40px; height: 40px; border-radius: 8px;"></div>
+                    <div style="background: #44BF6D; width: 40px; height: 40px; border-radius: 8px;"></div>
+                    <div style="background: #FF8C42; width: 40px; height: 40px; border-radius: 8px;"></div>
+                    <div style="background: #FF5A36; width: 40px; height: 40px; border-radius: 8px;"></div>
+                    <div style="background: #284C7E; width: 40px; height: 40px; border-radius: 8px;"></div>
+                </div>
+                <p><strong>Color Strategy:</strong></p>
+                <ul style="margin-top: 1rem; color: var(--text-light);">
+                    <li><strong>Sky Blue (#71C7F5):</strong> Used for backgrounds and highlights, evoking openness and optimism in the storytelling</li>
+                    <li><strong>Sunshine Yellow (#FFE03D):</strong> Applied in speech bubbles and callouts to bring warmth and attention to key messages</li>
+                    <li><strong>Royal Purple (#7E55C7):</strong> Accent color representing creativity and cultural richness</li>
+                    <li><strong>Coral Pink (#F55072):</strong> Used for interactive elements and emotional highlights to create energy and engagement</li>
+                    <li><strong>Leaf Green (#44BF6D):</strong> Symbolizes growth, health, and community support</li>
+                    <li><strong>Vibrant Orange (#FF8C42):</strong> Highlights action buttons and important notifications to inspire activity</li>
+                    <li><strong>Bright Red-Orange (#FF5A36):</strong> Used sparingly for warnings and important alerts without overwhelming users</li>
+                    <li><strong>Deep Navy (#284C7E):</strong> Primary text and header color, ensuring clarity and professionalism</li>
+                </ul>
+            </div>
+
+            <div class="process-card">
+                <div class="process-number">3</div>
+                <h3>Typography & Consistency</h3>
+                <p>Typography is structured to guide the reader clearly through the content while reflecting the friendly and inclusive tone of the project.</p>
+                <div style="margin: 1rem 0;">
+                    <p style="font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 1.5rem; margin-bottom: 0.5rem; color: #284C7E;">Montserrat Bold - Headers & Main Titles</p>
+                    <p style="font-family: 'Nunito', sans-serif; font-weight: 600; font-size: 1.2rem; margin-bottom: 0.5rem; color: #231F20;">Nunito SemiBold - Body Text & Content</p>
+                    
+                </div>
+                <ul style="margin-top: 1rem; color: var(--text-light);">
+                    <li><strong>Montserrat:</strong> Bold and modern for strong, clear headings that anchor each section</li>
+                    <li><strong>Nunito:</strong> Warm, semi-bold body font lending readability and approachability for content</li>
+                    <li><strong>Comic Neue:</strong> Used exclusively in speech bubbles to convey playfulness and dialogue emphasis in a conversational tone</li>
+                    <li><strong>Consistent Hierarchy:</strong> Clear typographic structure ensures users follow the narrative smoothly across media</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+    <script>
+        let slideIndex = 1;
+
+        function changeUISlide(n) {
+            showUISlide(slideIndex += n);
+        }
+
+        function currentUISlide(n) {
+            showUISlide(slideIndex = n);
+        }
+
+        function showUISlide(n) {
+            let slides = document.getElementsByClassName("ui-slide");
+            let dots = document.getElementsByClassName("ui-dot");
+            if (n > slides.length) {slideIndex = 1}
+            if (n < 1) {slideIndex = slides.length}
+            for (let i = 0; i < slides.length; i++) {
+                slides[i].classList.remove("active");
+            }
+            for (let i = 0; i < dots.length; i++) {
+                dots[i].classList.remove("active");
+            }
+            slides[slideIndex-1].classList.add("active");
+            dots[slideIndex-1].classList.add("active");
+        }
+
+        // Intersection Observer for fade-in animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe all fade-in elements
+        document.addEventListener('DOMContentLoaded', () => {
+            const fadeElements = document.querySelectorAll('.fade-in');
+            fadeElements.forEach(el => {
+                el.style.opacity = '0';
+                el.style.transform = 'translateY(30px)';
+                el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+                observer.observe(el);
+            });
+        });
+    </script>
+</body>
+</html>
