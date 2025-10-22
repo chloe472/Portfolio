@@ -1,0 +1,681 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>It's Raining Raincoats - Case Study | Chloe Wang</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Silkscreen:wght@400;700&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --cream: #FFF4EF;
+            --soft-peach: #F6DEC8;
+            --coral: #E1766C;
+            --warm-yellow: #F9C87D;
+            --teal: #76B4B9;
+            --dark-brown: #5B4A3B;
+            --text-dark: #5B4A3B;
+            --text-light: #8B7564;
+            --white: #FFFFFF;
+            --dusty-blue: #A3B4C7;
+            --sage-green: #9CAF88;
+        }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background: var(--cream);
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header with Hero Image */
+        .header {
+            background: var(--white);
+            padding: 2rem 0;
+            position: relative;
+            min-height: 60vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .back-button {
+            position: absolute;
+            z-index: 10;
+            top: 2rem;
+            left: 2rem;
+            background: rgba(91, 74, 59, 0.1);
+            color: var(--text-dark);
+            border: 2px solid rgba(91, 74, 59, 0.2);
+            padding: 0.7rem 1.5rem;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .back-button:hover {
+            background: rgba(91, 74, 59, 0.2);
+            transform: translateY(-2px);
+        }
+
+        .hero-image {
+            max-width: 100%;
+            height: auto;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(91, 74, 59, 0.15);
+        }
+
+        /* Decorative Elements */
+        .decorative-shapes {
+            position: absolute;
+            z-index: 1;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            overflow: hidden;
+        }
+
+        .shape {
+            position: absolute;
+            border-radius: 50%;
+            opacity: 0.1;
+        }
+
+        .shape-1 {
+            width: 200px;
+            height: 200px;
+            background: var(--coral);
+            top: 10%;
+            left: 5%;
+            animation: float 15s ease-in-out infinite;
+        }
+
+        .shape-2 {
+            width: 150px;
+            height: 150px;
+            background: var(--teal);
+            bottom: 15%;
+            right: 10%;
+            animation: float 12s ease-in-out infinite reverse;
+        }
+
+        .shape-3 {
+            width: 100px;
+            height: 100px;
+            background: var(--warm-yellow);
+            top: 50%;
+            right: 5%;
+            animation: float 10s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0) rotate(0deg);
+            }
+            50% {
+                transform: translateY(-20px) rotate(10deg);
+            }
+        }
+
+        .hero-content {
+            text-align: center;
+            padding: 3rem 0;
+        }
+
+        .project-title {
+            font-family: 'Silkscreen', monospace;
+            font-size: 3.5rem;
+            color: var(--text-dark);
+            margin-bottom: 1rem;
+            font-weight: 500;
+        }
+
+        .project-subtitle {
+            font-size: 1.5rem;
+            color: var(--text-light);
+            margin-bottom: 2rem;
+        }
+
+        .project-badges {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 2rem;
+        }
+
+        .badge {
+            background: var(--white);
+            padding: 0.5rem 1.2rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: var(--text-dark);
+            border: 2px solid var(--soft-peach);
+        }
+
+        /* Overview Section */
+        .overview-section {
+            background: var(--white);
+            padding: 4rem 0;
+        }
+
+        .overview-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .overview-item h3 {
+            font-family: 'Silkscreen', monospace;
+            font-size: 1rem;
+            color: var(--coral);
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+
+        .overview-item p {
+            color: var(--text-light);
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+
+        /* Problem Statement */
+        .problem-statement {
+            background: var(--cream);
+            padding: 4rem 0;
+            text-align: center;
+        }
+
+        .section-header {
+            font-family: 'Silkscreen', monospace;
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            color: var(--text-dark);
+            position: relative;
+            font-weight: 500;
+        }
+
+        .section-header.problem {
+            color: var(--coral);
+        }
+
+        .problem-content {
+            max-width: 900px;
+            margin: 0 auto;
+            font-size: 1.2rem;
+            color: var(--text-dark);
+            line-height: 1.8;
+        }
+
+        .highlight-box {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 15px;
+            margin: 2rem 0;
+            border-left: 5px solid var(--coral);
+        }
+
+        /* UI Showcase Section */
+        .ui-showcase {
+            background: var(--cream);
+            padding: 4rem 0;
+        }
+
+        .section-title {
+            font-family: 'Silkscreen', monospace;
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 3rem;
+            color: var(--text-dark);
+            position: relative;
+            font-weight: 500;
+        }
+
+        .ui-slideshow-container {
+            max-width: 900px;
+            margin: 0 auto;
+            position: relative;
+            background: var(--white);
+            border-radius: 25px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(91, 74, 59, 0.1);
+        }
+
+        .ui-slide {
+            display: none;
+            width: 100%;
+            height: 600px;
+            position: relative;
+        }
+
+        .ui-slide.active {
+            display: block;
+        }
+
+        .ui-slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            background: var(--white);
+        }
+
+        .ui-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+            color: white;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .ui-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255, 255, 255, 0.9);
+            border: none;
+            padding: 15px 20px;
+            font-size: 1.5rem;
+            cursor: pointer;
+            border-radius: 50%;
+            transition: all 0.3s ease;
+            z-index: 10;
+        }
+
+        .ui-nav:hover {
+            background: rgba(255, 255, 255, 1);
+            transform: translateY(-50%) scale(1.1);
+        }
+
+        .ui-nav.prev {
+            left: 20px;
+        }
+
+        .ui-nav.next {
+            right: 20px;
+        }
+
+        .ui-dots {
+            text-align: center;
+            padding: 20px;
+            background: var(--white);
+        }
+
+        .ui-dot {
+            height: 12px;
+            width: 12px;
+            margin: 0 5px;
+            background-color: rgba(91, 74, 59, 0.3);
+            border-radius: 50%;
+            display: inline-block;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .ui-dot.active,
+        .ui-dot:hover {
+            background-color: var(--teal);
+            transform: scale(1.3);
+        }
+
+        /* Prototype Section */
+        .prototype-section {
+            background: var(--cream);
+            padding: 4rem 0;
+        }
+
+        .prototype-container {
+            max-width: 1000px;
+            margin: 3rem auto;
+            background: var(--white);
+            border-radius: 20px;
+            padding: 2rem;
+            box-shadow: 0 20px 60px rgba(91, 74, 59, 0.15);
+        }
+
+        .figma-embed {
+            width: 100%;
+            height: 600px;
+            border: none;
+            border-radius: 10px;
+        }
+
+        .prototype-link {
+            text-align: center;
+            margin-top: 2rem;
+        }
+
+        .prototype-link a {
+            display: inline-block;
+            background: var(--teal);
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .prototype-link a:hover {
+            background: #6BA4A9;
+            transform: translateY(-2px);
+        }
+
+        /* Animations */
+        .fade-in {
+            opacity: 0;
+            animation: fadeIn 1s ease-in forwards;
+        }
+
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .project-title {
+                font-size: 2.5rem;
+            }
+
+            .project-subtitle {
+                font-size: 1.2rem;
+            }
+
+            .section-header {
+                font-size: 2rem;
+            }
+
+            .figma-embed {
+                height: 400px;
+            }
+
+            .ui-slide {
+                height: 400px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header with Hero Image -->
+    <header class="header">
+        <a href="portfolio.html" class="back-button">← Back to Portfolio</a>
+        <div class="container">
+            <img src="./images/project-cover/dg.png" alt="It's Raining Raincoats Project Banner" class="hero-image">
+        </div>
+        <div class="decorative-shapes">
+            <div class="shape shape-1"></div>
+            <div class="shape shape-2"></div>
+            <div class="shape shape-3"></div>
+        </div>
+    </header>
+
+    <!-- Overview Section -->
+    <section class="overview-section">
+        <div class="container">
+            <div class="overview-grid">
+                <div class="overview-item">
+                    <h3>Timeline</h3>
+                    <p>September 2024 - December 2024<br>(4 months)</p>
+                </div>
+                <div class="overview-item">
+                    <h3>Role</h3>
+                    <p>UI/UX Associate<br>Developer Group @ NUS Computing</p>
+                </div>
+                <div class="overview-item">
+                    <h3>Tools</h3>
+                    <p>Figma, User Research, Wireframing</p>
+                </div>
+                <div class="overview-item">
+                    <h3>Organization</h3>
+                    <p>It's Raining Raincoats<br>(Non-Profit Organization)</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Problem Statement -->
+    <section class="problem-statement">
+        <div class="container">
+            <h2 class="section-header problem">The Challenge</h2>
+            <div class="problem-content">
+                <p>It's Raining Raincoats (IRR) is a non-profit organization dedicated to supporting migrant workers in Singapore. Their existing booking system faced critical operational challenges that hindered their mission.</p>
+                
+                <div class="highlight-box">
+                    <h3 style="color: var(--coral); margin-bottom: 1rem;">Key Problems Identified:</h3>
+                    <p><strong>❌ No Repeat Booking Prevention:</strong> System couldn't block duplicate bookings, leading to capacity issues and unfair access</p>
+                    <p><strong>❌ Manual Communication:</strong> Staff had to manually send confirmations and reminders, consuming valuable time</p>
+                    <p><strong>❌ Lack of Worker History:</strong> No integrated tracking of attendance or eligibility, making follow-ups difficult</p>
+                    <p><strong>❌ No Central Dashboard:</strong> Staff lacked visibility into bookings, attendance, and capacity management</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- UI Showcase Section -->
+    <section class="ui-showcase">
+        <div class="container">
+            <h2 class="section-title">User Interface Showcase</h2>
+            <div class="ui-slideshow-container fade-in">
+                <!-- Slide 1 -->
+                <div class="ui-slide active">
+                    <img src="./images/dg/Create Time Slot 2.png" alt="Create Time Slot 2">
+                    <div class="ui-caption">
+                        <p><strong>Create Time Slot:</strong> Interface for creating new time slots</p>
+                    </div>
+                </div>
+
+                <!-- Slide 2 -->
+                <div class="ui-slide">
+                    <img src="./images/dg/Create Time Slot 3.png" alt="Create Time Slot 3">
+                    <div class="ui-caption">
+                        <p><strong>Time Slot Details:</strong> Setting up slot parameters</p>
+                    </div>
+                </div>
+
+                <!-- Slide 3 -->
+                <div class="ui-slide">
+                    <img src="./images/dg/Create Time Slot 4.png" alt="Create Time Slot 4">
+                    <div class="ui-caption">
+                        <p><strong>Time Configuration:</strong> Configuring availability</p>
+                    </div>
+                </div>
+
+                <!-- Slide 4 -->
+                <div class="ui-slide">
+                    <img src="./images/dg/Create Time Slot 5.png" alt="Create Time Slot 5">
+                    <div class="ui-caption">
+                        <p><strong>Finalize Setup:</strong> Completing time slot creation</p>
+                    </div>
+                </div>
+
+                <!-- Slide 5 -->
+                <div class="ui-slide">
+                    <img src="./images/dg/Edit Time Slot 1.png" alt="Edit Time Slot 1">
+                    <div class="ui-caption">
+                        <p><strong>Edit Time Slot:</strong> Modifying existing slots</p>
+                    </div>
+                </div>
+
+                <!-- Slide 6 -->
+                <div class="ui-slide">
+                    <img src="./images/dg/Edit Time Slot 2.png" alt="Edit Time Slot 2">
+                    <div class="ui-caption">
+                        <p><strong>Update Details:</strong> Editing slot information</p>
+                    </div>
+                </div>
+
+                <!-- Slide 7 -->
+                <div class="ui-slide">
+                    <img src="./images/dg/Edit Time Slot 3.png" alt="Edit Time Slot 3">
+                    <div class="ui-caption">
+                        <p><strong>Modify Schedule:</strong> Adjusting time parameters</p>
+                    </div>
+                </div>
+
+                <!-- Slide 8 -->
+                <div class="ui-slide">
+                    <img src="./images/dg/Edit Time Slot 4.png" alt="Edit Time Slot 4">
+                    <div class="ui-caption">
+                        <p><strong>Review Changes:</strong> Confirming modifications</p>
+                    </div>
+                </div>
+
+                <!-- Slide 9 -->
+                <div class="ui-slide">
+                    <img src="./images/dg/Edit Time Slot 5.png" alt="Edit Time Slot 5">
+                    <div class="ui-caption">
+                        <p><strong>Save Updates:</strong> Finalizing edits</p>
+                    </div>
+                </div>
+
+                <!-- Slide 10 -->
+                <div class="ui-slide">
+                    <img src="./images/dg/Edit Time Slot 6.png" alt="Edit Time Slot 6">
+                    <div class="ui-caption">
+                        <p><strong>Confirmation:</strong> Changes saved successfully</p>
+                    </div>
+                </div>
+
+                <!-- Slide 11 -->
+                <div class="ui-slide">
+                    <img src="./images/dg/Edit Worker's Attendance 1.png" alt="Edit Worker's Attendance 1">
+                    <div class="ui-caption">
+                        <p><strong>Attendance Management:</strong> Tracking worker attendance</p>
+                    </div>
+                </div>
+
+                <!-- Slide 12 -->
+                <div class="ui-slide">
+                    <img src="./images/dg/Edit Worker's Attendance 2.png" alt="Edit Worker's Attendance 2">
+                    <div class="ui-caption">
+                        <p><strong>Record Attendance:</strong> Logging participation</p>
+                    </div>
+                </div>
+
+                <!-- Slide 13 -->
+                <div class="ui-slide">
+                    <img src="./images/dg/Edit Worker's Attendance 3.png" alt="Edit Worker's Attendance 3">
+                    <div class="ui-caption">
+                        <p><strong>Update Records:</strong> Modifying attendance data</p>
+                    </div>
+                </div>
+
+                <!-- Slide 14 -->
+                <div class="ui-slide">
+                    <img src="./images/dg/Edit Worker's Attendance 4.png" alt="Edit Worker's Attendance 4">
+                    <div class="ui-caption">
+                        <p><strong>Verify Data:</strong> Confirming attendance entries</p>
+                    </div>
+                </div>
+
+                <!-- Slide 15 -->
+                <div class="ui-slide">
+                    <img src="./images/dg/Edit Worker's Attendance 5.png" alt="Edit Worker's Attendance 5">
+                    <div class="ui-caption">
+                        <p><strong>Complete Entry:</strong> Finalizing attendance records</p>
+                    </div>
+                </div>
+
+                <!-- Navigation buttons -->
+                <button class="ui-nav prev" onclick="changeUISlide(-1)">❮</button>
+                <button class="ui-nav next" onclick="changeUISlide(1)">❯</button>
+            </div>
+            
+            <!-- Dots indicator -->
+            <div class="ui-dots">
+                <span class="ui-dot active" onclick="currentUISlide(1)"></span>
+                <span class="ui-dot" onclick="currentUISlide(2)"></span>
+                <span class="ui-dot" onclick="currentUISlide(3)"></span>
+                <span class="ui-dot" onclick="currentUISlide(4)"></span>
+                <span class="ui-dot" onclick="currentUISlide(5)"></span>
+                <span class="ui-dot" onclick="currentUISlide(6)"></span>
+                <span class="ui-dot" onclick="currentUISlide(7)"></span>
+                <span class="ui-dot" onclick="currentUISlide(8)"></span>
+                <span class="ui-dot" onclick="currentUISlide(9)"></span>
+                <span class="ui-dot" onclick="currentUISlide(10)"></span>
+                <span class="ui-dot" onclick="currentUISlide(11)"></span>
+                <span class="ui-dot" onclick="currentUISlide(12)"></span>
+                <span class="ui-dot" onclick="currentUISlide(13)"></span>
+                <span class="ui-dot" onclick="currentUISlide(14)"></span>
+                <span class="ui-dot" onclick="currentUISlide(15)"></span>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        let slideIndex = 1;
+
+        function changeUISlide(n) {
+            showUISlide(slideIndex += n);
+        }
+
+        function currentUISlide(n) {
+            showUISlide(slideIndex = n);
+        }
+
+        function showUISlide(n) {
+            let slides = document.getElementsByClassName("ui-slide");
+            let dots = document.getElementsByClassName("ui-dot");
+            if (n > slides.length) {slideIndex = 1}
+            if (n < 1) {slideIndex = slides.length}
+            for (let i = 0; i < slides.length; i++) {
+                slides[i].classList.remove("active");
+            }
+            for (let i = 0; i < dots.length; i++) {
+                dots[i].classList.remove("active");
+            }
+            slides[slideIndex-1].classList.add("active");
+            dots[slideIndex-1].classList.add("active");
+        }
+
+        // Intersection Observer for fade-in animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe all fade-in elements
+        document.addEventListener('DOMContentLoaded', () => {
+            const fadeElements = document.querySelectorAll('.fade-in');
+            fadeElements.forEach(el => {
+                el.style.opacity = '0';
+                el.style.transform = 'translateY(30px)';
+                el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+                observer.observe(el);
+            });
+        });
+    </script>
+</body>
+</html>

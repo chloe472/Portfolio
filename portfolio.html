@@ -1253,7 +1253,7 @@
                 </div>
             </div>
         </div>
-    </section>
+IRR    </section>
 
     <!-- Projects Section -->
     <section id="projects">
@@ -1261,6 +1261,32 @@
         <div class="container">
             <h2>Past Projects</h2>
             <div class="projects-grid fade-in">
+
+
+
+                <!--ConvoPal-->
+                <div class="project-card" id="convopal-card" onclick="navigateToIRR()">
+                    <div class="project-image">
+                        <img src="./images/project-cover/dg.png" alt="ItsRainingRaincoat’s Admin Dashboard" style="width: 100%; height: 100%; object-fit: cover; border-radius: 0;">
+                        
+                    </div>
+                    <div class="project-content">
+                        <h3>Developer's Group - It'sRainingRaincoats's Admin Dashboard</h3>
+                        <p>Designed and developed the complete UI/UX for a book and management platform that prevents repeat bookings, automates confirmations and reminders, and integrates worker history for better tracking and service delivery.
+                            
+                        </p>
+                        <div class="project-tags">
+                            <span class="tag">GitHub</span>
+                            <span class="tag">Figma</span>
+                            <span class="tag">MERN Project</span>
+                            <span class="tag">React.js</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="link-primary" onclick="event.stopPropagation(); navigateToIRR()">View Case Study</a>
+                        </div>
+                    </div>
+                </div>
+
 
                 <!--ConvoPal-->
                 <div class="project-card" id="convopal-card" onclick="navigateToConvoPal()">
@@ -1494,6 +1520,10 @@
                 element.style.transform = `translateY(${scrolled * speed}px)`;
             });
         });
+
+        function navigateToIRR() {
+            window.open('./irr.html', '_blank');
+        }
 
         function navigateToConvoPal() {
             window.open('./convopal_case_study.html', '_blank');
