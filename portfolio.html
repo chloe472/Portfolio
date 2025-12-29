@@ -833,7 +833,7 @@
             right: -25px;
             background: var(--white);
             border: 3px solid var(--dusty-blue);
-            top: 20px;
+            top: 20px;ENG
             border-radius: 50%;
             z-index: 1;
             display: flex;
@@ -847,25 +847,29 @@
     /* Individual timeline item icons */
 
     .timeline-item:nth-child(1)::after {
-        background-image: url('./images/journey/dscnus_logo.jpeg');
+        background-image: url('./images/journey/engie.jpg');
     }
 
     .timeline-item:nth-child(2)::after {
-        background-image: url('./images/journey/orbital.png');
+        background-image: url('./images/journey/dscnus_logo.jpeg');
     }
 
     .timeline-item:nth-child(3)::after {
-        background-image: url('./images/journey/nuspickleballlogo.png');
+        background-image: url('./images/journey/orbital.png');
         left: -25px;
     }
 
     .timeline-item:nth-child(4)::after {
-        background-image: url('./images/journey/witlogo.jpeg');
+        background-image: url('./images/journey/nuspickleballlogo.png');
     }
 
     .timeline-item:nth-child(5)::after {
-        background-image: url('./images/journey/helixhouse.png');
+        background-image: url('./images/journey/witlogo.jpeg');
         left: -25px;
+    }
+
+    .timeline-item:nth-child(6)::after {
+        background-image: url('./images/journey/helixhouse.png');
     }
 
         .timeline-item:nth-child(even) {
@@ -1011,21 +1015,29 @@
 
             /* Individual timeline item icons */
             .timeline-item:nth-child(1)::after {
-                background-image: url('./images/journey/orbital.png');
+                background-image: url('./images/journey/engie.jpg');
             }
 
             .timeline-item:nth-child(2)::after {
-                background-image: url('./images/journey/nuspickleballlogo.png');
-                left: -25px;
+                background-image: url('./images/journey/dscnus_logo.jpeg');
             }
 
             .timeline-item:nth-child(3)::after {
-                background-image: url('./images/journey/witlogo.png');
+                background-image: url('./images/journey/orbital.png');
+                left: -25px;
             }
 
             .timeline-item:nth-child(4)::after {
-                background-image: url('./images/journey/helixhouse.png');
+                background-image: url('./images/journey/nuspickleballlogo.png');
+            }
+
+            .timeline-item:nth-child(5)::after {
+                background-image: url('./images/journey/witlogo.jpeg');
                 left: -25px;
+            }
+
+            .timeline-item:nth-child(6)::after {
+                background-image: url('./images/journey/helixhouse.png');
             }
 
             .timeline-item:nth-child(even) {
@@ -1205,12 +1217,7 @@
             <div class="about-text">
                 <p>Hi, I'm Chloe – a Year 2 Business AI Systems student at NUS who's passionate about <strong>design, community, and women in tech</strong>!
                 <br> <br>
-
-                My journey began with NUS's "Intro to Computer Science for A-Level Graduating Girls," where I discovered the magic of tech in an inclusive, supportive space. Since then, I’ve aimed to empower other women in computing through my role as Publicity Associate at Women in Tech @ NUS Computing.
-
-    
-                <br> <br>
-                Outside tech, I LOVE pickleball. Combining this with my passion for design, I help with publicity for NUS Pickleball, honing my skills and sharing the sport within our community. 💗
+                Outside tech, I LOVE pickleball.💗
 
                 <br> <br>
 
@@ -1262,18 +1269,19 @@ IRR    </section>
             <h2>Past Projects</h2>
             <div class="projects-grid fade-in">
 
-
-
                 <!--ItsRainingRaincoat's-->
                 <div class="project-card" id="convopal-card" onclick="navigateToIRR()">
                     <div class="project-image">
-                        <img src="./images/project-cover/dg.png" alt="ItsRainingRaincoat’s Admin Dashboard" style="width: 100%; height: 100%; object-fit: cover; border-radius: 0;">
-                        
+                        <img src="./images/project-cover/dg.png" alt="ItsRainingRaincoat’s Admin Dashboard"
+                            style="width: 100%; height: 100%; object-fit: cover; border-radius: 0;">
+                
                     </div>
                     <div class="project-content">
                         <h3>Developer's Group - It'sRainingRaincoats's Admin Dashboard</h3>
-                        <p>Designed and developed the complete UI/UX for a book and management platform that prevents repeat bookings, automates confirmations and reminders, and integrates worker history for better tracking and service delivery.
-                            
+                        <p>Designed and developed the complete UI/UX for a book and management platform that prevents repeat bookings,
+                            automates confirmations and reminders, and integrates worker history for better tracking and service
+                            delivery.
+                
                         </p>
                         <div class="project-tags">
                             <span class="tag">Figma</span>
@@ -1283,28 +1291,151 @@ IRR    </section>
                         </div>
                     </div>
                 </div>
-
-
+                
+                
                 <!--ConvoPal-->
                 <div class="project-card" id="convopal-card" onclick="navigateToConvoPal()">
+                    <div class="project-image">
+                        <img src="./images/project-cover/ConvoPal.png" alt="ConvoPal AI Chat Platform"
+                            style="width: 100%; height: 100%; object-fit: cover; border-radius: 0;">
+                
+                    </div>
+                    <div class="project-content">
+                        <h3>ConvoPal - AI Chat Platform</h3>
+                        <p>Designed and developed the complete UI/UX for an AI-powered conversation platform as part of NUS Orbital
+                            program. Created user flows and wireframes focusing on intuitive conversation management.</p>
+                        <div class="project-tags">
+                            <span class="tag">GitHub</span>
+                            <span class="tag">Figma</span>
+                            <span class="tag">MERN Project</span>
+                            <span class="tag">React.js</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="link-primary" onclick="event.stopPropagation(); navigateToConvoPal()">View Case Study</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!--LaundryDash-->
+                <div class="project-card" id="convopal-card" onclick="navigateToLaundryDash()">
+                    <div class="project-image">
+                        <img src="./images/project-cover/laundrydash.png" alt="LaundryDash Project Cover"
+                            style="width: 100%; height: 100%; object-fit: cover; border-radius: 0;">
+                
+                    </div>
+                    <div class="project-content">
+                        <h3>LaundryDash | IS2102 Project</h3>
+                        <p>Conducted end-to-end requirements analysis for LaundryDash, a three-sided marketplace connecting customers, drivers, and
+                        laundry partners, delivering a comprehensive Business Requirements Document with personas, user stories, use case
+                        diagrams, and interactive Figma prototypes.
+                
+                        </p>
+                        <div class="project-tags">
+                            <div class="project-tags">
+                                <span class="tag">Requirements Analysis</span>
+                                <span class="tag">Figma</span>
+                                <span class="tag">User Stories</span>
+                                <span class="tag">Personas</span>
+                                <span class="tag">Use Case Diagrams</span>
+                                <span class="tag">Wireframing</span>
+                                <span class="tag">Prototyping</span>
+                            </div>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="link-primary" onclick="event.stopPropagation(); navigateToLaundryDash()">View Content</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!--AuroraMart-->
+                <!--
+                <div class="project-card" id="convopal-card" onclick="navigateToAuroraMart()">
+                    <div class="project-image">
+                        <img src="./images/project-cover/auroramart.png" alt="AuroraMart Project Cover"
+                            style="width: 100%; height: 100%; object-fit: cover; border-radius: 0;">
+                
+                    </div>
+                    <div class="project-content">
+                        <h3>AuroraMart | IS2108 Project</h3>
+                        <p>Developed AuroraMart, a full-stack B2C e-commerce platform using Python and Django, integrating machine learning models
+                        for personalized shopping experiences.
+                
+                        </p>
+                        <div class="project-tags">
+                            <span class="tag">Figma</span>
+                            <span class="tag">Python</span>
+                            <span class="tag">Django</span>
+                            <span class="tag">Machine Learning</span>
+                            <span class="tag">Full-stack Development</span>
+                            <span class="tag">UI/UX Design</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="link-primary" onclick="event.stopPropagation(); navigateToAuroraMart()">View Content</a>
+                        </div>
+                    </div>
+                </div>
+                -->
+                
+                <!--ImpactHub-->
+                <!--
+                <div class="project-card" id="convopal-card" onclick="navigateToImpactHub()">
+                    <div class="project-image">
+                        <img src="./images/project-cover/impacthub.png" alt="ImpactHub Project Cover"
+                            style="width: 100%; height: 100%; object-fit: cover; border-radius: 0;">
+                
+                    </div>
+                    <div class="project-content">
+                        <h3>ImpactHub | IS2102 Project</h3>
+                        <p>
+                        Conducted comprehensive requirements analysis and system design for ImpactHub, a volunteer management platform for
+                        non-profits, creating wireframes for volunteer, coordinator, and admin portals alongside detailed use case and domain
+                        model diagrams.
+                        </p>
+                        <div class="project-tags">
+                            <span class="tag">Figma</span>
+                            <span class="tag">Requirements Analysis</span>
+                            <span class="tag">UML Diagrams</span>
+                            <span class="tag">Use Case Modeling</span>
+                            <span class="tag">Wireframing</span>
+                            <span class="tag">Domain Modeling</span>
+                            <span class="tag">Activity Diagrams</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="link-primary" onclick="event.stopPropagation(); navigateToImpactHub()">View Content</a>
+                        </div>
+                    </div>
+                </div>
+            -->
+
+            <!--Personal Finance-->
+            <!--
+            <div class="project-card" id="convopal-card" onclick="navigateToPersonalFinance()">
                 <div class="project-image">
-                    <img src="./images/project-cover/ConvoPal.png" alt="ConvoPal AI Chat Platform" style="width: 100%; height: 100%; object-fit: cover; border-radius: 0;">
-                    
+                    <img src="./images/project-cover/personalfinance.png" alt="Personal Finance App Project Cover"
+                        style="width: 100%; height: 100%; object-fit: cover; border-radius: 0;">
+            
                 </div>
                 <div class="project-content">
-                    <h3>ConvoPal - AI Chat Platform</h3>
-                    <p>Designed and developed the complete UI/UX for an AI-powered conversation platform as part of NUS Orbital program. Created user flows and wireframes focusing on intuitive conversation management.</p>
+                    <h3>Personal Finance App | IS2102 Project</h3>
+                    <p>Designed mid-fidelity wireframe flows for PocketPal's expense capture feature, visualizing the complete user
+                        journey
+                        from receipt scanning to expense confirmation with structured layouts and functional elements.
+            
+                    </p>
                     <div class="project-tags">
-                        <span class="tag">GitHub</span>
                         <span class="tag">Figma</span>
-                        <span class="tag">MERN Project</span>
-                        <span class="tag">React.js</span>
+                        <span class="tag">Wireframing</span>
+                        <span class="tag">UI/UX Design</span>
+                        <span class="tag">Nielsen's Heuristics</span>
+                        <span class="tag">User Flow Design</span>
                     </div>
                     <div class="project-links">
-                        <a href="#" class="link-primary" onclick="event.stopPropagation(); navigateToConvoPal()">View Case Study</a>
+                        <a href="#" class="link-primary" onclick="event.stopPropagation(); navigateToPersonalFinance()">View
+                            Content</a>
                     </div>
                 </div>
             </div>
+            -->
 
             <!-- Women in Tech @ NUS Computing Card -->
             <div class="project-card" id="wit-card" onclick="navigateToWomenInTech()">
@@ -1391,6 +1522,14 @@ IRR    </section>
         <div class="container">
             <h2>Experience & Journey</h2>
             <div class="timeline fade-in">
+
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3>Digital Customer Sucess Intern - ENGIE Southeast Asia</h3>
+                        <p><strong>Jan 2026 - Present</strong></p>
+                        <p>Developed full-stack application gathering stakeholder requirements to streamline operational workflows, reducing process time</p>
+                    </div>
+                </div>
 
                 <div class="timeline-item">
                     <div class="timeline-content">
@@ -1517,6 +1656,22 @@ IRR    </section>
                 element.style.transform = `translateY(${scrolled * speed}px)`;
             });
         });
+
+        function navigateToAurora() {
+                window.open('./auroramart.html', '_blank');
+        }
+
+        function navigateToImpactHub() {
+                window.open('./impacthub.html', '_blank');
+        }
+
+        function navigateToLaundryDash() {
+                window.open('./laundrydash.html', '_blank');
+        }
+
+        function navigateToPersonalFinance() {
+                window.open('./personalfinance.html', '_blank');
+        }
 
         function navigateToIRR() {
             window.open('./irr.html', '_blank');

@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>It's Raining Raincoats - Case Study | Chloe Wang</title>
+    <title>AuroraMart - Full-Stack Development Django Application | Chloe Wang</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Silkscreen:wght@400;700&display=swap');
-        
+
         * {
             margin: 0;
             padding: 0;
@@ -126,9 +127,12 @@
         }
 
         @keyframes float {
-            0%, 100% {
+
+            0%,
+            100% {
                 transform: translateY(0) rotate(0deg);
             }
+
             50% {
                 transform: translateY(-20px) rotate(10deg);
             }
@@ -418,12 +422,13 @@
         }
     </style>
 </head>
+
 <body>
     <!-- Header with Hero Image -->
     <header class="header">
         <a href="portfolio.html" class="back-button">← Back to Portfolio</a>
         <div class="container">
-            <img src="./images/project-cover/dg.png" alt="It's Raining Raincoats Project Banner" class="hero-image">
+            <img src="./images/project-cover/auroramart.png" alt="AuroraMart Project Banner" class="hero-image">
         </div>
         <div class="decorative-shapes">
             <div class="shape shape-1"></div>
@@ -461,49 +466,24 @@
         <div class="container">
             <h2 class="section-header problem">The Challenge</h2>
             <div class="problem-content">
-                <p>It's Raining Raincoats (IRR) is a non-profit organization dedicated to supporting migrant workers in Singapore. Their existing booking system faced critical operational challenges that hindered their mission.</p>
-                
+                <p>It's Raining Raincoats (IRR) is a non-profit organization dedicated to supporting migrant workers in
+                    Singapore. Their existing booking system faced critical operational challenges that hindered their
+                    mission.</p>
+
                 <div class="highlight-box">
                     <h3 style="color: var(--coral); margin-bottom: 1rem;">Key Problems Identified:</h3>
-                    <p><strong>❌ No Repeat Booking Prevention:</strong> System couldn't block duplicate bookings, leading to capacity issues and unfair access</p>
-                    <p><strong>❌ Manual Communication:</strong> Staff had to manually send confirmations and reminders, consuming valuable time</p>
-                    <p><strong>❌ Lack of Worker History:</strong> No integrated tracking of attendance or eligibility, making follow-ups difficult</p>
-                    <p><strong>❌ No Central Dashboard:</strong> Staff lacked visibility into bookings, attendance, and capacity management</p>
+                    <p><strong>❌ No Repeat Booking Prevention:</strong> System couldn't block duplicate bookings,
+                        leading to capacity issues and unfair access</p>
+                    <p><strong>❌ Manual Communication:</strong> Staff had to manually send confirmations and reminders,
+                        consuming valuable time</p>
+                    <p><strong>❌ Lack of Worker History:</strong> No integrated tracking of attendance or eligibility,
+                        making follow-ups difficult</p>
+                    <p><strong>❌ No Central Dashboard:</strong> Staff lacked visibility into bookings, attendance, and
+                        capacity management</p>
                 </div>
             </div>
         </div>
     </section>
-
-    <section class="problem-statement">
-        <div class="container">
-            <h2 class="section-header problem">My Contribution</h2>
-            <div class="problem-content">
-                <p>
-                    As UI/UX Designer, I designed iterative low-fi and high-fi prototypes with Figma, integrating user and stakeholder feedback to enhance
-                    usability. I defined the product vision, utilising tools like FigmaMake for rapid prototyping and requirements analysis.
-                </p>
-            </div>
-        </div>
-    </section>
-
-    <section class="problem-statement">
-        <div class="container">
-            <h2 class="section-header problem">Our Solution</h2>
-        </div>
-    </section>
-    
-    <div class="container">
-        <img src="./images/dgoverview/dg-cover.png" alt="ConvoPal - AI-Powered Conversation Platform"
-            class="hero-image fade-in">
-    </div>
-    <div class="container">
-        <img src="./images/dgoverview/dg-feature-1.png" alt="ConvoPal - AI-Powered Conversation Platform"
-            class="hero-image fade-in">
-    </div>
-    <div class="container">
-        <img src="./images/dgoverview/dg-feature-2.png" alt="ConvoPal - AI-Powered Conversation Platform"
-            class="hero-image fade-in">
-    </div>
 
     <!-- UI Showcase Section -->
     <section class="ui-showcase">
@@ -634,7 +614,7 @@
                 <button class="ui-nav prev" onclick="changeUISlide(-1)">❮</button>
                 <button class="ui-nav next" onclick="changeUISlide(1)">❯</button>
             </div>
-            
+
             <!-- Dots indicator -->
             <div class="ui-dots">
                 <span class="ui-dot active" onclick="currentUISlide(1)"></span>
@@ -670,16 +650,16 @@
         function showUISlide(n) {
             let slides = document.getElementsByClassName("ui-slide");
             let dots = document.getElementsByClassName("ui-dot");
-            if (n > slides.length) {slideIndex = 1}
-            if (n < 1) {slideIndex = slides.length}
+            if (n > slides.length) { slideIndex = 1; }
+            if (n < 1) { slideIndex = slides.length; }
             for (let i = 0; i < slides.length; i++) {
                 slides[i].classList.remove("active");
             }
             for (let i = 0; i < dots.length; i++) {
                 dots[i].classList.remove("active");
             }
-            slides[slideIndex-1].classList.add("active");
-            dots[slideIndex-1].classList.add("active");
+            slides[slideIndex - 1].classList.add("active");
+            dots[slideIndex - 1].classList.add("active");
         }
 
         // Intersection Observer for fade-in animations
@@ -709,4 +689,5 @@
         });
     </script>
 </body>
+
 </html>

@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LaundryDash - IT Requirements Analysis | Chloe Wang</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Silkscreen:wght@400;700&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --cream: #FFF4EF;
+            --soft-peach: #F6DEC8;
+            --coral: #E1766C;
+            --warm-yellow: #F9C87D;
+            --teal: #76B4B9;
+            --dark-brown: #5B4A3B;
+            --text-dark: #5B4A3B;
+            --text-light: #8B7564;
+            --white: #FFFFFF;
+            --dusty-blue: #A3B4C7;
+            --sage-green: #9CAF88;
+        }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background: var(--cream);
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header with Hero Image */
+        .header {
+            background: var(--white);
+            padding: 2rem 0;
+            position: relative;
+            min-height: 60vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .back-button {
+            position: absolute;
+            z-index: 10;
+            top: 2rem;
+            left: 2rem;
+            background: rgba(91, 74, 59, 0.1);
+            color: var(--text-dark);
+            border: 2px solid rgba(91, 74, 59, 0.2);
+            padding: 0.7rem 1.5rem;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .back-button:hover {
+            background: rgba(91, 74, 59, 0.2);
+            transform: translateY(-2px);
+        }
+
+        .hero-image {
+            max-width: 100%;
+            height: auto;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(91, 74, 59, 0.15);
+        }
+
+        /* Decorative Elements */
+        .decorative-shapes {
+            position: absolute;
+            z-index: 1;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            overflow: hidden;
+        }
+
+        .shape {
+            position: absolute;
+            border-radius: 50%;
+            opacity: 0.1;
+        }
+
+        .shape-1 {
+            width: 200px;
+            height: 200px;
+            background: var(--coral);
+            top: 10%;
+            left: 5%;
+            animation: float 15s ease-in-out infinite;
+        }
+
+        .shape-2 {
+            width: 150px;
+            height: 150px;
+            background: var(--teal);
+            bottom: 15%;
+            right: 10%;
+            animation: float 12s ease-in-out infinite reverse;
+        }
+
+        .shape-3 {
+            width: 100px;
+            height: 100px;
+            background: var(--warm-yellow);
+            top: 50%;
+            right: 5%;
+            animation: float 10s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0) rotate(0deg);
+            }
+            50% {
+                transform: translateY(-20px) rotate(10deg);
+            }
+        }
+
+        .hero-content {
+            text-align: center;
+            padding: 3rem 0;
+        }
+
+        .project-title {
+            font-family: 'Silkscreen', monospace;
+            font-size: 3.5rem;
+            color: var(--text-dark);
+            margin-bottom: 1rem;
+            font-weight: 500;
+        }
+
+        .project-subtitle {
+            font-size: 1.5rem;
+            color: var(--text-light);
+            margin-bottom: 2rem;
+        }
+
+        .project-badges {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 2rem;
+        }
+
+        .badge {
+            background: var(--white);
+            padding: 0.5rem 1.2rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: var(--text-dark);
+            border: 2px solid var(--soft-peach);
+        }
+
+        /* Overview Section */
+        .overview-section {
+            background: var(--white);
+            padding: 4rem 0;
+        }
+
+        .overview-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .overview-item h3 {
+            font-family: 'Silkscreen', monospace;
+            font-size: 1rem;
+            color: var(--coral);
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+
+        .overview-item p {
+            color: var(--text-light);
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+
+        /* Problem Statement */
+        .problem-statement {
+            background: var(--cream);
+            padding: 4rem 0;
+            text-align: center;
+        }
+
+        .section-header {
+            font-family: 'Silkscreen', monospace;
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            color: var(--text-dark);
+            position: relative;
+            font-weight: 500;
+        }
+
+        .section-header.problem {
+            color: var(--coral);
+        }
+
+        .problem-content {
+            max-width: 900px;
+            margin: 0 auto;
+            font-size: 1.2rem;
+            color: var(--text-dark);
+            line-height: 1.8;
+        }
+
+        .highlight-box {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 15px;
+            margin: 2rem 0;
+            border-left: 5px solid var(--coral);
+        }
+
+        /* UI Showcase Section */
+        .ui-showcase {
+            background: var(--cream);
+            padding: 4rem 0;
+        }
+
+        .section-title {
+            font-family: 'Silkscreen', monospace;
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 3rem;
+            color: var(--text-dark);
+            position: relative;
+            font-weight: 500;
+        }
+
+        .ui-slideshow-container {
+            max-width: 900px;
+            margin: 0 auto;
+            position: relative;
+            background: var(--white);
+            border-radius: 25px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(91, 74, 59, 0.1);
+        }
+
+        .ui-slide {
+            display: none;
+            width: 100%;
+            height: 600px;
+            position: relative;
+        }
+
+        .ui-slide.active {
+            display: block;
+        }
+
+        .ui-slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            background: var(--white);
+        }
+
+        .ui-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+            color: white;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .ui-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255, 255, 255, 0.9);
+            border: none;
+            padding: 15px 20px;
+            font-size: 1.5rem;
+            cursor: pointer;
+            border-radius: 50%;
+            transition: all 0.3s ease;
+            z-index: 10;
+        }
+
+        .ui-nav:hover {
+            background: rgba(255, 255, 255, 1);
+            transform: translateY(-50%) scale(1.1);
+        }
+
+        .ui-nav.prev {
+            left: 20px;
+        }
+
+        .ui-nav.next {
+            right: 20px;
+        }
+
+        .ui-dots {
+            text-align: center;
+            padding: 20px;
+            background: var(--white);
+        }
+
+        .ui-dot {
+            height: 12px;
+            width: 12px;
+            margin: 0 5px;
+            background-color: rgba(91, 74, 59, 0.3);
+            border-radius: 50%;
+            display: inline-block;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .ui-dot.active,
+        .ui-dot:hover {
+            background-color: var(--teal);
+            transform: scale(1.3);
+        }
+
+        /* Prototype Section */
+        .prototype-section {
+            background: var(--cream);
+            padding: 4rem 0;
+        }
+
+        .prototype-container {
+            max-width: 1000px;
+            margin: 3rem auto;
+            background: var(--white);
+            border-radius: 20px;
+            padding: 2rem;
+            box-shadow: 0 20px 60px rgba(91, 74, 59, 0.15);
+        }
+
+        .figma-embed {
+            width: 100%;
+            height: 600px;
+            border: none;
+            border-radius: 10px;
+        }
+
+        .prototype-link {
+            text-align: center;
+            margin-top: 2rem;
+        }
+
+        .prototype-link a {
+            display: inline-block;
+            background: var(--teal);
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .prototype-link a:hover {
+            background: #6BA4A9;
+            transform: translateY(-2px);
+        }
+
+        /* Animations */
+        .fade-in {
+            opacity: 0;
+            animation: fadeIn 1s ease-in forwards;
+        }
+
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .project-title {
+                font-size: 2.5rem;
+            }
+
+            .project-subtitle {
+                font-size: 1.2rem;
+            }
+
+            .section-header {
+                font-size: 2rem;
+            }
+
+            .figma-embed {
+                height: 400px;
+            }
+
+            .ui-slide {
+                height: 400px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header with Hero Image -->
+    <header class="header">
+        <a href="portfolio.html" class="back-button">← Back to Portfolio</a>
+        <div class="container">
+            <img src="./images/project-cover/laundrydash.png" alt="LaundryDash Project Banner" class="hero-image">
+        </div>
+        <div class="decorative-shapes">
+            <div class="shape shape-1"></div>
+            <div class="shape shape-2"></div>
+            <div class="shape shape-3"></div>
+        </div>
+    </header>
+
+
+    <!-- Problem Statement -->
+    <section class="problem-statement">
+        <div class="container">
+            <h2 class="section-header problem">Problem Statement</h2>
+            <div class="problem-content">
+                <p>Busy urban professionals and families in Singapore often lack the time for household chores, especially laundry. While
+                traditional laundromats exist, they require customers to drop off and pick up their clothes, which is inconvenient.
+                There is a clear market opportunity for a technology-driven, on-demand laundry and dry-cleaning service that offers the
+                convenience of modern delivery apps.</p>
+                
+            </div>
+        </div>
+    </section>
+
+    <section class="problem-statement">
+        <div class="container">
+            <h2 class="section-header problem">Our Solution</h2>
+        </div>
+        <div class="problem-content">
+            <p>We designed a three-sided marketplace platform with AI-powered garment scanning for customers, optimized routing and
+            tiered incentives for drivers, and automated order management for laundry partners, all coordinated through a
+            comprehensive admin portal.</p>
+        
+        </div>
+    </section>
+
+    <section class="problem-statement">
+        <div class="container">
+            <h2 class="section-header problem">LaundryDash App</h2>
+        </div>
+        <div class="problem-content">
+            <p>A mobile app that lets customers quickly order laundry services through AI-powered garment scanning, manage flexible
+            subscription plans, and track orders in real-time from pickup through delivery.</p>
+    
+        </div>
+    </section>
+
+    <div class="container">
+        <img src="./images/laundry/laundry-cover (1).png" alt="ConvoPal - AI-Powered Conversation Platform"
+            class="hero-image fade-in">
+    </div>
+    <div class="container">
+        <img src="./images/laundry/laundry-cover (2).png" alt="ConvoPal - AI-Powered Conversation Platform"
+            class="hero-image fade-in">
+    </div>
+    <div class="container">
+        <img src="./images/laundry/laundry-cover (3).png" alt="ConvoPal - AI-Powered Conversation Platform"
+            class="hero-image fade-in">
+    </div>
+    <div class="container">
+        <img src="./images/laundry/laundry-cover (4).png" alt="ConvoPal - AI-Powered Conversation Platform"
+            class="hero-image fade-in">
+    </div>
+    <div class="container">
+        <img src="./images/laundry/laundry-cover (5).png" alt="ConvoPal - AI-Powered Conversation Platform"
+            class="hero-image fade-in">
+    </div>
+    <section class="problem-statement">
+        <div class="container">
+            <h2 class="section-header problem">LaundryDash Driver App</h2>
+        </div>
+        <div class="problem-content">
+            <p>A mobile app that provides drivers with optimized multi-stop routes, shift booking up to 11 days in advance, daily
+            automatic payouts, and a tiered incentive system that rewards high performers with better pay and exclusive benefits.</p>
+        
+        </div>
+    </section>
+
+    <div class="container">
+        <img src="./images/laundry/laundry-cover (6).png" alt="ConvoPal - AI-Powered Conversation Platform"
+            class="hero-image fade-in">
+    </div>
+    <div class="container">
+        <img src="./images/laundry/laundry-cover (7).png" alt="ConvoPal - AI-Powered Conversation Platform"
+            class="hero-image fade-in">
+    </div>
+    <div class="container">
+        <img src="./images/laundry/laundry-cover (8).png" alt="ConvoPal - AI-Powered Conversation Platform"
+            class="hero-image fade-in">
+    </div>
+    <div class="container">
+        <img src="./images/laundry/laundry-cover (9).png" alt="ConvoPal - AI-Powered Conversation Platform"
+            class="hero-image fade-in">
+    </div>
+    <div class="container">
+        <img src="./images/laundry/laundry-cover (10).png" alt="ConvoPal - AI-Powered Conversation Platform"
+            class="hero-image fade-in">
+    </div>
+
+
+    
+</body>
+</html>
