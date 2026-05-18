@@ -1,0 +1,41 @@
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches: [main, master]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Inject Web3Forms access key
+        env:
+          WEB3FORMS_ACCESS_KEY: ${{ secrets.WEB3FORMS_ACCESS_KEY }}
+        run: |
+          if [ -z "$WEB3FORMS_ACCESS_KEY" ]; then
+            echo "::error::Repository secret WEB3FORMS_ACCESS_KEY is not set."
+            exit 1
+          fi
+          sed -i "s/__WEB3FORMS_ACCESS_KEY__/${WEB3FORMS_ACCESS_KEY}/g" portfolio.html
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: .
+
+      - id: deployment
+        uses: actions/deploy-pages@v4
