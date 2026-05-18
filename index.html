@@ -898,8 +898,9 @@
             scroll-behavior: smooth;
         }
 
-        /* Animation for elements coming into view (hidden state applied via JS) */
         .fade-in {
+            opacity: 0;
+            transform: translateY(24px);
             transition: opacity 0.6s ease, transform 0.6s ease;
         }
 
@@ -986,10 +987,10 @@
         <div class="section-decoration">⭐</div>
         <div class="container">
             <h2>Past Projects</h2>
-            <div class="projects-grid fade-in">
+            <div class="projects-grid">
 
                 <!--ItsRainingRaincoat's-->
-                <div class="project-card" id="irr-card" onclick="navigateToIRR()">
+                <div class="project-card fade-in" id="irr-card" onclick="navigateToIRR()">
                     <div class="project-image">
                         <img src="./images/project-cover/dg.png" alt="ItsRainingRaincoat’s Admin Dashboard"
                             style="width: 100%; height: 100%; object-fit: cover; border-radius: 0;">
@@ -1010,7 +1011,7 @@
                 
                 
                 <!--ConvoPal-->
-                <div class="project-card" id="convopal-card" onclick="navigateToConvoPal()">
+                <div class="project-card fade-in" id="convopal-card" onclick="navigateToConvoPal()">
                     <div class="project-image">
                         <img src="./images/project-cover/ConvoPal.png" alt="ConvoPal AI Chat Platform"
                             style="width: 100%; height: 100%; object-fit: cover; border-radius: 0;">
@@ -1030,7 +1031,7 @@
                 </div>
 
                 <!--LaundryDash-->
-                <div class="project-card" id="laundrydash-card" onclick="navigateToLaundryDash()">
+                <div class="project-card fade-in" id="laundrydash-card" onclick="navigateToLaundryDash()">
                     <div class="project-image">
                         <img src="./images/project-cover/laundrydash.png" alt="LaundryDash Project Cover"
                             style="width: 100%; height: 100%; object-fit: cover; border-radius: 0;">
@@ -1059,7 +1060,7 @@
 
                 <!--AuroraMart-->
                 <!--
-                <div class="project-card" id="convopal-card" onclick="navigateToAuroraMart()">
+                <div class="project-card fade-in" id="convopal-card" onclick="navigateToAuroraMart()">
                     <div class="project-image">
                         <img src="./images/project-cover/auroramart.png" alt="AuroraMart Project Cover"
                             style="width: 100%; height: 100%; object-fit: cover; border-radius: 0;">
@@ -1088,7 +1089,7 @@
                 
                 <!--ImpactHub-->
                 <!--
-                <div class="project-card" id="convopal-card" onclick="navigateToImpactHub()">
+                <div class="project-card fade-in" id="convopal-card" onclick="navigateToImpactHub()">
                     <div class="project-image">
                         <img src="./images/project-cover/impacthub.png" alt="ImpactHub Project Cover"
                             style="width: 100%; height: 100%; object-fit: cover; border-radius: 0;">
@@ -1119,7 +1120,7 @@
 
             <!--Personal Finance-->
             <!--
-            <div class="project-card" id="convopal-card" onclick="navigateToPersonalFinance()">
+            <div class="project-card fade-in" id="convopal-card" onclick="navigateToPersonalFinance()">
                 <div class="project-image">
                     <img src="./images/project-cover/personalfinance.png" alt="Personal Finance App Project Cover"
                         style="width: 100%; height: 100%; object-fit: cover; border-radius: 0;">
@@ -1148,7 +1149,7 @@
             -->
 
             <!-- Women in Tech @ NUS Computing Card -->
-            <div class="project-card" id="wit-card" onclick="navigateToWomenInTech()">
+            <div class="project-card fade-in" id="wit-card" onclick="navigateToWomenInTech()">
                 <div class="project-image">
                     <img src="./images/project-cover/wit.png" alt="Women in Tech @ NUS Computing" style="width: 100%; height: 100%; object-fit: cover; border-radius: 0;">
                 </div>
@@ -1164,7 +1165,7 @@
             </div>
 
             <!-- NUS Pickleball Card -->
-            <div class="project-card" id="nuspickleball-card" onclick="navigateToNUSPickleball()">
+            <div class="project-card fade-in" id="nuspickleball-card" onclick="navigateToNUSPickleball()">
                 <div class="project-image">
                     <img src="./images/project-cover/nuspickleball3.png" alt="NUS Pickleball Club" style="width: 100%; height: 100%; object-fit: cover; border-radius: 0;">
                 </div>
@@ -1181,7 +1182,7 @@
 
                 <!--Migrant Workers Awareness Campaign-->
                 <!--
-                <div class="project-card" id="migrant-card" onclick="navigateToMigrantWorkers()">
+                <div class="project-card fade-in" id="migrant-card" onclick="navigateToMigrantWorkers()">
                     <div class="project-image">
                         <img src="./images/project-cover/migrant.png" alt="ConvoPal AI Chat Platform" style="width: 100%; height: 100%; object-fit: cover; border-radius: 0;">
                     </div>
@@ -1199,7 +1200,7 @@
                 -->
                 <!--Club Rainbow-->
                 <!--
-                <div class="project-card" id="clubrainbow-card" onclick="navigateToClubRainbow()">
+                <div class="project-card fade-in" id="clubrainbow-card" onclick="navigateToClubRainbow()">
                     <div class="project-image">
                         <img src="./images/project-cover/clubrainbow.png" alt="Club Rainbow" style="width: 100%; height: 100%; object-fit: cover; border-radius: 0;">
                     </div>
@@ -1223,10 +1224,10 @@
         <div class="section-decoration"></div>
         <div class="container">
             <h2>Experience & Journey</h2>
-            <div class="timeline fade-in">
+            <div class="timeline">
 
                 <div class="timeline-item">
-                    <div class="timeline-content">
+                    <div class="timeline-content fade-in">
                         <h3>Digital Customer Sucess Intern - ENGIE Southeast Asia</h3>
                         <p><strong>Jan 2026 - Present</strong></p>
                         <p>Developed full-stack application gathering stakeholder requirements to streamline operational workflows, reducing process time</p>
@@ -1234,7 +1235,7 @@
                 </div>
 
                 <div class="timeline-item">
-                    <div class="timeline-content">
+                    <div class="timeline-content fade-in">
                         <h3>UI/UX Associate - Developer Group @ NUS Computing</h3>
                         <p><strong>Sep 2025 - Present</strong></p>
                         <p>Designing admin dashboard interfaces for ItsRainingRaincoat’s free weekend shop booking system, developing user flows, wireframes, and prototypes that streamlined migrant workers’ booking experience and improved staff efficiency.</p>
@@ -1242,28 +1243,28 @@
                 </div>
 
                 <div class="timeline-item">
-                    <div class="timeline-content">
+                    <div class="timeline-content fade-in">
                         <h3>Project Developer - NUS Orbital Programme</h3>
                         <p><strong>May 2025 - Aug 2025</strong></p>
                         <p>Developed ConvoPal, an AI-powered conversation platform. Led complete UI/UX design process from concept to prototype, conducting user research and creating design systems.</p>
                     </div>
                 </div>
                 <div class="timeline-item">
-                    <div class="timeline-content">
+                    <div class="timeline-content fade-in">
                         <h3>Publicity Associate - NUS Pickleball</h3>
                         <p><strong>Jan 2025 - Present</strong></p>
                         <p>Designed visual identity and marketing materials for the club. Created social media campaigns that increased membership and engagement within the NUS community.</p>
                     </div>
                 </div>
                 <div class="timeline-item">
-                    <div class="timeline-content">
+                    <div class="timeline-content fade-in">
                         <h3>Publicity Associate - Women in Tech @ NUS Computing</h3>
                         <p><strong>Jul 2024 - Present</strong></p>
                         <p>Contributed to design initiatives focused on creating inclusive tech spaces. Created empowering content for women at the School of Computing to build an inclusive tech community.</p>
                     </div>
                 </div>
                 <div class="timeline-item">
-                    <div class="timeline-content">
+                    <div class="timeline-content fade-in">
                         <h3>Founder - Helix Pickleball</h3>
                         <p><strong>Oct 2024 - Present</strong></p>
                         <p>Founded and established pickleball community at Helix House. Organized beginner-friendly sessions and built a thriving pickleball community from the ground up.</p>
@@ -1323,21 +1324,20 @@
 
         // Fade-in animation on scroll
         const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -40px 0px'
+            threshold: 0,
+            rootMargin: '0px 0px 0px 0px'
         };
 
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
                 }
             });
         }, observerOptions);
 
         document.querySelectorAll('.fade-in').forEach(el => {
-            el.style.opacity = '0';
-            el.style.transform = 'translateY(30px)';
             observer.observe(el);
         });
 
