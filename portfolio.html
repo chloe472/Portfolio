@@ -244,6 +244,12 @@
             transform: rotate(2.5deg);
             overflow: hidden;
             box-shadow: 0 20px 50px oklch(22% 0.018 258 / 0.12);
+            transition: transform 0.35s cubic-bezier(0.34, 1.4, 0.64, 1), box-shadow 0.35s ease;
+        }
+
+        .photo-wrapper:hover .photo-frame {
+            transform: rotate(-2deg);
+            box-shadow: 0 28px 60px oklch(22% 0.018 258 / 0.18);
         }
 
         .photo-frame img {
@@ -659,7 +665,12 @@
             margin-bottom: 0.8rem;
         }
 
-        .form-group h4 {
+        .field-label {
+            display: block;
+            font-size: 20px;
+            line-height: 28px;
+            font-weight: 700;
+            color: var(--text-light);
             margin-bottom: 0.35rem;
         }
 
@@ -1262,16 +1273,16 @@
                     <form class="contact-form" onsubmit="handleFormSubmit(event)">
                         <input type="checkbox" name="botcheck" tabindex="-1" autocomplete="off" aria-hidden="true" style="display: none;">
                         <div class="form-group">
-                            <h4>Name</h4>
-                            <input type="text" name="name" placeholder="Your name" required>
+                            <label for="contact-name" class="field-label">Name</label>
+                            <input id="contact-name" type="text" name="name" placeholder="Your name" required>
                         </div>
                         <div class="form-group">
-                            <h4>Email</h4>
-                            <input type="email" name="email" placeholder="your@email.com" required>
+                            <label for="contact-email" class="field-label">Email</label>
+                            <input id="contact-email" type="email" name="email" placeholder="your@email.com" required>
                         </div>
                         <div class="form-group">
-                            <h4>Your Message</h4>
-                            <textarea name="message" placeholder="Hi, Chloe..." required></textarea>
+                            <label for="contact-message" class="field-label">Your Message</label>
+                            <textarea id="contact-message" name="message" placeholder="Hi, Chloe..." required></textarea>
                         </div>
                         <button type="submit" class="submit-btn">Submit</button>
                     </form>
