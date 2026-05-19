@@ -452,7 +452,8 @@
             position: relative;
         }
 
-        .project-card:hover {
+        .project-card:hover,
+        .project-card.fade-in.visible:hover {
             transform: translateY(-15px);
             box-shadow: 0 20px 40px oklch(22% 0.018 258 / 0.12);
             border-color: var(--sage-green);
@@ -506,17 +507,6 @@
             font-weight: 500;
         }
 
-
-        #convopal-card {
-            cursor: pointer;
-            transition: all 0.3s ease;
-            position: relative;
-        }
-
-        #convopal-card:hover {
-            transform: translateY(-15px);
-            box-shadow: 0 25px 50px oklch(22% 0.018 258 / 0.15);
-        }
 
         #convopal-card::after {
             position: absolute;
