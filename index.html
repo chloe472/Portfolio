@@ -761,13 +761,11 @@
             cursor: pointer;
             transition: all 0.3s ease;
             margin-top: 0.5rem;
-            box-shadow: 0 6px 20px oklch(44.3% 0.11 240.79 / 0.25);
         }
 
         .submit-btn:hover {
             background: oklch(37% 0.12 240.79);
             transform: translateY(-3px);
-            box-shadow: 0 8px 25px oklch(44.3% 0.11 240.79 / 0.35);
         }
 
         .submit-btn:disabled {
@@ -1345,27 +1343,6 @@
             });
         });
 
-        // Add floating decorative elements
-        function createFloatingElements() {
-            const decorativeElements = ['🌸', '🌼', '✨', '🍃'];
-            
-            for (let i = 0; i < 8; i++) {
-                const element = document.createElement('div');
-                element.textContent = decorativeElements[Math.floor(Math.random() * decorativeElements.length)];
-                element.style.position = 'fixed';
-                element.style.fontSize = '1.5rem';
-                element.style.opacity = '0.1';
-                element.style.pointerEvents = 'none';
-                element.style.zIndex = '0';
-                element.style.left = Math.random() * 100 + '%';
-                element.style.top = Math.random() * 100 + '%';
-                element.style.animation = `float ${Math.random() * 10 + 15}s ease-in-out infinite`;
-                element.style.animationDelay = Math.random() * 5 + 's';
-                document.body.appendChild(element);
-            }
-        }
-
-        createFloatingElements();
 
         window.addEventListener('scroll', () => {
             const scrolled = window.pageYOffset;
