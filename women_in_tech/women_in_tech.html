@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Women In Tech @ NUS Computing - Case Study | Chloe Wang</title>
+    <link rel="stylesheet" href="./women_in_tech.css">
+</head>
+<body>
+    <!-- Header Section - Clean with just image -->
+    <div class="header">
+        <a href="../index.html" class="back-button">← Back to Portfolio</a>
+        <div class="container">
+            <img src="../images/project-cover/wit.png" alt="ConvoPal - AI-Powered Conversation Platform" class="hero-image fade-in">
+        </div>
+        <div class="decorative-shapes">
+            <div class="shape shape-1"></div>
+            <div class="shape shape-2"></div>
+            <div class="shape shape-3"></div>
+        </div>
+    </div>
+
+    <!-- Problem Statement Section -->
+    <section class="problem-statement">
+        <div class="container">
+            <h2 class="section-header problem fade-in">About</h2>
+            <div class="problem-content fade-in">
+                <p>As a Publicity Associate at Women in Tech @ NUS Computing, I aim to create content that helps to reach our goal of empowering female undergraduates at SoC through our main 3 pillars - <strong> advocacy, career & community </strong>.</p>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- UI Showcase Section -->
+    <section class="ui-showcase">
+        <div class="container">
+            <h2 class="section-title">Past works</h2>
+            <div class="ui-slideshow-container fade-in">
+                <!-- Slide 1: Instagram Page -->
+                <div class="ui-slide active">
+                    <img src="../images/wit/instapage.jpg" alt="ConvoPal Login Screen">
+                    <div class="ui-caption">
+                        <p><strong> Instagram Page Highlights:</strong> Clean and uniform colour palette with similar pixel/ tech theme</p>
+                    </div>
+                </div>
+
+                <!-- Slide 3: Main -->
+                <div class="ui-slide">
+                    <img src="../images/wit/main.png" alt="Main Page">
+                    <div class="ui-caption">
+                        <p><strong>Introduction to WiT Series:</strong> Introduces Women in Tech (WiT) through on-brand tech theme and matching color scheme. </p>
+                    </div>
+                </div>
+
+                <!-- Slide : pillars -->
+                <div class="ui-slide">
+                    <img src="../images/wit/pillars.png" alt="Pillars">
+                    <div class="ui-caption">
+                        <p><strong> Content Page:</strong> Content page presenting WiT's three foundational pillars—Advocacy, Career, and Community—enabling our target audience easily understand our core pillars.</p>
+                    </div>
+                </div>
+
+                <!-- Slide 2: Career -->
+                <div class="ui-slide">
+                    <img src="../images/wit/career.png" alt="Career">
+                    <div class="ui-caption">
+                        <p><strong>Career Pillar Slide:</strong> Aligned with WiT's color palette and images to illustrate message</p>
+                    </div>
+                </div>
+
+
+                <!-- Slide 4: advocacy -->
+                <div class="ui-slide">
+                    <img src="../images/wit/advocacy.png" alt="Advocacy">
+                    <div class="ui-caption">
+                        <p><strong>Advocacy Pillar Slide:</strong> Use of icons and image filters to tone down harsh images & soften look.</p>
+                    </div>
+                </div>
+
+                <!-- community -->
+                <div class="ui-slide">
+                    <img src="../images/wit/community.png" alt="Community">
+                    <div class="ui-caption">
+                        <p><strong>Community Slide:</strong> Aligned with WiT's color palette and images to allow audience to better understand context</p>
+                    </div>
+                </div>
+
+                <!-- pottery -->
+                <div class="ui-slide">
+                    <img src="../images/wit/pottery.png" alt="Pottery">
+                    <div class="ui-caption">
+                        <p><strong>Pottery Workshop Poster:</strong> thematic illustrations and color accents to clearly communicate the message and activity.</p>
+                    </div>
+                </div>
+
+                <!-- Navigation buttons -->
+                <button class="ui-nav prev" onclick="changeUISlide(-1)">❮</button>
+                <button class="ui-nav next" onclick="changeUISlide(1)">❯</button>
+            </div>
+
+            <!-- Dots indicator -->
+            <div class="ui-dots">
+                <span class="ui-dot active" onclick="currentUISlide(1)"></span>
+                <span class="ui-dot" onclick="currentUISlide(2)"></span>
+                <span class="ui-dot" onclick="currentUISlide(3)"></span>
+                <span class="ui-dot" onclick="currentUISlide(4)"></span>
+                <span class="ui-dot" onclick="currentUISlide(5)"></span>
+                <span class="ui-dot" onclick="currentUISlide(6)"></span>
+                <span class="ui-dot" onclick="currentUISlide(7)"></span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Design Process Section -->
+    <section class="design-process">
+        <div class="container">
+            <h2 class="section-title">Design Process & Inspiration</h2>
+            <div class="process-grid fade-in">
+                <div class="process-card">
+                    <div class="process-number">1</div>
+                    <h3>Research & Inspiration</h3>
+                    <p>I drew inspiration from pixel art aesthetics and tech-themed websites to create a cohesive visual identity that resonates with our computing community while maintaining a playful, approachable feel.</p>
+
+                    <p><strong>Key Inspirations:</strong></p>
+                    <ul style="margin-top: 1rem; color: var(--text-light);">
+                        <li><strong>Pixel Art:</strong> Clean geometric shapes and vibrant color blocks that create a tech-nostalgic atmosphere</li>
+                        <li><strong>Tech Websites:</strong> Modern layouts with clear information hierarchy and engaging visual elements</li>
+                        <li><strong>Gaming Aesthetics:</strong> Playful UI elements that make technology feel accessible and fun</li>
+                        <li><strong>Minimalist Design:</strong> Clean compositions that let content shine while maintaining visual interest</li>
+                    </ul>
+                </div>
+
+                <div class="process-card">
+                    <div class="process-number">2</div>
+                    <h3>Color System Development</h3>
+                    <p>I developed a cohesive color palette that represents our three core pillars while maintaining accessibility and visual harmony across all materials.</p>
+                    <div style="display: flex; gap: 0.5rem; margin: 1rem 0; flex-wrap: wrap;">
+                        <div style="background: #9796cf; width: 40px; height: 40px; border-radius: 8px;"></div>
+                        <div style="background: #fef9ef; width: 40px; height: 40px; border-radius: 8px; border: 2px solid #ddd;"></div>
+                        <div style="background: #393e41; width: 40px; height: 40px; border-radius: 8px;"></div>
+                        <div style="background: #b3e1e6; width: 40px; height: 40px; border-radius: 8px;"></div>
+                        <div style="background: #ff9999; width: 40px; height: 40px; border-radius: 8px;"></div>
+                        <div style="background: #ffd997; width: 40px; height: 40px; border-radius: 8px;"></div>
+                    </div>
+                    <p><strong>Color Strategy:</strong></p>
+                    <ul style="margin-top: 1rem; color: var(--text-light);">
+                        <li><strong>Purple (#9796cf):</strong> Primary brand color representing innovation and creativity in tech</li>
+                        <li><strong>Cream (#fef9ef):</strong> Warm background color - welcoming, inclusive vibe</li>
+                        <li><strong>Charcoal (#393e41):</strong> Professional text color ensuring readability</li>
+                        <li><strong>Light Blue (#b3e1e6):</strong> Advocacy pillar - representing clarity and transparency</li>
+                        <li><strong>Coral (#ff9999):</strong> Career pillar - symbolizing growth and opportunity</li>
+                        <li><strong>Soft Yellow (#ffd997):</strong> Community pillar - conveying warmth and connection</li>
+                    </ul>
+                </div>
+
+                <div class="process-card">
+                    <div class="process-number">3</div>
+                    <h3>Typography & Consistency</h3>
+                    <p>Establishing a clear typographic hierarchy with complementary fonts ensures readability while adding personality to our brand identity.</p>
+                    <div style="margin: 1rem 0;">
+                        <p style="font-family: 'Poppins', sans-serif; font-weight: 600; font-size: 1.2rem; margin-bottom: 0.5rem;">Poppins - Primary Content & Body Text</p>
+                        <p style="font-family: 'Courier New', monospace; font-weight: bold; font-size: 1.1rem; margin-bottom: 0.5rem;">Nineby Five - Headers & Accent Elements</p>
+                    </div>
+                    <p><strong>Typography Strategy:</strong></p>
+                    <ul style="margin-top: 1rem; color: var(--text-light);">
+                        <li><strong>Poppins:</strong> Modern, friendly sans-serif used for all body text, captions, and general content for optimal readability</li>
+                        <li><strong>Nineby Five:</strong> Pixel-style accent font for headers, titles, and special elements that reinforces our tech/gaming aesthetic</li>
+                        <li><strong>Consistent Hierarchy:</strong> Modular typography scale creates visual harmony across Instagram posts, presentations, and digital materials</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="./women_in_tech.js"></script>
+</body>
+</html>
