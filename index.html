@@ -4,18 +4,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>chloe's page</title>
+    <link rel="icon" href="./favicon.ico" sizes="any">
+    <link rel="icon" type="image/png" sizes="96x96" href="./favicon.png">
     <link rel="stylesheet" href="index.css">
 </head>
 <body>
+    <nav class="section-breadcrumb" aria-label="Page sections">
+        <a href="#home" data-section-link>Home</a>
+        <a href="#projects" data-section-link>Projects</a>
+        <a href="#experience" data-section-link>Experience</a>
+        <a href="#contact" data-section-link>Contact</a>
+    </nav>
+
     <!-- Header -->
-    <header>
+    <header id="home">
         <!-- Top Navigation -->
         <div class="top-nav">
             <div class="nav-container">
                 <div class="logo">Chloe.</div>
                 <ul class="nav-links">
-                    <li><a href="#projects">Projects</a></li>
-                    <li><a href="#experience">Experience</a></li>
+                    <li><a href="./about/about.html">About</a></li>
                 </ul>
                 <div class="nav-contact-icons">
                     <a href="mailto:chloewang78@u.nus.edu" class="nav-icon-link nav-icon-link--email" aria-label="Email Chloe">
@@ -308,7 +316,7 @@
                     <div class="timeline-content fade-in">
                         <h3>Digital Customer Sucess Intern - ENGIE Southeast Asia</h3>
                         <p><strong>Jan 2026 - Present</strong></p>
-                        <p>Developed full-stack application gathering stakeholder requirements to streamline operational workflows, reducing process time</p>
+                        <p>Built an AI-powered anomaly detection and automated reporting pipeline for smart building BTU meter data at Punggol Digital District, leveraging LLMs, RAG, and machine learning.</p>
                     </div>
                 </div>
 
