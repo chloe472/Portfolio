@@ -17,6 +17,7 @@
     --site-gutter: 40px;
     --grid-gap: 1.6rem;
     --content-span-10-width: 900px;
+    --fixed-project-nav-offset: 6.3rem;
 }
 
 html {
@@ -49,7 +50,7 @@ body {
 .header {
     display: block;
     min-height: auto;
-    padding: 1.1rem 0 3.25rem;
+    padding: var(--fixed-project-nav-offset) 0 3.25rem;
     background-color: var(--cream);
     background-image: radial-gradient(oklch(22% 0.018 258 / 0.13) 1.5px, transparent 1.5px);
     background-size: 24px 24px;
@@ -57,20 +58,27 @@ body {
 }
 
 .project-breadcrumb {
-    position: relative;
-    z-index: 20;
+    position: fixed;
+    top: 0.9rem;
+    left: 50%;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
     width: min(100% - var(--site-gutter), var(--content-span-10-width));
-    margin: 0 auto 2rem;
-    padding: 0.55rem 1rem;
+    min-height: calc(40px + 1.2rem + 3px);
+    margin: 0;
+    padding: 0.6rem 1rem;
     border: 1.5px solid oklch(22% 0.018 258 / 0.15);
     border-radius: 999px;
     background: oklch(100% 0 0 / 0.86);
     backdrop-filter: blur(10px);
+    transform: translateX(-50%);
 }
 
 .project-breadcrumb ol {
     display: flex;
     align-items: center;
+    width: 100%;
     gap: 0.45rem;
     list-style: none;
     margin: 0;
@@ -112,6 +120,81 @@ body {
     color: var(--text-light);
     text-overflow: ellipsis;
     white-space: nowrap;
+}
+
+.header,
+section {
+    scroll-margin-top: var(--fixed-project-nav-offset);
+}
+
+.project-section-nav {
+    position: fixed;
+    top: 50%;
+    left: max(1rem, calc((100vw - var(--site-max-width)) / 2 - 7.4rem));
+    z-index: 900;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.35rem;
+    padding: 0.65rem 0 0.65rem 0.75rem;
+    transform: translateY(-50%);
+}
+
+.project-section-nav::before {
+    content: '';
+    position: absolute;
+    top: 1.1rem;
+    bottom: 1.1rem;
+    left: calc(0.75rem + 4px);
+    width: 1.5px;
+    border-radius: 999px;
+    background: oklch(22% 0.018 258 / 0.14);
+}
+
+.project-section-nav a {
+    display: grid;
+    grid-template-columns: 12px minmax(0, 13rem);
+    align-items: center;
+    gap: 0.55rem;
+    min-height: 30px;
+    padding: 0.2rem 0;
+    color: oklch(48% 0.012 252 / 0.72);
+    font-size: 0.82rem;
+    line-height: 1.2;
+    font-weight: 400;
+    letter-spacing: 0;
+    text-decoration: none;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    transition: color 0.2s ease, font-weight 0.2s ease;
+}
+
+.project-section-nav a::before {
+    content: '';
+    position: relative;
+    z-index: 1;
+    width: 9px;
+    height: 9px;
+    border: 1.5px solid oklch(22% 0.018 258 / 0.22);
+    border-radius: 999px;
+    background: var(--cream);
+    transition: background 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.project-section-nav a:not(.is-active):hover {
+    color: var(--text-dark);
+}
+
+.project-section-nav a.is-active {
+    color: var(--coral);
+    font-weight: 700;
+}
+
+.project-section-nav a.is-active::before {
+    border-color: var(--coral);
+    background: var(--coral);
+    box-shadow: 0 0 0 4px oklch(44.3% 0.11 240.79 / 0.12);
 }
 
 .back-button {
@@ -358,9 +441,34 @@ body {
     height: clamp(360px, 54vw, 560px);
 }
 
+@media (max-width: 1280px) {
+    .project-section-nav {
+        left: 0.75rem;
+        padding: 0.65rem 0.55rem 0.65rem 0.75rem;
+        border: 0;
+        border-radius: 0;
+        background: transparent;
+        backdrop-filter: none;
+    }
+
+    .project-section-nav a {
+        grid-template-columns: 12px minmax(0, 12rem);
+        max-width: 13.4rem;
+        font-size: 0.78rem;
+    }
+}
+
 @media (max-width: 768px) {
+    :root {
+        --fixed-project-nav-offset: 5.6rem;
+    }
+
     body {
         font-size: 15px;
+    }
+
+    .project-section-nav {
+        display: none;
     }
 
     .container,
@@ -391,11 +499,12 @@ body {
     }
 
     .header {
-        padding: 0.85rem 0 2rem;
+        padding: var(--fixed-project-nav-offset) 0 2rem;
     }
 
     .project-breadcrumb {
-        margin-bottom: 1.35rem;
+        top: 0.75rem;
+        min-height: calc(34px + 1.1rem + 3px);
         padding: 0.55rem 1rem;
         border-radius: 18px;
     }

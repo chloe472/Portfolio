@@ -23,6 +23,7 @@
     --site-gutter: 18px;
     --grid-gap: 1.6rem;
     --content-span-9: 75%;
+    --fixed-nav-offset: 6.25rem;
 }
 
 body {
@@ -74,7 +75,7 @@ header {
     background-color: var(--cream);
     background-image: radial-gradient(oklch(22% 0.018 258 / 0.13) 1.5px, transparent 1.5px);
     background-size: 24px 24px;
-    padding: 1.4rem 0 2rem 0;
+    padding: var(--fixed-nav-offset) 0 2rem 0;
     position: relative;
     overflow: hidden;
     min-height: 54vh;
@@ -85,11 +86,15 @@ header {
     display: grid;
     grid-template-columns: repeat(12, minmax(0, 1fr));
     gap: var(--grid-gap);
+    width: min(100%, var(--site-max-width));
     max-width: var(--site-max-width);
     margin: 0 auto;
     background: transparent;
     padding: 0.9rem var(--site-gutter);
-    position: relative;
+    position: fixed;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
     z-index: 1000;
 }
 
@@ -119,7 +124,7 @@ header {
 }
 
 .nav-links {
-    grid-column: 5 / span 4;
+    grid-column: 4 / span 6;
     display: flex;
     justify-content: center;
     gap: 0.5rem;
@@ -409,10 +414,112 @@ nav a:hover {
     background: var(--soft-peach);
 }
 
+.section-breadcrumb {
+    position: fixed;
+    top: 50%;
+    left: max(1rem, calc((100vw - var(--site-max-width)) / 2 - 7.4rem));
+    z-index: 900;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.35rem;
+    padding: 0.65rem 0 0.65rem 0.75rem;
+    border: 0;
+    background: transparent;
+    backdrop-filter: none;
+    transform: translateY(-50%);
+}
+
+.section-breadcrumb::before {
+    content: '';
+    position: absolute;
+    top: 1.1rem;
+    bottom: 1.1rem;
+    left: calc(0.75rem + 4px);
+    width: 1.5px;
+    border-radius: 999px;
+    background: oklch(22% 0.018 258 / 0.14);
+}
+
+.section-breadcrumb a {
+    display: grid;
+    grid-template-columns: 12px max-content;
+    align-items: center;
+    gap: 0.55rem;
+    min-height: 30px;
+    padding: 0.2rem 0.45rem 0.2rem 0;
+    color: oklch(48% 0.012 252 / 0.72);
+    font-size: 0.82rem;
+    line-height: 1.2;
+    font-weight: 400;
+    letter-spacing: 0;
+    text-decoration: none;
+    white-space: nowrap;
+    border-radius: 4px;
+    background: transparent;
+    transition: color 0.2s ease, font-weight 0.2s ease;
+}
+
+.section-breadcrumb a::before {
+    content: '';
+    position: relative;
+    z-index: 1;
+    width: 9px;
+    height: 9px;
+    border: 1.5px solid oklch(22% 0.018 258 / 0.22);
+    border-radius: 999px;
+    background: var(--cream);
+    transition: background 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.section-breadcrumb a:not(.is-active):hover {
+    color: var(--text-dark);
+    background: transparent;
+}
+
+.section-breadcrumb a.is-active {
+    color: var(--coral);
+    font-weight: 700;
+}
+
+.section-breadcrumb a.is-active::before {
+    border-color: var(--coral);
+    background: var(--coral);
+    box-shadow: 0 0 0 4px oklch(44.3% 0.11 240.79 / 0.12);
+}
+
+@media (max-width: 1280px) {
+    .section-breadcrumb {
+        left: 0.75rem;
+        padding: 0.65rem 0.55rem 0.65rem 0.75rem;
+        border: 0;
+        border-radius: 0;
+        background: transparent;
+        backdrop-filter: none;
+    }
+
+    .section-breadcrumb a {
+        grid-template-columns: 12px max-content;
+        max-width: none;
+        font-size: 0.78rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .section-breadcrumb {
+        display: none;
+    }
+}
+
 /* Sections */
 section {
     padding: 4.2rem 0;
     position: relative;
+    scroll-margin-top: var(--fixed-nav-offset);
+}
+
+header {
+    scroll-margin-top: var(--fixed-nav-offset);
 }
 
 section:nth-child(even) {
@@ -439,6 +546,101 @@ h2::after {
     margin: 1rem auto;
     border-radius: 3px;
     position: relative;
+}
+
+/* About Section */
+.about-section {
+    background: var(--white);
+}
+
+.about-grid {
+    display: grid;
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    gap: var(--grid-gap);
+    align-items: center;
+    width: var(--content-span-9);
+    margin: 0 auto;
+}
+
+.about-copy {
+    grid-column: 1 / span 6;
+}
+
+.about-copy h2 {
+    margin-bottom: 1.35rem;
+    text-align: left;
+}
+
+.about-copy h2::after {
+    margin-left: 0;
+    margin-right: 0;
+}
+
+.about-copy p {
+    color: var(--text-light);
+    font-size: 16px;
+    line-height: 24px;
+}
+
+.about-lede {
+    margin-bottom: 1rem;
+    color: var(--text-dark);
+    font-size: 18px;
+    line-height: 27px;
+}
+
+.about-focus-list {
+    display: grid;
+    gap: 0.85rem;
+    margin-top: 1.6rem;
+}
+
+.about-focus-item {
+    padding-left: 1rem;
+    border-left: 4px solid var(--coral);
+}
+
+.about-focus-item span {
+    display: block;
+    margin-bottom: 0.2rem;
+    color: var(--text-dark);
+    font-size: 15px;
+    line-height: 22px;
+    font-weight: 700;
+}
+
+.about-focus-item p {
+    font-size: 14.5px;
+    line-height: 21px;
+}
+
+.about-visual {
+    grid-column: 8 / span 5;
+}
+
+.about-photo {
+    display: block;
+    width: 100%;
+    object-fit: cover;
+    border: 3px solid var(--warm-beige);
+    border-radius: 14px;
+    background: var(--soft-peach);
+    box-shadow: 0 16px 32px oklch(22% 0.018 258 / 0.08);
+}
+
+.about-photo-main {
+    aspect-ratio: 4 / 3;
+}
+
+.about-photo-row {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.9rem;
+    margin-top: 0.9rem;
+}
+
+.about-photo-row .about-photo {
+    aspect-ratio: 1 / 1;
 }
 
 /* Projects Section */
@@ -832,6 +1034,10 @@ h2::after {
 
 /* Responsive */
 @media (max-width: 768px) {
+    :root {
+        --fixed-nav-offset: 5.8rem;
+    }
+
     body {
         font-size: 15px;
         line-height: 23px;
@@ -844,7 +1050,7 @@ h2::after {
 
     header {
         min-height: auto;
-        padding: 0.8rem 0 2.2rem;
+        padding: var(--fixed-nav-offset) 0 2.2rem;
     }
 
     .top-nav {
@@ -940,6 +1146,35 @@ h2::after {
 
     .nav-links {
         display: none;
+    }
+
+    .about-grid {
+        grid-template-columns: 1fr;
+        gap: 1.7rem;
+        width: 100%;
+    }
+
+    .about-copy,
+    .about-visual {
+        grid-column: 1;
+    }
+
+    .about-copy h2 {
+        text-align: center;
+    }
+
+    .about-copy h2::after {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .about-lede {
+        font-size: 1rem;
+        line-height: 1.55rem;
+    }
+
+    .about-photo-main {
+        aspect-ratio: 5 / 4;
     }
 
     .projects-grid {

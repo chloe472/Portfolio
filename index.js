@@ -34,6 +34,59 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
+const sectionNavLinks = Array.from(document.querySelectorAll('[data-section-link]'));
+const sectionTargets = sectionNavLinks
+    .map(link => document.querySelector(link.getAttribute('href')))
+    .filter(Boolean);
+
+function updateActiveSection() {
+    if (!sectionTargets.length) {
+        return;
+    }
+
+    const marker = window.scrollY + window.innerHeight * 0.35;
+    const isAtPageBottom = window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 8;
+    let activeSection = sectionTargets[0];
+
+    sectionTargets.forEach(section => {
+        if (section.offsetTop <= marker) {
+            activeSection = section;
+        }
+    });
+
+    if (isAtPageBottom) {
+        activeSection = sectionTargets[sectionTargets.length - 1];
+    }
+
+    sectionNavLinks.forEach(link => {
+        const isActive = link.getAttribute('href') === `#${activeSection.id}`;
+        link.classList.toggle('is-active', isActive);
+
+        if (isActive) {
+            link.setAttribute('aria-current', 'location');
+        } else {
+            link.removeAttribute('aria-current');
+        }
+    });
+}
+
+let sectionNavTicking = false;
+
+function requestSectionNavUpdate() {
+    if (sectionNavTicking) {
+        return;
+    }
+
+    sectionNavTicking = true;
+    window.requestAnimationFrame(() => {
+        updateActiveSection();
+        sectionNavTicking = false;
+    });
+}
+
+window.addEventListener('scroll', requestSectionNavUpdate, { passive: true });
+window.addEventListener('resize', requestSectionNavUpdate);
+updateActiveSection();
 
 window.addEventListener('scroll', () => {
     const scrolled = window.pageYOffset;
