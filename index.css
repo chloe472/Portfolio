@@ -121,12 +121,21 @@ header {
     font-size: 1.1rem;
     color: var(--dark-brown);
     font-weight: 700;
+    padding: 2px 10px;
+    border-radius: 4px;
+    background: linear-gradient(oklch(82% 0.07 240.79), oklch(82% 0.07 240.79)) no-repeat left center / 0% 100%;
+    transition: background-size 0.28s ease, color 0.28s ease;
+}
+
+.logo:hover {
+    background-size: 100% 100%;
+    color: var(--dark-brown);
 }
 
 .nav-links {
-    grid-column: 4 / span 6;
+    grid-column: 9 / span 2;
     display: flex;
-    justify-content: center;
+    justify-content: flex-end;
     gap: 0.5rem;
     list-style: none;
 }
@@ -548,101 +557,6 @@ h2::after {
     position: relative;
 }
 
-/* About Section */
-.about-section {
-    background: var(--white);
-}
-
-.about-grid {
-    display: grid;
-    grid-template-columns: repeat(12, minmax(0, 1fr));
-    gap: var(--grid-gap);
-    align-items: center;
-    width: var(--content-span-9);
-    margin: 0 auto;
-}
-
-.about-copy {
-    grid-column: 1 / span 6;
-}
-
-.about-copy h2 {
-    margin-bottom: 1.35rem;
-    text-align: left;
-}
-
-.about-copy h2::after {
-    margin-left: 0;
-    margin-right: 0;
-}
-
-.about-copy p {
-    color: var(--text-light);
-    font-size: 16px;
-    line-height: 24px;
-}
-
-.about-lede {
-    margin-bottom: 1rem;
-    color: var(--text-dark);
-    font-size: 18px;
-    line-height: 27px;
-}
-
-.about-focus-list {
-    display: grid;
-    gap: 0.85rem;
-    margin-top: 1.6rem;
-}
-
-.about-focus-item {
-    padding-left: 1rem;
-    border-left: 4px solid var(--coral);
-}
-
-.about-focus-item span {
-    display: block;
-    margin-bottom: 0.2rem;
-    color: var(--text-dark);
-    font-size: 15px;
-    line-height: 22px;
-    font-weight: 700;
-}
-
-.about-focus-item p {
-    font-size: 14.5px;
-    line-height: 21px;
-}
-
-.about-visual {
-    grid-column: 8 / span 5;
-}
-
-.about-photo {
-    display: block;
-    width: 100%;
-    object-fit: cover;
-    border: 3px solid var(--warm-beige);
-    border-radius: 14px;
-    background: var(--soft-peach);
-    box-shadow: 0 16px 32px oklch(22% 0.018 258 / 0.08);
-}
-
-.about-photo-main {
-    aspect-ratio: 4 / 3;
-}
-
-.about-photo-row {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 0.9rem;
-    margin-top: 0.9rem;
-}
-
-.about-photo-row .about-photo {
-    aspect-ratio: 1 / 1;
-}
-
 /* Projects Section */
 .projects-grid {
     display: grid;
@@ -1049,16 +963,23 @@ h2::after {
     }
 
     header {
+        overflow: visible;
         min-height: auto;
         padding: var(--fixed-nav-offset) 0 2.2rem;
     }
 
     .top-nav {
+        position: fixed;
+        top: 0;
+        right: 0;
+        left: 0;
         grid-template-columns: 1fr;
         gap: 0;
         width: 100%;
         margin: 0 auto;
         padding: 0.75rem 14px;
+        transform: none;
+        z-index: 2000;
     }
 
     .nav-container {
@@ -1146,35 +1067,6 @@ h2::after {
 
     .nav-links {
         display: none;
-    }
-
-    .about-grid {
-        grid-template-columns: 1fr;
-        gap: 1.7rem;
-        width: 100%;
-    }
-
-    .about-copy,
-    .about-visual {
-        grid-column: 1;
-    }
-
-    .about-copy h2 {
-        text-align: center;
-    }
-
-    .about-copy h2::after {
-        margin-left: auto;
-        margin-right: auto;
-    }
-
-    .about-lede {
-        font-size: 1rem;
-        line-height: 1.55rem;
-    }
-
-    .about-photo-main {
-        aspect-ratio: 5 / 4;
     }
 
     .projects-grid {

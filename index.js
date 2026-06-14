@@ -121,9 +121,9 @@ async function handleFormSubmit(e) {
             },
             body: JSON.stringify({
                 access_key: WEB3FORMS_ACCESS_KEY,
-                name: form.name.value,
-                email: form.email.value,
-                message: form.message.value,
+                name: form.elements.name.value,
+                email: form.elements.email.value,
+                message: form.elements.message.value,
                 subject: 'New portfolio contact form message',
                 from_name: 'Portfolio Contact Form'
             })

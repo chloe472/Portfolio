@@ -31,7 +31,7 @@ jobs:
             echo "::error::Repository secret WEB3FORMS_ACCESS_KEY is not set."
             exit 1
           fi
-          perl -0pi -e 's/__WEB3FORMS_ACCESS_KEY__/$ENV{WEB3FORMS_ACCESS_KEY}/g' index.js
+          perl -0pi -e 's/__WEB3FORMS_ACCESS_KEY__/$ENV{WEB3FORMS_ACCESS_KEY}/g' index.js about/about.js
 
       - uses: actions/upload-pages-artifact@v3
         with:

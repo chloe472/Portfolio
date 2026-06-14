@@ -499,14 +499,19 @@ section {
     }
 
     .header {
+        overflow: visible;
         padding: var(--fixed-project-nav-offset) 0 2rem;
     }
 
     .project-breadcrumb {
+        position: fixed;
         top: 0.75rem;
+        left: 50%;
+        z-index: 2000;
         min-height: calc(34px + 1.1rem + 3px);
         padding: 0.55rem 1rem;
         border-radius: 18px;
+        transform: translateX(-50%);
     }
 
     .project-breadcrumb ol {
