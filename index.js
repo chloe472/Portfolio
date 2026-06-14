@@ -89,7 +89,7 @@ async function handleFormSubmit(e) {
             throw new Error(data.message || 'Something went wrong. Please try again.');
         }
     } catch (err) {
-        btn.textContent = 'Failed — try again';
+        btn.textContent = 'Failed - try again';
         setTimeout(() => {
             btn.textContent = originalText;
             btn.disabled = false;
@@ -97,20 +97,20 @@ async function handleFormSubmit(e) {
     }
 }
 
-function navigateToAurora() {
-        window.open('./auroramart/auroramart.html', '_blank');
+function navigateToAuroraMart() {
+    window.open('./auroramart/auroramart.html', '_blank');
 }
 
 function navigateToImpactHub() {
-        window.open('./impacthub/impacthub.html', '_blank');
+    window.open('./impacthub/impacthub.html', '_blank');
 }
 
 function navigateToLaundryDash() {
-        window.open('./laundrydash/laundrydash.html', '_blank');
+    window.open('./laundrydash/laundrydash.html', '_blank');
 }
 
 function navigateToPersonalFinance() {
-        window.open('./personalfinance/personalfinance.html', '_blank');
+    window.open('./personalfinance/personalfinance.html', '_blank');
 }
 
 function navigateToIRR() {
@@ -136,13 +136,3 @@ function navigateToMigrantWorkers() {
 function navigateToClubRainbow() {
     window.open('./club_rainbow/club_rainbow.html', '_blank');
 }
-
-document.addEventListener('DOMContentLoaded', function() {
-    const convoPalCard = document.getElementById('convopal-card');
-    if (convoPalCard) {
-        console.log('ConvoPal card found and click handler attached');
-        convoPalCard.addEventListener('click', navigateToConvoPal);
-    } else {
-        console.error('ConvoPal card not found!');
-    }
-});
