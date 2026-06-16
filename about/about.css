@@ -492,22 +492,30 @@ h2::after {
 
     .nav-container {
         grid-column: 1;
-        grid-template-columns: repeat(12, minmax(0, 1fr));
-        gap: 0.5rem;
+        grid-template-columns: auto auto 1fr auto;
+        gap: 0.45rem;
         padding: 0.55rem 0.85rem;
     }
 
     .logo {
-        grid-column: 1 / span 6;
+        grid-column: 1;
         font-size: 1rem;
     }
 
     .nav-links {
-        display: none;
+        grid-column: 2;
+        display: flex;
+        justify-content: flex-start;
+    }
+
+    .nav-links a {
+        font-size: 0.95rem;
+        line-height: 1.35rem;
+        padding-inline: 8px;
     }
 
     .nav-contact-icons {
-        grid-column: 9 / span 4;
+        grid-column: 4;
         gap: 0.25rem;
     }
 
