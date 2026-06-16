@@ -1,5 +1,38 @@
-// Injected at deploy from GitHub secret WEB3FORMS_ACCESS_KEY (local dev: replace placeholder or use Actions)
+// Injected at deploy from GitHub secret WEB3FORMS_ACCESS_KEY.
+// Local preview can use web3forms.local.js, which is ignored by git.
 const WEB3FORMS_ACCESS_KEY = '__WEB3FORMS_ACCESS_KEY__';
+const localWeb3FormsConfig = loadLocalWeb3FormsConfig('./web3forms.local.js');
+
+function isLocalPreview() {
+    return window.location.protocol === 'file:' ||
+        ['localhost', '127.0.0.1', '::1', ''].includes(window.location.hostname);
+}
+
+function hasInjectedWeb3FormsKey() {
+    return WEB3FORMS_ACCESS_KEY && !WEB3FORMS_ACCESS_KEY.startsWith('__WEB3FORMS_');
+}
+
+function loadLocalWeb3FormsConfig(configPath) {
+    if (!isLocalPreview() || hasInjectedWeb3FormsKey()) {
+        return Promise.resolve();
+    }
+
+    return new Promise(resolve => {
+        const script = document.createElement('script');
+        script.src = document.currentScript ? new URL(configPath, document.currentScript.src).href : configPath;
+        script.onload = resolve;
+        script.onerror = resolve;
+        document.head.appendChild(script);
+    });
+}
+
+function getWeb3FormsAccessKey() {
+    if (typeof window.WEB3FORMS_ACCESS_KEY === 'string' && window.WEB3FORMS_ACCESS_KEY.trim()) {
+        return window.WEB3FORMS_ACCESS_KEY.trim();
+    }
+
+    return hasInjectedWeb3FormsKey() ? WEB3FORMS_ACCESS_KEY.trim() : '';
+}
 
 // Fade-in animation on scroll
 const observerOptions = {
@@ -103,9 +136,11 @@ async function handleFormSubmit(e) {
     const form = e.target;
     const btn = form.querySelector('.submit-btn');
     const originalText = btn.textContent;
+    await localWeb3FormsConfig;
+    const accessKey = getWeb3FormsAccessKey();
 
-    if (!WEB3FORMS_ACCESS_KEY || WEB3FORMS_ACCESS_KEY === '__WEB3FORMS_ACCESS_KEY__') {
-        alert('Contact form is not configured for local preview. It works after deploy via GitHub Actions.');
+    if (!accessKey) {
+        alert('Contact form is not configured for local preview. Copy web3forms.local.example.js to web3forms.local.js and add your Web3Forms access key.');
         return;
     }
 
@@ -120,7 +155,7 @@ async function handleFormSubmit(e) {
                 'Accept': 'application/json'
             },
             body: JSON.stringify({
-                access_key: WEB3FORMS_ACCESS_KEY,
+                access_key: accessKey,
                 name: form.elements.name.value,
                 email: form.elements.email.value,
                 message: form.elements.message.value,
