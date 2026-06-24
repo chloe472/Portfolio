@@ -186,41 +186,41 @@ async function handleFormSubmit(e) {
 }
 
 function navigateToAuroraMart() {
-    window.open('./auroramart/auroramart.html', '_blank');
+    window.open('./auroramart/', '_blank');
 }
 
 function navigateToImpactHub() {
-    window.open('./impacthub/impacthub.html', '_blank');
+    window.open('./impacthub/', '_blank');
 }
 
 function navigateToLaundryDash() {
-    window.open('./laundrydash/laundrydash.html', '_blank');
+    window.open('./laundrydash/', '_blank');
 }
 
 function navigateToPersonalFinance() {
-    window.open('./personalfinance/personalfinance.html', '_blank');
+    window.open('./personalfinance/', '_blank');
 }
 
 function navigateToIRR() {
-    window.open('./irr/irr.html', '_blank');
+    window.open('./irr/', '_blank');
 }
 
 function navigateToConvoPal() {
-    window.open('./convopal_case_study/convopal_case_study.html', '_blank');
+    window.open('./convopal_case_study/', '_blank');
 }
 
 function navigateToWomenInTech() {
-    window.open('./women_in_tech/women_in_tech.html', '_blank');
+    window.open('./women_in_tech/', '_blank');
 }
 
 function navigateToNUSPickleball() {
-    window.open('./nus_pickleball/nus_pickleball.html', '_blank');
+    window.open('./nus_pickleball/', '_blank');
 }
 
 function navigateToMigrantWorkers() {
-    window.open('./migrant_workers/migrant_workers.html', '_blank');
+    window.open('./migrant_workers/', '_blank');
 }
 
 function navigateToClubRainbow() {
-    window.open('./club_rainbow/club_rainbow.html', '_blank');
+    window.open('./club_rainbow/', '_blank');
 }
