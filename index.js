@@ -53,23 +53,39 @@ document.querySelectorAll('.fade-in').forEach(el => {
     observer.observe(el);
 });
 
+function removeHomeHash() {
+    if (window.location.hash === '#home') {
+        window.history.replaceState(null, '', `${window.location.pathname}${window.location.search}`);
+    }
+}
+
+removeHomeHash();
+window.addEventListener('hashchange', removeHomeHash);
+
 // Add smooth scrolling for navigation links
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+document.querySelectorAll('a[href^="#"], [data-section-target]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
         e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
+        const targetSelector = this.dataset.sectionTarget || this.getAttribute('href');
+        if (!targetSelector || !targetSelector.startsWith('#') || targetSelector.length === 1) {
+            return;
+        }
+        const target = document.querySelector(targetSelector);
         if (target) {
             target.scrollIntoView({
                 behavior: 'smooth',
                 block: 'start'
             });
+            if (targetSelector === '#home') {
+                removeHomeHash();
+            }
         }
     });
 });
 
 const sectionNavLinks = Array.from(document.querySelectorAll('[data-section-link]'));
 const sectionTargets = sectionNavLinks
-    .map(link => document.querySelector(link.getAttribute('href')))
+    .map(link => document.querySelector(link.dataset.sectionTarget || link.getAttribute('href')))
     .filter(Boolean);
 
 function updateActiveSection() {
@@ -92,7 +108,8 @@ function updateActiveSection() {
     }
 
     sectionNavLinks.forEach(link => {
-        const isActive = link.getAttribute('href') === `#${activeSection.id}`;
+        const linkTarget = link.dataset.sectionTarget || link.getAttribute('href');
+        const isActive = linkTarget === `#${activeSection.id}`;
         link.classList.toggle('is-active', isActive);
 
         if (isActive) {
