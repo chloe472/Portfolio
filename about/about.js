@@ -34,6 +34,14 @@ function getWeb3FormsAccessKey() {
     return hasInjectedWeb3FormsKey() ? WEB3FORMS_ACCESS_KEY.trim() : '';
 }
 
+function getMissingWeb3FormsMessage() {
+    if (isLocalPreview()) {
+        return 'Contact form is not configured for local preview. Copy web3forms.local.example.js to web3forms.local.js and add your Web3Forms access key.';
+    }
+
+    return 'Contact form is not configured on this deployment. Check that the GitHub secret WEB3FORMS_ACCESS_KEY is set and that GitHub Pages is deploying with GitHub Actions.';
+}
+
 const fadeObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -59,7 +67,7 @@ async function handleFormSubmit(e) {
     const accessKey = getWeb3FormsAccessKey();
 
     if (!accessKey) {
-        alert('Contact form is not configured for local preview. Copy web3forms.local.example.js to web3forms.local.js and add your Web3Forms access key.');
+        alert(getMissingWeb3FormsMessage());
         return;
     }
 

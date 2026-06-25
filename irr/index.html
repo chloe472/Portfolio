@@ -18,6 +18,18 @@
                 <li aria-current="page">It's Raining Raincoats</li>
             </ol>
         </nav>
+
+        <div></div>
+            <section class="problem-statement">
+        <div class="container">
+            <h2 class="section-header problem">Developer's Group - It'sRainingRaincoats's Admin Dashboard</h2>
+            <div class="problem-content">
+                <p>Designed and developed the complete UI/UX for a book and management platform that prevents repeat bookings, automates confirmations and reminders, and integrates worker history for better tracking and service delivery.</p>
+
+            </div>
+        </div>
+    </section>
+
         <div class="container">
             <img src="../images/project-cover/dg.png" alt="It's Raining Raincoats Project Banner" class="hero-image">
         </div>
@@ -57,9 +69,117 @@
         <div class="container">
             <h2 class="section-header problem">The Challenge</h2>
             <div class="problem-content">
-                <p>It's Raining Raincoats (IRR) is a non-profit organization dedicated to supporting migrant workers in Singapore. Their existing booking system faced critical operational challenges that hindered their mission.</p>
+                <p>ItsRainingRaincoats (IRR) current booking system cannot block repeat bookings or track eligibility, and lacks a central dashboard for staff. Communication with workers is manual and no integrated worker’s history, making it difficult to manage attendance, capacity and follow-ups.</p>
 
             </div>
+        </div>
+    </section>
+
+    <section class="problem-statement">
+        <div class="container">
+            <h2 class="section-header problem">Objectives</h2>
+            <div class="problem-content">
+                <p>
+                    Design a book and management platform that prevents repeat bookings, automates confirmations and reminders, and integrates worker history for better tracking and service delivery.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section class="users-section">
+        <div class="container">
+            <h2 class="section-header problem">Users</h2>
+            <div class="users-table-wrapper fade-in">
+                <table class="users-table">
+                    <thead>
+                        <tr>
+                            <th>Types of Users</th>
+                            <th>Description</th>
+                            <th>Implication</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <div class="user-type">
+                                    <span>1.</span>
+                                    <span>IRR Administrative Staff<br>(Ashwini)</span>
+                                </div>
+                            </td>
+                            <td>The administrative person who is in charge of handling all CRUD operations regarding timeslots of the weekend shop and handling responses posed by migrant workers.</td>
+                            <td>
+                                <ul class="implication-list">
+                                    <li>Eliminate the need for manual checking of migrant workers to see if they meet the requirements for visiting the weekend shop (6-month rule, work permit check, gender).</li>
+                                    <li>Increase the ease of viewing, editing, creating, and cancelling timeslot bookings.</li>
+                                    <li>Eliminate the need of manually sending confirmation messages.</li>
+                                    <li>Easily view attendance records of migrant workers for each slot.</li>
+                                    <li>Ease of creating and publishing timeslots and reminder message.</li>
+                                    <li>Easily view the details and records of migrant workers.</li>
+                                </ul>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="user-type">
+                                    <span>2.</span>
+                                    <span>IRR Weekend Shop Helper</span>
+                                </div>
+                            </td>
+                            <td>The individual(s) tasked with managing the weekend shop where the migrant workers patronise.</td>
+                            <td>
+                                <ul class="implication-list">
+                                    <li>Easily view attendance records of migrant workers for each slot.</li>
+                                    <li>Manually input worker's attendance or scan worker's QR code to indicate their attendance in the system.</li>
+                                </ul>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <section class="site-map-section">
+        <div class="container">
+            <h2 class="section-header problem">Site Map</h2>
+            <div class="site-map-diagram fade-in" aria-label="IRR admin dashboard site map">
+                <div class="site-map-tree">
+                    <div class="site-map-node site-map-root">Dashboard</div>
+                    <div class="site-map-branches">
+                        <div class="site-map-column">
+                            <div class="site-map-node">Bookings</div>
+                            <div class="site-map-children">
+                                <div class="site-map-node site-map-child">Reschedule<br>Booking</div>
+                                <div class="site-map-node site-map-child">Cancel<br>Booking</div>
+                                <div class="site-map-node site-map-child">View/Edit<br>Details</div>
+                            </div>
+                        </div>
+                        <div class="site-map-column">
+                            <div class="site-map-node">Attendance</div>
+                        </div>
+                        <div class="site-map-column">
+                            <div class="site-map-node">Schedule</div>
+                            <div class="site-map-children">
+                                <div class="site-map-node site-map-child">Create<br>Timeslots</div>
+                                <div class="site-map-node site-map-child">View Timeslots</div>
+                            </div>
+                        </div>
+                        <div class="site-map-column">
+                            <div class="site-map-node">Workers<br><span>(list of workers records)</span></div>
+                            <div class="site-map-children site-map-children--single">
+                                <div class="site-map-node site-map-child">View Booking<br>History</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="wireframes-section">
+        <div class="container">
+            <h2 class="section-header problem">Wireframes</h2>
+            <img src="../images/dg/irr-wireframe.jpg" alt="Hand-drawn IRR create timeslot wireframes" class="wireframe-image fade-in">
         </div>
     </section>
 
