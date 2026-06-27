@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NUSMods+ - Case Study | Chloe Wang</title>
+    <link rel="icon" href="../favicon.ico" sizes="any">
+    <link rel="icon" type="image/png" sizes="96x96" href="../favicon.png">
+    <link rel="stylesheet" href="../project-theme.css">
+    <link rel="stylesheet" href="./nusmods_plus.css">
+</head>
+<body>
+    <header class="header">
+        <nav class="project-breadcrumb" aria-label="Breadcrumb">
+            <ol>
+                <li><a href="../">Portfolio</a></li>
+                <li aria-current="page">NUSMods+</li>
+            </ol>
+        </nav>
+
+        <section class="problem-statement nusmods-intro">
+            <div class="container">
+                <h2 class="section-header problem">NUSMods+</h2>
+                <div class="problem-content">
+                    <p>NUSMods+ offers a real-time collaborative workspace that allows students to visualise, propose, and confirm tutorial slots together. The concept extends individual timetable planning into a shared coordination flow for friends navigating course registration.</p>
+                </div>
+            </div>
+        </section>
+
+        <div class="container">
+            <div class="hero-image nusmods-hero-visual fade-in" aria-label="NUSMods+ collaborative timetable interface mockup">
+                <div class="hero-visual-topbar">
+                    <div>
+                        <span class="hero-kicker">2026 UX Case Study</span>
+                        <h1>NUSMods+</h1>
+                    </div>
+                    <div class="hero-collaborators" aria-label="Collaborators">
+                        <span>C</span>
+                        <span>K</span>
+                        <span>J</span>
+                    </div>
+                </div>
+                <div class="hero-workspace">
+                    <aside class="hero-sidebar">
+                        <p class="sidebar-label">Shared modules</p>
+                        <div class="module-chip is-active">IS2109</div>
+                        <div class="module-chip">BT2102</div>
+                        <div class="module-chip">CS2030S</div>
+                        <div class="proposal-card">
+                            <span>Proposal</span>
+                            <strong>T02</strong>
+                            <small>2 pending replies</small>
+                        </div>
+                    </aside>
+                    <div class="hero-timetable">
+                        <div class="time-header">Mon</div>
+                        <div class="time-header">Tue</div>
+                        <div class="time-header">Wed</div>
+                        <div class="time-header">Thu</div>
+                        <div class="time-header">Fri</div>
+                        <div class="slot slot-base">Chloe</div>
+                        <div class="slot slot-friend">Kai</div>
+                        <div class="slot slot-empty"></div>
+                        <div class="slot slot-conflict">Clash</div>
+                        <div class="slot slot-empty"></div>
+                        <div class="slot slot-empty"></div>
+                        <div class="slot slot-base slot-wide">IS2109 T02</div>
+                        <div class="slot slot-friend">John</div>
+                        <div class="slot slot-empty"></div>
+                        <div class="slot slot-empty"></div>
+                        <div class="slot slot-friend">BT2102</div>
+                        <div class="slot slot-empty"></div>
+                        <div class="slot slot-base">CS2030S</div>
+                        <div class="slot slot-empty"></div>
+                        <div class="slot slot-base">Tutorial</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section class="overview-section">
+        <div class="container">
+            <div class="overview-grid">
+                <div class="overview-item">
+                    <h3>Timeline</h3>
+                    <p>2026<br>(4 months)</p>
+                </div>
+                <div class="overview-item">
+                    <h3>Role</h3>
+                    <p>UX Designer</p>
+                </div>
+                <div class="overview-item">
+                    <h3>Team</h3>
+                    <p>4 members</p>
+                </div>
+                <div class="overview-item">
+                    <h3>Methods</h3>
+                    <p>User interviews, wireframing, usability testing, heuristic evaluation</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="problem-statement">
+        <div class="container">
+            <h2 class="section-header problem">01 Discover</h2>
+            <div class="problem-content">
+                <p>We interviewed four Year 1 to Year 4 NUS undergraduates who coordinate classes with friends during course registration planning. The research focused on small friend groups of two or more students who share overlapping modules and actively try to secure common tutorial slots before and during bidding.</p>
+                <div class="highlight-box">
+                    <p>Without a shared visual space, students manually compare screenshots, list viable slot combinations, and negotiate through repeated back-and-forth messages. This effort becomes much heavier as group size increases.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="users-section">
+        <div class="container">
+            <h2 class="section-header problem">Personas</h2>
+            <div class="users-table-wrapper fade-in">
+                <table class="users-table personas-table">
+                    <thead>
+                        <tr>
+                            <th>Persona</th>
+                            <th>Context</th>
+                            <th>Pain Points</th>
+                            <th>Wants</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <div class="user-type">
+                                    <span>1.</span>
+                                    <span>Chloe<br>(Group Coordinator)</span>
+                                </div>
+                            </td>
+                            <td>Year 1 NUS undergraduate who wants to secure the exact same tutorial slot with a specific group of friends.</td>
+                            <td>Messy group chats bury scheduling decisions, and manually comparing multiple screenshots is mentally draining.</td>
+                            <td>A single platform to visually plan and coordinate multiple timetables, quickly revealing overlapping available slots.</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="user-type">
+                                    <span>2.</span>
+                                    <span>Kai<br>(1-on-1 Negotiator)</span>
+                                </div>
+                            </td>
+                            <td>Year 3 NUS undergraduate who coordinates different modules with different friends across several chat threads.</td>
+                            <td>Context switching across modules and chats creates overload, and agreements with one friend can clash with another.</td>
+                            <td>A focused UI that filters out noise, prevents clashes, and makes sure the chosen tutorial matches his friend's exactly.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <section class="problem-statement">
+        <div class="container">
+            <h2 class="section-header problem">02 Define</h2>
+            <div class="problem-content">
+                <p>NUS students lack a shared, real-time workspace for collaborative timetable exploration during the course registration planning phase.</p>
+                <div class="comparison-grid fade-in">
+                    <div class="comparison-card">
+                        <h3>NUSMods</h3>
+                        <p>Strong for individual timetable planning, but not designed for live group negotiation.</p>
+                    </div>
+                    <div class="comparison-card">
+                        <h3>Google Calendar</h3>
+                        <p>Useful after bidding is done, but too cumbersome for testing multiple tutorial combinations.</p>
+                    </div>
+                    <div class="comparison-card">
+                        <h3>Telegram</h3>
+                        <p>Handles communication, but decisions get buried and visual comparison still happens manually.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="solution">
+        <div class="container">
+            <h2 class="section-header solution">03 Develop</h2>
+            <div class="solution-content">
+                <p>NUSMods+ acts as a collaborative workspace where students can share, compare, and jointly edit timetables. Users retain personalised views while negotiating changes through a structured Propose, Preview, Opt-In/Opt-Out flow that updates schedules only after explicit agreement.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="design-process">
+        <div class="container">
+            <h2 class="section-title">Conceptual Model</h2>
+            <div class="process-grid fade-in">
+                <div class="process-card">
+                    <div class="process-number">1</div>
+                    <h3>Transparency Sheet Overlays</h3>
+                    <p>Each student's timetable acts like a transparent sheet layered over the user's base timetable, making overlaps and clashes immediately visible.</p>
+                </div>
+                <div class="process-card">
+                    <div class="process-number">2</div>
+                    <h3>System-Vetted Proposals</h3>
+                    <p>Students propose alternative tutorial slots from options that the system has already checked for clashes and alignment.</p>
+                </div>
+                <div class="process-card">
+                    <div class="process-number">3</div>
+                    <h3>Explicit Consensus</h3>
+                    <p>Changes are strictly opt-in. Friends can preview proposals in their own schedules before accepting or declining.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="site-map-section">
+        <div class="container">
+            <h2 class="section-header problem">Storyboard Flow</h2>
+            <div class="storyboard-grid fade-in">
+                <div class="storyboard-card">
+                    <span>Frames 1-3</span>
+                    <h3>Workspace Entry</h3>
+                    <p>Chloe shares her timetable, toggles friends' layers, and sees misaligned modules surfaced automatically.</p>
+                </div>
+                <div class="storyboard-card">
+                    <span>Frames 4-6</span>
+                    <h3>Negotiation</h3>
+                    <p>Chloe opens a proposal flow, chooses a system-vetted slot, and sends it to collaborators for review.</p>
+                </div>
+                <div class="storyboard-card">
+                    <span>Frames 6-9</span>
+                    <h3>Consensus</h3>
+                    <p>John previews the proposal, accepts it, and the group ends with a unified, error-free timetable state.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="wireframes-section">
+        <div class="container">
+            <h2 class="section-header problem">Wireframes</h2>
+            <div class="wireframe-board fade-in" aria-label="NUSMods+ wireframe concepts">
+                <div class="wireframe-panel">
+                    <div class="wireframe-top"></div>
+                    <div class="wireframe-columns">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                    <p>Shared workspace entry</p>
+                </div>
+                <div class="wireframe-panel">
+                    <div class="wireframe-top"></div>
+                    <div class="wireframe-calendar">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                    <p>Layered timetable comparison</p>
+                </div>
+                <div class="wireframe-panel">
+                    <div class="wireframe-top"></div>
+                    <div class="wireframe-modal">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                    <p>Proposal preview and decision</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="ui-showcase">
+        <div class="container">
+            <h2 class="section-title">User Interface Elements</h2>
+            <div class="ui-slideshow-container fade-in">
+                <div class="ui-slide active">
+                    <div class="ui-screen">
+                        <div class="screen-topbar">
+                            <strong>Workspace</strong>
+                            <span>3 collaborators online</span>
+                        </div>
+                        <div class="screen-calendar">
+                            <div class="screen-slot base">My timetable</div>
+                            <div class="screen-slot friend">Friend layer</div>
+                            <div class="screen-slot conflict">Unaligned</div>
+                            <div class="screen-slot base">Tutorial T02</div>
+                            <div class="screen-slot empty"></div>
+                            <div class="screen-slot friend">John</div>
+                        </div>
+                    </div>
+                    <div class="ui-caption">
+                        <p><strong>Layered Comparison:</strong> Friends' timetables are overlaid while the user's own schedule remains the fixed reference point.</p>
+                    </div>
+                </div>
+                <div class="ui-slide">
+                    <div class="ui-screen">
+                        <div class="proposal-layout">
+                            <div>
+                                <h3>New Proposal</h3>
+                                <p>IS2109 Tutorial T02</p>
+                            </div>
+                            <div class="proposal-options">
+                                <span class="option-chip selected">T02 fits all</span>
+                                <span class="option-chip">T04 clashes</span>
+                                <span class="option-chip">T07 pending</span>
+                            </div>
+                            <textarea aria-label="Optional reason" readonly>I have a CCA clash on Monday. Can we switch to T02?</textarea>
+                        </div>
+                    </div>
+                    <div class="ui-caption">
+                        <p><strong>Proposal Creation:</strong> A dedicated entry point lets students propose changes even when no current conflict is detected.</p>
+                    </div>
+                </div>
+                <div class="ui-slide">
+                    <div class="ui-screen">
+                        <div class="preview-layout">
+                            <div class="preview-card">
+                                <h3>Preview Proposal</h3>
+                                <p>T02 has no clash in your timetable.</p>
+                                <div class="decision-row">
+                                    <button type="button">Decline</button>
+                                    <button type="button" class="primary">Accept</button>
+                                </div>
+                            </div>
+                            <div class="notification-bell">2</div>
+                        </div>
+                    </div>
+                    <div class="ui-caption">
+                        <p><strong>Opt-In Confirmation:</strong> Collaborators preview the effect of a change before accepting or declining.</p>
+                    </div>
+                </div>
+                <button class="ui-nav prev" onclick="changeUISlide(-1)" aria-label="Previous interface slide">&lt;</button>
+                <button class="ui-nav next" onclick="changeUISlide(1)" aria-label="Next interface slide">&gt;</button>
+            </div>
+            <div class="ui-dots">
+                <span class="ui-dot active" onclick="currentUISlide(1)"></span>
+                <span class="ui-dot" onclick="currentUISlide(2)"></span>
+                <span class="ui-dot" onclick="currentUISlide(3)"></span>
+            </div>
+        </div>
+    </section>
+
+    <section class="problem-statement">
+        <div class="container">
+            <h2 class="section-header problem">04 Validate</h2>
+            <div class="problem-content">
+                <p>We conducted usability testing with four NUS undergraduates who regularly coordinate timetables with friends: three Year 2 students and one Year 4 student. Participants completed four core tasks while following a think-aloud protocol.</p>
+                <ul class="task-list">
+                    <li>Compare your schedule with a friend and view both timetables together.</li>
+                    <li>Join a friend's session and view both timetables together.</li>
+                    <li>Propose having the same tutorial slot, T02, as your friend.</li>
+                    <li>Accept or decline a slot proposal from a friend.</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section class="users-section">
+        <div class="container">
+            <h2 class="section-header problem">Heuristic Evaluation</h2>
+            <div class="users-table-wrapper fade-in">
+                <table class="users-table heuristic-table">
+                    <thead>
+                        <tr>
+                            <th>Issue</th>
+                            <th>Heuristic Concern</th>
+                            <th>Proposed Solution</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Proposal lists become hard to scan when many proposals exist within a module.</td>
+                            <td>Recognition rather than recall; flexibility and efficiency of use.</td>
+                            <td>Add filtering and sorting by status, module, proposer, or date submitted.</td>
+                        </tr>
+                        <tr>
+                            <td>Students cannot explain why they are proposing a new timeslot.</td>
+                            <td>Flexibility and efficiency of use.</td>
+                            <td>Add an optional reason field so collaborators can understand the context before deciding.</td>
+                        </tr>
+                        <tr>
+                            <td>The "Resolve Unalignment" button only appears when a conflict is detected.</td>
+                            <td>Visibility of system status; flexibility and efficiency of use.</td>
+                            <td>Replace it with a persistent "+ New Proposal" button, using visual treatment to distinguish aligned and unaligned modules.</td>
+                        </tr>
+                        <tr>
+                            <td>Invites and proposals are only surfaced by email.</td>
+                            <td>Visibility of system status; consistency and standards.</td>
+                            <td>Add an in-platform notification bell while retaining email as an external reminder.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <section class="design-process">
+        <div class="container">
+            <h2 class="section-title">Next Steps & Lessons</h2>
+            <div class="process-grid fade-in">
+                <div class="process-card">
+                    <h3>Next Iteration</h3>
+                    <p>Design a less confusing entry point for comparing timetables with friends.</p>
+                </div>
+                <div class="process-card">
+                    <h3>Improvements</h3>
+                    <p>Implement proposed heuristic fixes, including proposal filters, optional reasons, and in-platform alerts.</p>
+                </div>
+                <div class="process-card">
+                    <h3>Lessons Learned</h3>
+                    <p>Test assumptions early, listen for user problems over user-prescribed solutions, and validate before building too far.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="../project-scroll-nav.js"></script>
+    <script src="./nusmods_plus.js"></script>
+</body>
+</html>

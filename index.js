@@ -226,6 +226,10 @@ function navigateToPersonalFinance() {
     window.open('./personalfinance/', '_blank');
 }
 
+function navigateToNUSModsPlus() {
+    window.open('./nusmods_plus/', '_blank');
+}
+
 function navigateToIRR() {
     window.open('./irr/', '_blank');
 }
