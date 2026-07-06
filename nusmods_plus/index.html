@@ -22,60 +22,13 @@
             <div class="container">
                 <h2 class="section-header problem">NUSMods+</h2>
                 <div class="problem-content">
-                    <p>NUSMods+ offers a real-time collaborative workspace that allows students to visualise, propose, and confirm tutorial slots together. The concept extends individual timetable planning into a shared coordination flow for friends navigating course registration.</p>
+                    <p>NUSMods+ offers a real-time collaborative workspace that allows students to visualise, propose, and confirm tutorial slots together. This extends individual timetable planning into a shared coordination for friends during course registration.</p>
                 </div>
             </div>
         </section>
 
         <div class="container">
-            <div class="hero-image nusmods-hero-visual fade-in" aria-label="NUSMods+ collaborative timetable interface mockup">
-                <div class="hero-visual-topbar">
-                    <div>
-                        <span class="hero-kicker">2026 UX Case Study</span>
-                        <h1>NUSMods+</h1>
-                    </div>
-                    <div class="hero-collaborators" aria-label="Collaborators">
-                        <span>C</span>
-                        <span>K</span>
-                        <span>J</span>
-                    </div>
-                </div>
-                <div class="hero-workspace">
-                    <aside class="hero-sidebar">
-                        <p class="sidebar-label">Shared modules</p>
-                        <div class="module-chip is-active">IS2109</div>
-                        <div class="module-chip">BT2102</div>
-                        <div class="module-chip">CS2030S</div>
-                        <div class="proposal-card">
-                            <span>Proposal</span>
-                            <strong>T02</strong>
-                            <small>2 pending replies</small>
-                        </div>
-                    </aside>
-                    <div class="hero-timetable">
-                        <div class="time-header">Mon</div>
-                        <div class="time-header">Tue</div>
-                        <div class="time-header">Wed</div>
-                        <div class="time-header">Thu</div>
-                        <div class="time-header">Fri</div>
-                        <div class="slot slot-base">Chloe</div>
-                        <div class="slot slot-friend">Kai</div>
-                        <div class="slot slot-empty"></div>
-                        <div class="slot slot-conflict">Clash</div>
-                        <div class="slot slot-empty"></div>
-                        <div class="slot slot-empty"></div>
-                        <div class="slot slot-base slot-wide">IS2109 T02</div>
-                        <div class="slot slot-friend">John</div>
-                        <div class="slot slot-empty"></div>
-                        <div class="slot slot-empty"></div>
-                        <div class="slot slot-friend">BT2102</div>
-                        <div class="slot slot-empty"></div>
-                        <div class="slot slot-base">CS2030S</div>
-                        <div class="slot slot-empty"></div>
-                        <div class="slot slot-base">Tutorial</div>
-                    </div>
-                </div>
-            </div>
+            <img class="hero-image nusmods-hero-visual fade-in" src="../images/nusmods+/NM3243 - Frame 2.jpg" alt="NUSMods+ collaborative timetable planning interface">
         </div>
     </header>
 
@@ -108,7 +61,11 @@
             <div class="problem-content">
                 <p>We interviewed four Year 1 to Year 4 NUS undergraduates who coordinate classes with friends during course registration planning. The research focused on small friend groups of two or more students who share overlapping modules and actively try to secure common tutorial slots before and during bidding.</p>
                 <div class="highlight-box">
-                    <p>Without a shared visual space, students manually compare screenshots, list viable slot combinations, and negotiate through repeated back-and-forth messages. This effort becomes much heavier as group size increases.</p>
+                    <p> <i>“Someone will say.. Ohh, I actually cannot do this lot, then the six of us have to list out, like, I can do Class A, Class B, Class C … it's just like a lot of effort to do that”
+    </i>
+
+- Year 1, 2026                        
+                    </p>
                 </div>
             </div>
         </div>
@@ -117,7 +74,7 @@
     <section class="users-section">
         <div class="container">
             <h2 class="section-header problem">Personas</h2>
-            <div class="users-table-wrapper fade-in">
+            <div class="users-table-wrapper personas-table-wrapper fade-in">
                 <table class="users-table personas-table">
                     <thead>
                         <tr>
@@ -163,17 +120,44 @@
                 <p>NUS students lack a shared, real-time workspace for collaborative timetable exploration during the course registration planning phase.</p>
                 <div class="comparison-grid fade-in">
                     <div class="comparison-card">
+                        <div class="comparison-logo">
+                            <img src="../images/nusmods+/nusmods logo.png" alt="NUSMods logo">
+                        </div>
                         <h3>NUSMods</h3>
-                        <p>Strong for individual timetable planning, but not designed for live group negotiation.</p>
+                        <ul class="comparison-points">
+                            <li class="is-pro">Good for individual timetable planning.</li>
+                            <li class="is-con">Not designed for real-time group negotiation.</li>
+                        </ul>
                     </div>
                     <div class="comparison-card">
+                        <div class="comparison-logo">
+                            <img src="../images/nusmods+/google calendar logo.png" alt="Google Calendar logo">
+                        </div>
                         <h3>Google Calendar</h3>
-                        <p>Useful after bidding is done, but too cumbersome for testing multiple tutorial combinations.</p>
+                        <ul class="comparison-points">
+                            <li class="is-pro">Useful once schedules are confirmed.</li>
+                            <li class="is-con">Troublesome for testing tutorial combinations.</li>
+                        </ul>
                     </div>
                     <div class="comparison-card">
+                        <div class="comparison-logo">
+                            <img src="../images/nusmods+/telegram logo.png" alt="Telegram logo">
+                        </div>
                         <h3>Telegram</h3>
-                        <p>Handles communication, but decisions get buried and visual comparison still happens manually.</p>
+                        <ul class="comparison-points">
+                            <li class="is-pro">Fast for coordinating through group chats.</li>
+                            <li class="is-con">Difficult to compare visually.</li>
+                        </ul>
                     </div>
+                </div>
+                <div class="comparison-media fade-in">
+                    <img src="../images/nusmods+/current processes.png" alt="Current manual timetable coordination process">
+                </div>
+                <div class="comparison-video fade-in">
+                    <video controls preload="metadata" playsinline aria-label="Manual timetable comparison process">
+                        <source src="../images/nusmods+/manual comparison.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
                 </div>
             </div>
         </div>

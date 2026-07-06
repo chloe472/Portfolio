@@ -4,13 +4,12 @@
 }
 
 .nusmods-hero-visual {
-    min-height: 520px;
+    height: auto;
+    min-height: 0;
     max-height: none;
-    padding: 1.4rem;
-    overflow: hidden;
-    background:
-        linear-gradient(135deg, oklch(98% 0.006 245), oklch(94% 0.02 225)),
-        var(--white);
+    padding: 0;
+    object-fit: contain;
+    background: var(--white);
 }
 
 .hero-visual-topbar {
@@ -202,6 +201,22 @@
     padding: 1.2rem;
 }
 
+.comparison-logo {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    height: 52px;
+    margin-bottom: 1rem;
+}
+
+.comparison-logo img {
+    display: block;
+    width: auto;
+    max-width: 150px;
+    max-height: 52px;
+    object-fit: contain;
+}
+
 .comparison-card h3,
 .storyboard-card h3,
 .proposal-layout h3,
@@ -211,6 +226,66 @@
     font-size: 1.05rem;
     line-height: 1.35;
     font-weight: 700;
+}
+
+.comparison-points {
+    display: grid;
+    gap: 0.65rem;
+    margin: 0.85rem 0 0;
+    padding: 0;
+    list-style: none;
+}
+
+.comparison-points li {
+    display: grid;
+    grid-template-columns: 1.4rem minmax(0, 1fr);
+    gap: 0.55rem;
+    align-items: start;
+    color: var(--text-light);
+    line-height: 1.45;
+}
+
+.comparison-points li::before {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 1.1rem;
+    height: 1.1rem;
+    margin-top: 0.12rem;
+    border-radius: 999px;
+    color: var(--white);
+    font-size: 0.72rem;
+    line-height: 1;
+    font-weight: 700;
+}
+
+.comparison-points .is-pro::before {
+    content: "\2713";
+    background: var(--teal);
+}
+
+.comparison-points .is-con::before {
+    content: "\2715";
+    background: var(--coral);
+}
+
+.comparison-media,
+.comparison-video {
+    margin-top: 1.5rem;
+    overflow: hidden;
+    border: 2px solid var(--warm-beige);
+    border-radius: 8px;
+    background: var(--white);
+    box-shadow: 0 14px 30px oklch(22% 0.018 258 / 0.08);
+}
+
+.comparison-media img,
+.comparison-video video {
+    display: block;
+    width: 100%;
+    max-height: 640px;
+    object-fit: contain;
+    background: var(--white);
 }
 
 .comparison-card p,
@@ -488,8 +563,13 @@
     color: var(--text-light);
 }
 
+.personas-table-wrapper {
+    overflow-x: visible;
+}
+
 .personas-table {
-    min-width: 1040px;
+    min-width: 0;
+    table-layout: fixed;
 }
 
 .personas-table td:first-child {
@@ -513,7 +593,7 @@
 @media (max-width: 768px) {
     .nusmods-hero-visual {
         min-height: auto;
-        padding: 1rem;
+        padding: 0;
     }
 
     .hero-visual-topbar {
@@ -554,6 +634,75 @@
     .time-header,
     .slot {
         font-size: 0.78rem;
+    }
+
+    .personas-table-wrapper {
+        overflow-x: visible;
+    }
+
+    .personas-table,
+    .personas-table thead,
+    .personas-table tbody,
+    .personas-table tr,
+    .personas-table th,
+    .personas-table td {
+        display: block;
+        width: 100%;
+    }
+
+    .personas-table thead {
+        display: none;
+    }
+
+    .personas-table tr {
+        border-bottom: 2px solid var(--text-dark);
+    }
+
+    .personas-table tr:last-child {
+        border-bottom: 0;
+    }
+
+    .personas-table td {
+        display: grid;
+        grid-template-columns: minmax(7rem, 0.32fr) minmax(0, 1fr);
+        gap: 0.75rem;
+        border-right: 0;
+    }
+
+    .personas-table td:first-child,
+    .personas-table td:nth-child(2),
+    .personas-table td:nth-child(3),
+    .personas-table td:nth-child(4) {
+        width: 100%;
+    }
+
+    .personas-table tbody tr:last-child td {
+        border-bottom: 2px solid var(--text-dark);
+    }
+
+    .personas-table td:last-child {
+        border-bottom: 0;
+    }
+
+    .personas-table td::before {
+        color: var(--text-light);
+        font-weight: 700;
+    }
+
+    .personas-table td:nth-child(1)::before {
+        content: "Persona";
+    }
+
+    .personas-table td:nth-child(2)::before {
+        content: "Context";
+    }
+
+    .personas-table td:nth-child(3)::before {
+        content: "Pain Points";
+    }
+
+    .personas-table td:nth-child(4)::before {
+        content: "Wants";
     }
 
     .ui-slide {
