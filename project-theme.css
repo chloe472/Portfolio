@@ -336,7 +336,7 @@ section {
 
 .section-header,
 .section-title {
-    margin-bottom: 1.7rem;
+    margin-bottom: 1.7 rem;
     font-size: 1.85rem;
     line-height: 1.2;
 }
@@ -681,8 +681,8 @@ section {
 }
 
 .process-grid {
+    margin-top: 1.5rem;
     display: grid;
-    grid-column: 1 / -1;
     grid-template-columns: repeat(12, minmax(0, 1fr));
     gap: 1.5rem;
 }

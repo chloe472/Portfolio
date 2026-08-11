@@ -1,5 +1,25 @@
 let slideIndex = 1;
 
+function openWireframe(image) {
+    const lightbox = document.getElementById('wireframe-lightbox');
+    const expandedImage = document.getElementById('wireframe-lightbox-image');
+    expandedImage.src = image.src;
+    expandedImage.alt = image.alt;
+    lightbox.classList.add('open');
+}
+
+function closeWireframe(event) {
+    if (event.target.id === 'wireframe-lightbox' || event.target.classList.contains('wireframe-lightbox-close')) {
+        document.getElementById('wireframe-lightbox').classList.remove('open');
+    }
+}
+
+document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape') {
+        document.getElementById('wireframe-lightbox')?.classList.remove('open');
+    }
+});
+
 function changeUISlide(n) {
     showUISlide(slideIndex += n);
 }

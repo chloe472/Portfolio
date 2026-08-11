@@ -318,18 +318,125 @@
     font-weight: 700;
 }
 
+.section-header,
+.section-title {
+    margin-bottom: 0.55rem;
+}
+
+.solution .section-header {
+    margin-bottom: 0;
+}
+
+.solution .section-header::after {
+    margin-top: 0.2rem;
+}
+
+.solution-content > p {
+    margin-top: 0;
+}
+
+.impact-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1rem;
+    margin: 1.5rem 0;
+}
+
+.impact-heading {
+    margin: 2rem 0 0.75rem;
+    color: var(--text-dark);
+    font-size: 1.25rem;
+}
+
+.impact-card {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+    padding: 1.25rem;
+    border-left: 4px solid var(--coral);
+    background: var(--white);
+}
+
+.impact-card strong {
+    color: var(--text-dark);
+    font-size: 1.65rem;
+}
+
+.impact-card span {
+    color: var(--text-light);
+    font-size: 0.95rem;
+}
+
+.solution-demo {
+    display: block;
+    width: 100%;
+    max-width: 900px;
+    margin-top: 0.75rem;
+    border-radius: 8px;
+}
+
 .wireframe-board {
     display: grid;
     grid-column: 2 / span 10;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 1rem;
 }
 
+.wireframes-subtext {
+    grid-column: 2 / span 10;
+    margin: 0 0 1.5rem;
+    color: var(--text-light);
+}
+
+.wireframes-section .section-header {
+    margin-bottom: 1.7rem;
+}
+
 .wireframe-panel {
-    display: grid;
-    gap: 0.85rem;
-    min-height: 270px;
-    padding: 1rem;
+    display: block;
+}
+
+.wireframe-panel img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    min-height: 350px;
+    object-fit: contain;
+    border-radius: 4px;
+    cursor: zoom-in;
+}
+
+.wireframe-lightbox {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    inset: 0;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    background: rgba(20, 18, 16, 0.86);
+}
+
+.wireframe-lightbox.open {
+    display: flex;
+}
+
+.wireframe-lightbox img {
+    max-width: 92vw;
+    max-height: 92vh;
+    object-fit: contain;
+    background: var(--white);
+}
+
+.wireframe-lightbox-close {
+    position: absolute;
+    top: 1rem;
+    right: 1.5rem;
+    border: 0;
+    background: transparent;
+    color: var(--white);
+    font-size: 2.5rem;
+    cursor: pointer;
 }
 
 .wireframe-panel p {
