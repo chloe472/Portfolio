@@ -227,6 +227,33 @@ body {
     border-left: 5px solid var(--coral);
 }
 
+.irr-form-demo {
+    width: fit-content;
+    max-width: 100%;
+    margin: 1.5rem auto 0;
+    overflow: hidden;
+    border: 2px solid var(--warm-beige);
+    border-radius: 8px;
+    background: var(--white);
+    box-shadow: 0 14px 30px oklch(22% 0.018 258 / 0.08);
+}
+
+.irr-form-demo img {
+    display: block;
+    width: 100%;
+    max-height: 640px;
+    object-fit: contain;
+    background: var(--white);
+}
+
+.irr-form-caption {
+    margin: 0.75rem 0 0;
+    color: var(--text-light);
+    font-size: 0.95rem;
+    line-height: 1.5;
+    text-align: center;
+}
+
 /* UI Showcase Section */
 .ui-showcase {
     background: var(--cream);

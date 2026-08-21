@@ -61,6 +61,21 @@ document.querySelectorAll('.fade-in').forEach(el => {
     observer.observe(el);
 });
 
+// Give the hero photo a repeatable interaction on touch devices, where hover
+// is not available. The class also makes the interaction keyboard accessible.
+const photoWrapper = document.querySelector('.photo-wrapper');
+if (photoWrapper) {
+    const togglePhoto = () => photoWrapper.classList.toggle('is-tapped');
+
+    photoWrapper.addEventListener('click', togglePhoto);
+    photoWrapper.addEventListener('keydown', event => {
+        if (event.key === 'Enter' || event.key === ' ') {
+            event.preventDefault();
+            togglePhoto();
+        }
+    });
+}
+
 function removeHomeHash() {
     if (window.location.hash === '#home') {
         window.history.replaceState(null, '', `${window.location.pathname}${window.location.search}`);
