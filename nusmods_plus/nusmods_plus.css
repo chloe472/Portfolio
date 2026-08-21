@@ -327,10 +327,6 @@
     margin-bottom: 0;
 }
 
-.solution .section-header::after {
-    margin-top: 0.2rem;
-}
-
 .solution-content > p {
     margin-top: 0;
 }
@@ -371,7 +367,7 @@
     display: block;
     width: 100%;
     max-width: 900px;
-    margin-top: 0.75rem;
+    margin-top: 1.4rem;
     border-radius: 8px;
 }
 
