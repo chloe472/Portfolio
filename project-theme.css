@@ -583,8 +583,10 @@ section {
     content: '';
     position: absolute;
     top: 0;
-    left: 12.5%;
-    right: 12.5%;
+    /* Align the rail with the centers of the first and last grid columns.
+       The grid gap otherwise leaves the edge branch connectors floating. */
+    left: calc(12.5% - clamp(0.225rem, 1.125vw, 0.75rem));
+    right: calc(12.5% - clamp(0.225rem, 1.125vw, 0.75rem));
     height: 2px;
     background: var(--text-dark);
 }
@@ -638,6 +640,7 @@ section {
 }
 
 .wireframe-image {
+    margin-top: 1.5rem;
     grid-column: 2 / span 10;
     display: block;
     width: 100%;
@@ -872,6 +875,11 @@ section {
 
     .site-map-branches {
         gap: 0.45rem;
+    }
+
+    .site-map-branches::before {
+        left: calc(12.5% - 0.16875rem);
+        right: calc(12.5% - 0.16875rem);
     }
 
     .site-map-node {
