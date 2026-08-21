@@ -336,7 +336,6 @@ section {
 
 .section-header,
 .section-title {
-    margin-bottom: 1.7 rem;
     font-size: 1.85rem;
     line-height: 1.2;
 }
@@ -398,7 +397,6 @@ section {
 
 .links-grid {
     display: grid;
-    grid-column: 1 / -1;
     grid-template-columns: repeat(12, minmax(0, 1fr));
     gap: 1rem;
 }
