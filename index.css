@@ -625,6 +625,22 @@ h2::after {
     position: relative;
 }
 
+/* Keep the IRR cover frame sized to the attendance GIF rather than the
+   shared project-card thumbnail height. */
+#irr-card .project-image {
+    width: fit-content;
+    max-width: 100%;
+    height: auto;
+    margin-inline: auto;
+}
+
+#irr-card .project-image img {
+    display: block;
+    width: auto !important;
+    max-width: 100%;
+    height: auto !important;
+}
+
 .project-content {
     padding: 1.45rem;
 }

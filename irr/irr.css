@@ -66,9 +66,10 @@ body {
     transform: translateY(-2px);
 }
 
-.hero-image {
+.header .hero-image {
     max-width: 100%;
     height: auto;
+    width: fit-content;
     border-radius: 20px;
     box-shadow: 0 20px 60px rgba(91, 74, 59, 0.15);
 }
@@ -252,6 +253,39 @@ body {
     font-size: 0.95rem;
     line-height: 1.5;
     text-align: center;
+}
+
+.solution-features {
+    display: grid;
+    gap: 2rem;
+    margin-top: 1.5rem;
+}
+
+.solution-feature {
+    overflow: hidden;
+    border: 2px solid var(--warm-beige);
+    border-radius: 8px;
+    background: var(--white);
+}
+
+.solution-feature h3 {
+    margin: 0;
+    padding: 0.9rem 1rem;
+    color: var(--text-dark);
+    font-size: 1rem;
+}
+
+.solution-feature p {
+    margin: 0;
+    padding: 0 1rem 1rem;
+    color: var(--text-light);
+    line-height: 1.5;
+}
+
+.solution-feature img {
+    display: block;
+    width: 100%;
+    height: auto;
 }
 
 /* UI Showcase Section */
