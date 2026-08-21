@@ -848,29 +848,36 @@ h2::after {
 /* Individual timeline item icons */
 
 .timeline-item:nth-child(1)::after {
-    background-image: url('./images/journey/engie.jpg');
-}
-
-.timeline-item:nth-child(2)::after {
     background-image: url('./images/journey/dscnus_logo.jpeg');
 }
 
+.timeline-item:nth-child(2)::after {
+    background-image: url('./images/journey/engie.jpg');
+}
+
 .timeline-item:nth-child(3)::after {
-    background-image: url('./images/journey/orbital.png');
-    left: -25px;
+    background-image: url('./images/journey/dscnus_logo.jpeg');
 }
 
 .timeline-item:nth-child(4)::after {
-    background-image: url('./images/journey/nuspickleballlogo.png');
+    background-image: url('./images/journey/orbital.png');
 }
 
 .timeline-item:nth-child(5)::after {
+    background-image: url('./images/journey/nuspickleballlogo.png');
+}
+
+.timeline-item:nth-child(6)::after {
     background-image: url('./images/journey/witlogo.jpeg');
     left: -25px;
 }
 
-.timeline-item:nth-child(6)::after {
+.timeline-item:nth-child(7)::after {
     background-image: url('./images/journey/helixhouse.png');
+}
+
+.timeline-item--design-head::after {
+    background-image: url('./images/journey/dscnus_logo.jpeg');
 }
 
 .timeline-item:nth-child(even) {
@@ -1288,29 +1295,36 @@ h2::after {
 
     /* Individual timeline item icons */
     .timeline-item:nth-child(1)::after {
-        background-image: url('./images/journey/engie.jpg');
-    }
-
-    .timeline-item:nth-child(2)::after {
         background-image: url('./images/journey/dscnus_logo.jpeg');
     }
 
+    .timeline-item:nth-child(2)::after {
+        background-image: url('./images/journey/engie.jpg');
+    }
+
     .timeline-item:nth-child(3)::after {
-        background-image: url('./images/journey/orbital.png');
-        left: 0;
+        background-image: url('./images/journey/dscnus_logo.jpeg');
     }
 
     .timeline-item:nth-child(4)::after {
-        background-image: url('./images/journey/nuspickleballlogo.png');
+        background-image: url('./images/journey/orbital.png');
     }
 
     .timeline-item:nth-child(5)::after {
+        background-image: url('./images/journey/nuspickleballlogo.png');
+    }
+
+    .timeline-item:nth-child(6)::after {
         background-image: url('./images/journey/witlogo.jpeg');
         left: 0;
     }
 
-    .timeline-item:nth-child(6)::after {
+    .timeline-item:nth-child(7)::after {
         background-image: url('./images/journey/helixhouse.png');
+    }
+
+    .timeline-item--design-head::after {
+        background-image: url('./images/journey/dscnus_logo.jpeg');
     }
 
     .timeline-item:nth-child(even) {
