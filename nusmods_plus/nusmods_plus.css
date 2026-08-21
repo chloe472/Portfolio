@@ -12,6 +12,14 @@
     background: var(--white);
 }
 
+.problem-statement {
+    padding-bottom: 1rem;
+}
+
+.solution {
+    padding-top: 1rem;
+}
+
 .hero-visual-topbar {
     display: flex;
     align-items: center;
@@ -279,13 +287,36 @@
     box-shadow: 0 14px 30px oklch(22% 0.018 258 / 0.08);
 }
 
+.comparison-video {
+    width: fit-content;
+    max-width: 100%;
+    margin-right: auto;
+    margin-left: auto;
+}
+
 .comparison-media img,
+.comparison-video img,
 .comparison-video video {
     display: block;
     width: 100%;
     max-height: 640px;
     object-fit: contain;
     background: var(--white);
+}
+
+.comparison-video video {
+    height: auto;
+    width: auto;
+    max-width: 100%;
+    object-fit: contain;
+}
+
+.comparison-caption {
+    margin: 0.75rem 0 0;
+    color: var(--text-light);
+    font-size: 0.95rem;
+    line-height: 1.5;
+    text-align: center;
 }
 
 .comparison-card p,
@@ -369,6 +400,39 @@
     max-width: 900px;
     margin-top: 1.4rem;
     border-radius: 8px;
+}
+
+.solution-features {
+    display: grid;
+    gap: 2rem;
+    margin-top: 1.5rem;
+}
+
+.solution-feature {
+    overflow: hidden;
+    border: 2px solid var(--warm-beige);
+    border-radius: 8px;
+    background: var(--white);
+}
+
+.solution-feature h3 {
+    margin: 0;
+    padding: 0.9rem 1rem;
+    color: var(--text-dark);
+    font-size: 1rem;
+}
+
+.solution-feature p {
+    margin: 0;
+    padding: 0 1rem 1rem;
+    color: var(--text-light);
+    line-height: 1.5;
+}
+
+.solution-feature img {
+    display: block;
+    width: 100%;
+    height: auto;
 }
 
 .wireframe-board {
